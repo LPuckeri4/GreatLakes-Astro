@@ -1,10 +1,10 @@
 ---
 const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Surgery', href: '/surgery' },
-  { label: 'Doctors', href: '/doctors' },
-  { label: 'After Surgery', href: '/after-surgery' },
-  { label: 'About', href: '/about' },
+  { label: 'Home', href: '/', activePrefix: '/' },
+  { label: 'Surgery', href: '/surgery/dental-implants', activePrefix: '/surgery' },
+  { label: 'Doctors', href: '/doctors', activePrefix: '/doctors' },
+  { label: 'After Surgery', href: '/after-surgery/general-instructions', activePrefix: '/after-surgery' },
+  { label: 'About', href: '/about', activePrefix: '/about' },
 ];
 
 const resourceLinks = [
@@ -36,7 +36,7 @@ const currentPath = Astro.url.pathname;
           href={link.href}
           class:list={[
             'relative mx-4 lg:mx-6 text-sm lg:text-base text-[#222222] no-underline nav-link',
-            (link.href === '/' ? currentPath === '/' : currentPath.startsWith(link.href)) && 'active-link',
+            (link.activePrefix === '/' ? currentPath === '/' : currentPath.startsWith(link.activePrefix)) && 'active-link',
           ]}
         >
           {link.label}
@@ -102,7 +102,7 @@ const currentPath = Astro.url.pathname;
     </a>
   </div>
   <nav class="flex flex-col text-center">
-    {[...navLinks, ...resourceLinks].map(link => (
+    {[...navLinks.map(l => ({ label: l.label, href: l.href })), ...resourceLinks].map(link => (
       <a
         href={link.href}
         class="py-3 px-4 text-[#222222] border-b border-gray-100 hover:bg-[#deeded] text-sm"
