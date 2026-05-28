@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const anesthesia = [
+  { text: "Anesthesia - Dr. Shuren's Patients", href: '/documents/AnesthesiaShurenTec.pdf' },
+  { text: "Anesthesia - Dr. Stapleford's Patients", href: '/documents/AnesthesiaStaplefordTec.pdf' },
+];
+
+const implants = [
+  { text: "Implants - Dr. Shuren's Patients", href: '/documents/ImplantsShuren.pdf' },
+  { text: "Implants - Dr. Stapleford's Patients", href: '/documents/ImplantsStapleford.pdf' },
+];
+
+const referral = [
+  { text: 'TMJ Surgical Consult Request Questionnaire', href: '/documents/GLOMSConsult.pdf' },
+];
+
+const patient = [
+  { text: 'Consultation', href: '/documents/Consultation.pdf' },
+  { text: 'Scheduling Information', href: '/documents/Scheduling.pdf' },
+  { text: 'Patient Billing', href: '/documents/FinancialInformation.pdf' },
+  { text: 'Health Questionnaire', href: '/documents/Questionaire.pdf' },
+  { text: 'Privacy Policy', href: '/documents/PrivacyCode.pdf' },
+  { text: 'Instructions Before Surgery', href: '/documents/BeforeSurgery.pdf' },
+  { text: 'Cone Beam CT Scan Referral', href: '/documents/ConeBeamCT.pdf' },
+];
+
+const sections = [
+  { title: 'Anesthesia Consent Forms', items: anesthesia },
+  { title: 'Implant Consent Forms', items: implants },
+  { title: 'Patient Referral Forms', items: referral },
+  { title: 'Patient Downloads', items: patient },
+];
+---
+
+<Layout
+  title="Downloads - Great Lakes Oral & Maxillofacial Surgery Centre"
+  description="Download patient forms, including consent for implants and anesthesia, at Great Lakes Oral & Maxillofacial Surgery Centre."
+>
+  <div class="min-h-screen pt-[150px] pb-16 px-5">
+    <div class="flex flex-col items-center mb-12">
+      <h1 class="text-3xl mb-2">Forms and Downloads</h1>
+      <div style="height:4px;width:50px;background:#3A959B"></div>
+    </div>
+
+    <div class="flex flex-wrap justify-evenly max-w-[1200px] mx-auto gap-y-8">
+      {sections.map(section => (
+        <div class="flex flex-col items-center mx-4">
+          <h2 class="text-xl mb-1 text-center">{section.title}</h2>
+          <div class="underline-b mb-5 self-start"></div>
+          <ul class="space-y-2">
+            {section.items.map(item => (
+              <li>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="download-link flex items-center gap-2 text-[#222222] no-underline py-1 px-2 rounded transition-colors hover:text-[#3A959B]"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 flex-shrink-0 text-[#3A959B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+                  </svg>
+                  <span>{item.text}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .underline-b {
+    height: 3px;
+    width: 70%;
+    background-image: linear-gradient(to left, rgba(255,0,0,0), #114c74 50%);
+    background-repeat: no-repeat;
+  }
+</style>

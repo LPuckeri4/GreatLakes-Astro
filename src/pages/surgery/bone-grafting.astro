@@ -1,0 +1,91 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../components/shared/SidebarLayout.astro';
+import PageHeading from '../../components/shared/PageHeading.astro';
+import Accordion from '../../components/shared/Accordion.astro';
+
+const navItems = [
+  { label: 'Dental Implants', href: '/surgery/dental-implants', image: '/img/tooth1.png' },
+  { label: 'Wisdom Teeth', href: '/surgery/wisdom-teeth', image: '/img/tooth2.png' },
+  { label: 'Tooth Extraction', href: '/surgery/tooth-extraction', image: '/img/tooth3.png' },
+  { label: 'Bone Grafting', href: '/surgery/bone-grafting', image: '/img/tooth4.png' },
+  { label: 'Orthodontic Surgery', href: '/surgery/orthodontic-surgery', image: '/img/tooth5.png' },
+  { label: 'Facial Trauma', href: '/surgery/facial-trauma', image: '/img/tooth6.png' },
+  { label: 'Oral Pathology', href: '/surgery/oral-pathology', image: '/img/tooth7.png' },
+  { label: 'Jaw Corrective', href: '/surgery/jaw-corrective', image: '/img/tooth8.png' },
+  { label: 'TMJ Disorder', href: '/surgery/tmj-disorder', image: '/img/tooth9.png' },
+];
+---
+
+<Layout title="Bone Grafting - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname}>
+    <PageHeading title="Bone Grafting" />
+    <p class="mb-8 leading-relaxed" style="color: #515151">Over a period of time, the jawbone associated with missing teeth atrophies or resorbs away. This often leaves a condition in which there is poor quality and quantity of bone suitable for placement of dental implants. In these situations, most patients are not candidates for placement of dental implants. Today, we have the ability to grow bone where needed. This not only gives us the opportunity to place implants of proper length and width, it also gives us a chance to restore functionality and esthetic appearance.</p>
+
+    <Accordion title="Major Bone Grafting">
+      Bone grafting can repair potential implant sites with inadequate bone
+        structure due to previous extractions, gum disease or injuries. The bone
+        is either obtained from a tissue bank or your own bone is taken from the
+        jaw, hip or tibia (below the knee.) Sinus bone grafts are also performed
+        to replace bone in the back of the upper jaw. In addition, special
+        membranes may be utilized that dissolve under the gum and protect the
+        bone graft and encourage bone regeneration. This is called guided bone
+        regeneration or guided tissue regeneration. Major bone grafts are
+        typically performed to repair defects of the jaws. These defects may
+        arise as a result of traumatic injuries, tumor surgery, or congenital
+        defects. Large defects are repaired using the patient’s own bone. This
+        bone is harvested from a number of different sites depending on the size
+        of the defect. The skull (cranium), hip (iliac crest), and lateral knee
+        (tibia), are common donor sites. These procedures are routinely
+        performed in an operating room and require a hospital stay.
+    </Accordion>
+
+    <Accordion title="Sinus Lift Procedure">
+      The maxillary sinuses are air-filled spaces behind your cheeks and on
+        top of the upper teeth. Some of the roots of the natural upper teeth
+        extend up into the maxillary sinuses. When these upper teeth are
+        removed, there is often just a thin wall of bone separating the
+        maxillary sinus and the mouth. Dental implants need bone to hold them in
+        place. When the sinus wall is very thin, it is impossible to place
+        dental implants in this bone. There is a solution and it’s called a
+        sinus graft or sinus lift graft. The dental implant surgeon enters the
+        sinus from where the upper teeth used to be. The sinus membrane is then
+        lifted upward and donor bone is inserted into the floor of the sinus.
+        Keep in mind that the floor of the sinus is the roof of the upper jaw.
+        After several months of healing, the bone becomes part of the patient’s
+        jaw and dental implants can be inserted and stabilized in this new sinus
+        bone. The sinus graft makes it possible for many patients to have dental
+        implants when years ago there was no other option other than wearing
+        loose dentures. If enough bone between the upper jaw ridge and the
+        bottom of the sinus is available to stabilize the implant well, sinus
+        augmentations and implant placement can sometimes be performed as a
+        single procedure. If not enough bone is available, the sinus
+        augmentation will have to be performed first, then the graft will have
+        to mature for several months, depending upon the type of graft material
+        used. Once the graft has matured, the implants can be placed.
+    </Accordion>
+
+    <Accordion title="Ridge Expansion">
+      In severe cases, the bony ridge has been resorbed and a bone graft is
+        placed to increase ridge height and/or width. This is a technique used
+        to restore the lost bone dimension when the jaw ridge gets too thin to
+        place conventional implants. In this procedure, the bony ridge of the
+        jaw is literally expanded by mechanical means. Bone graft material can
+        be placed and matured for a few months before placing the implant. As
+        stated earlier, there are several areas of the body that are suitable
+        for attaining bone grafts. In the maxillofacial region, bone grafts can
+        be taken from inside the mouth, in the area of the chin or third molar
+        region or in the upper jaw behind the last tooth. In more extensive
+        situations, a greater quantity of bone can be attained from the hip or
+        the outer aspect of the tibia at the knee. When we use the patient’s own
+        bone for repairs, we generally get the best results. In many cases, we
+        can use allograft material to implement bone grafting for dental
+        implants. This bone is prepared from cadavers and used to promote the
+        patients own bone to grow into the repair site. It is quite effective
+        and very safe. Synthetic materials can also be used to stimulate bone
+        formation. We even use factors from your own blood to accelerate and
+        promote bone formation in graft areas. After discharge, bed rest is
+        recommended for one day and limited physical activity for one week.
+    </Accordion>
+  </SidebarLayout>
+</Layout>

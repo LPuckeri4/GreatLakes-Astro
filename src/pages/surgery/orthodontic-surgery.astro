@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../components/shared/SidebarLayout.astro';
+import PageHeading from '../../components/shared/PageHeading.astro';
+
+const navItems = [
+  { label: 'Dental Implants', href: '/surgery/dental-implants', image: '/img/tooth1.png' },
+  { label: 'Wisdom Teeth', href: '/surgery/wisdom-teeth', image: '/img/tooth2.png' },
+  { label: 'Tooth Extraction', href: '/surgery/tooth-extraction', image: '/img/tooth3.png' },
+  { label: 'Bone Grafting', href: '/surgery/bone-grafting', image: '/img/tooth4.png' },
+  { label: 'Orthodontic Surgery', href: '/surgery/orthodontic-surgery', image: '/img/tooth5.png' },
+  { label: 'Facial Trauma', href: '/surgery/facial-trauma', image: '/img/tooth6.png' },
+  { label: 'Oral Pathology', href: '/surgery/oral-pathology', image: '/img/tooth7.png' },
+  { label: 'Jaw Corrective', href: '/surgery/jaw-corrective', image: '/img/tooth8.png' },
+  { label: 'TMJ Disorder', href: '/surgery/tmj-disorder', image: '/img/tooth9.png' },
+];
+---
+
+<Layout title="Surgery for Orthodontics - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname}>
+    <PageHeading title="Surgery for Orthodontics" />
+    <div class="leading-relaxed space-y-4" style="color: #515151">
+      <p>Many patients are referred to our practice by area orthodontists. Their orthodontists will request we perform a surgical procedure that will then permit the orthodontists to properly align the patients teeth. Sometimes, this is as simple as removing some retained primary ("baby") teeth, removing some permanent premolars to create space if there is too much crowding, or removing wisdom teeth after the other teeth are orthodontically aligned so that the developing wisdom teeth don't adversely affect the teeth in front of them.</p>
+      <p>In more involved cases, some permanent teeth may fail to erupt at the expected time. If this occurs, the orthodontist will request surgical exposure of an impacted tooth. This consists of removing the bone and gum tissue covering a tooth embedded in the bone so that an orthodontic bracket may be placed. This will provide the orthodontist access to that embedded tooth so that they can apply a force to it and bring it to its proper position.</p>
+      <p>In some situations there is a missing tooth in a very important area of the mouth. Certain cases may dictate removing an unerupted tooth in a less important area and placing it surgically into this very important area for it to develop. This is called autotransplantation. In other instances, certain situations will dictate the use of skeletal anchorage. This consists of surgically inserting small titanium screws into either the upper or lower jaw bones. These anchorage screws will protrude somewhat through the gum tissue. Your orthodontists will then apply a force to a tooth by stretching an elastic or applying a spring between the bracket on the tooth and the top part of the anchorage screw. Once the desired tooth movement is achieved, the anchorage screws are simply removed.</p>
+      <p>Finally, simple soft tissue procedures like frenectomies are sometimes advised by the orthodontists. This entails removing the frenum, or muscle attachment and the thin layer of gum tissue covering the frenum, from under the upper lip. This prevents relapse of a diastema (space between the two front teeth) once it has been orthodontically closed.</p>
+    </div>
+  </SidebarLayout>
+</Layout>

@@ -1,0 +1,105 @@
+---
+const reviews = [
+  {
+    name: 'Melissa Broderick',
+    link: 'https://g.co/kgs/eNrgu8',
+    offsetLg: '-100px',
+    text: '"My 8 year old daughter recently had a procedure done with Dr. Shuren. I appreciate the wonderful nurses providing me with all the information beforehand so we knew exactly what to expect going in. Dr. Shuren did a wonderful job and the procedure was done quickly. The nurses were so warm and helpful and made my daughter feel comfortable. They gave me step by step instructions on how to care for her post procedure as well. I can\'t thank Dr. Shuren and all the nurses enough for the kind, warm and efficient care they provided to my daughter. I highly recommend them!!"',
+  },
+  {
+    name: 'Dorota Lackorzynski',
+    link: 'https://g.co/kgs/QkmyG4',
+    offsetLg: '0px',
+    text: '"Dr.Shuren\'s 35 years of experience, as well as his compassionate care made my implant surgery an amazing experience. He and his staff were exceptional in preparing me pre-surgery, and also with their kind aftercare. Dr Shuren is the best in his field, and I recommend him with my highest respect for any oral surgery."',
+  },
+  {
+    name: 'Renee Hamelin',
+    link: 'https://g.co/kgs/6oqYJZ',
+    offsetLg: '-170px',
+    text: '"My daughter has had 2 separate procedures done here, and the staff have been nothing short of amazing each time! They are patient, friendly, knowledgeable, and go above and beyond to ensure that you are aware of what is happening, and comfortable. My daughter was very well taken care of, and didn\'t even require any extra medication for pain management after both of her procedures. She was back to her normal, cheerful self in no time!! I highly recommend Great Lakes Oral!!"',
+  },
+];
+---
+
+<div
+  class="flex flex-wrap justify-around mt-[100px] w-full min-h-[1000px] bg-cover bg-center md:bg-left items-start pt-10"
+  style="background-image: url('/img/reviewbg1.jpg')"
+>
+  <div class="w-full flex justify-center">
+    <div class="text-center">
+      <h2 class="text-3xl font-semibold text-white mt-[100px] md:mt-[250px]">Our Reviews</h2>
+      <div class="reviews-underline" data-reviews-underline></div>
+      <div class="mb-10"></div>
+    </div>
+  </div>
+
+  {reviews.map((r, i) => (
+    <a
+      href={r.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="review-card"
+      style={`--offset-lg: ${r.offsetLg}`}
+    >
+      <h3 class="text-lg font-semibold mb-1">{r.name}</h3>
+      <img src="/img/stars1.png" alt="5 stars" width="100" class="mb-4" />
+      <p class="text-sm text-gray-600 overflow-hidden">{r.text}</p>
+    </a>
+  ))}
+</div>
+
+<style>
+  .reviews-underline {
+    height: 4px;
+    background-color: white;
+    width: 0;
+    margin: 8px auto 0;
+    transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .reviews-underline.visible { width: 50px; }
+
+  .review-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #222222;
+    width: 450px;
+    height: 450px;
+    border-radius: 10%;
+    margin: 10px;
+    padding: 20px;
+    background-image: url('/img/whitebg1.jpg');
+    background-size: cover;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+  }
+  .review-card:hover {
+    transform: scale(1.1);
+  }
+  @media (min-width: 640px) {
+    .review-card {
+      border-radius: 50%;
+      padding: 50px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .review-card {
+      margin-top: var(--offset-lg);
+    }
+  }
+</style>
+
+<script>
+  const el = document.querySelector('[data-reviews-underline]');
+  if (el) {
+    const obs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        el.classList.add('visible');
+        obs.disconnect();
+      }
+    }, { rootMargin: '-20% 0px' });
+    obs.observe(el);
+  }
+</script>

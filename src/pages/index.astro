@@ -1,11 +1,23 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Hero from '../components/home/Hero.astro';
+import ContactCards from '../components/home/ContactCards.astro';
+import Offers from '../components/home/Offers.astro';
+import Values from '../components/home/Values.astro';
+import Reviews from '../components/home/Reviews.astro';
+import Locations from '../components/home/Locations.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="Home - Great Lakes Oral & Maxillofacial Surgery Centre"
+  description="Get advanced and compassionate oral and maxillofacial surgical care at Great Lakes Oral & Maxillofacial Surgery Centre. Our experienced team uses the latest technology and techniques to provide comfortable treatment options."
+>
+  <Hero />
+  <ContactCards />
+  <div class="bg-white w-full">
+    <Offers />
+    <Values />
+    <Reviews />
+    <Locations />
+  </div>
 </Layout>

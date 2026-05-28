@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../components/shared/SidebarLayout.astro';
+import PageHeading from '../../components/shared/PageHeading.astro';
+import Accordion from '../../components/shared/Accordion.astro';
+
+const navItems = [
+  { label: 'General Instructions', href: '/after-surgery/general-instructions', image: '/img/tooth10.png' },
+  { label: 'Tooth Removal', href: '/after-surgery/tooth-removal', image: '/img/tooth3.png' },
+  { label: 'Wisdom Teeth Removal', href: '/after-surgery/wisdom-teeth-removal', image: '/img/tooth2.png' },
+  { label: 'Facial Trauma', href: '/after-surgery/facial-trauma', image: '/img/tooth6.png' },
+  { label: 'Exposure of Impacted Tooth', href: '/after-surgery/exposure-of-impacted-tooth', image: '/img/tooth11.png' },
+  { label: 'Placement of Dental Implants', href: '/after-surgery/placement-of-dental-implants', image: '/img/tooth1.png' },
+  { label: 'Removal of Multiple Teeth', href: '/after-surgery/removal-of-multiple-teeth', image: '/img/tooth12.png' },
+];
+---
+
+<Layout title="General Instructions - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="After a Procedure" navItems={navItems} currentPath={Astro.url.pathname}>
+    <PageHeading title="General Instructions" />
+    <p class="mb-8 leading-relaxed" style="color: #515151">Do not disturb the wound. Avoid rinsing, spitting, or touching the wound on the day of surgery.</p>
+
+    <Accordion title="Bleeding">
+      Some bleeding or redness in the saliva is normal for 24 hours. Excessive
+        bleeding which results in your mouth filling rapidly with blood can
+        frequently be controlled by biting with pressure on a gauze pad placed
+        directly on the bleeding wound for 30 minutes. 
+        <strong>If bleeding continues, please call the office for further instructions.</strong>
+    </Accordion>
+
+    <Accordion title="Swelling">
+      Swelling is a normal occurrence after surgery. To minimize swelling,
+        apply an ice bag or a plastic bag or towel filled with ice cubes on the
+        cheek/lip in the area of surgery. Apply the ice intermittently for
+        20-30-minute intervals as much as possible for the first 48 hours.
+    </Accordion>
+
+    <Accordion title="Diet">
+      Drink plenty of fluids. Avoid hot liquids or food. Soft food and liquids
+        should be eaten on the day of surgery. Return to a normal diet as soon
+        as tolerated unless otherwise directed.
+    </Accordion>
+
+    <Accordion title="Pain">
+      You should begin taking pain medication before you feel the local
+        anesthetic wearing off. For mild to moderate pain, Tylenol or Extra
+        Strength can be taken as directed on bottle. Tylenol may be taken every
+        4-6 hours. Ibuprofen (Advil, Motrin) may be taken instead of Tylenol
+        assuming no allergies to these medications. For severe pain, the
+        prescribed medication should be taken as directed. Do not take any of
+        the above medication if you are allergic, or have been instruction by
+        your doctor not to take it.
+    </Accordion>
+
+    <Accordion title="Oral Hygiene">
+      Good oral hygiene is essential to good healing. Warm salt water rinses
+        should be used at least 4-5 times a day especially after meals. Use the
+        peridex script as prescribed, if given. Brushing your teeth is no
+        problem. Be gentle initially with brushing the surgical areas.
+    </Accordion>
+
+    <Accordion title="Activity">
+      Keep physical activities to a minimum immediately following surgery. If
+        you are considering exercise, throbbing or bleeding may occur. If this
+        occurs, you should discontinue exercising. Be aware that your normal
+        nourishment intake is reduced. Exercise may weaken you. If you get light
+        headed, stop exercising.
+    </Accordion>
+
+    <Accordion title="Post IV Sedation">
+      After IV sedation, the patient is required to have a responsible adult
+        to accompany them for a minimum of 18 hours or longer if drowsiness or
+        dizziness persists. NO exceptions!! The patient should not drive a
+        vehicle, operate machinery, make important financial/life decisions,
+        consume alcohol or other drugs with sedative properties for 24 hours
+        following the anesthetic.
+    </Accordion>
+  </SidebarLayout>
+</Layout>

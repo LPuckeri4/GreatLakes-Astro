@@ -1,0 +1,107 @@
+---
+const hours = [
+  { day: 'Monday', time: '8am - 5pm' },
+  { day: 'Tuesday', time: '8am - 5pm' },
+  { day: 'Wednesday', time: '8am - 5pm' },
+  { day: 'Thursday', time: '8am - 5pm' },
+  { day: 'Friday', time: '8am - 3pm' },
+  { day: 'Sat - Sun', time: 'Closed' },
+];
+---
+
+<div id="contact" class="flex flex-col items-center py-[50px] px-[10px] w-full">
+  <h2 class="w-full text-center text-3xl mb-2">Location &amp; Hours</h2>
+  <div class="underline-teal mb-10" data-animate-underline></div>
+
+  <div class="flex flex-wrap justify-center items-start gap-[100px] py-10 w-full">
+    <!-- Contact details -->
+    <div class="flex flex-col gap-8 lg:ml-[100px] xl:ml-[200px]">
+      <a href="tel:519-979-7227" class="info-link">
+        <img src="/img/phone1.png" alt="phone" class="info-icon" />
+        <div>
+          <p class="sans-heading text-lg font-semibold text-[#114c74]">Phone</p>
+          <p>519-979-7227</p>
+        </div>
+      </a>
+
+      <div class="info-link">
+        <img src="/img/faxt.png" alt="fax" class="info-icon" />
+        <div>
+          <p class="sans-heading text-lg font-semibold text-[#3A959B]">Fax</p>
+          <p>519-979-1956</p>
+        </div>
+      </div>
+
+      <a
+        href="https://maps.app.goo.gl/RR1CFZ7nuH5dH26KA"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="info-link"
+      >
+        <img src="/img/address1.png" alt="address" class="info-icon" />
+        <div>
+          <p class="sans-heading text-lg font-semibold text-[#3A959B]">Address</p>
+          <p class="max-w-[250px]">1825 Manning Rd | Studio 700 Tecumseh | ON | N9K 0A9</p>
+        </div>
+      </a>
+
+      <div class="flex items-start gap-5 sm:gap-8">
+        <img src="/img/calendar1.png" alt="hours" class="info-icon" />
+        <div class="min-w-[220px]">
+          <p class="sans-heading text-lg font-semibold text-[#3A959B]">Hours of Operation</p>
+          {hours.map(h => (
+            <div class="flex justify-between gap-4">
+              <span>{h.day}</span>
+              <span>{h.time}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <a
+      href="https://maps.app.goo.gl/RR1CFZ7nuH5dH26KA"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img src="/img/maptec2.png" alt="map to Great Lakes Surgery Centre" class="w-full max-w-[600px]" />
+    </a>
+  </div>
+</div>
+
+<style>
+  .underline-teal {
+    height: 4px;
+    background-color: #3A959B;
+    width: 0;
+    transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .underline-teal.visible { width: 120px; }
+
+  .info-link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    color: #222222;
+    transition: transform 0.2s ease-in-out;
+    transform-origin: left center;
+  }
+  .info-link:hover { transform: scale(1.05); }
+  .info-icon { width: 40px; height: 40px; flex-shrink: 0; }
+  @media (min-width: 640px) {
+    .info-icon { width: 60px; height: 60px; }
+    .info-link { gap: 30px; }
+  }
+</style>
+
+<script>
+  const el = document.querySelector('[data-animate-underline]');
+  if (el) {
+    const obs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) { el.classList.add('visible'); obs.disconnect(); }
+    }, { rootMargin: '-20% 0px' });
+    obs.observe(el);
+  }
+</script>

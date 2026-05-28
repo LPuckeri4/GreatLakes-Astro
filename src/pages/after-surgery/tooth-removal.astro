@@ -1,0 +1,81 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../components/shared/SidebarLayout.astro';
+import PageHeading from '../../components/shared/PageHeading.astro';
+import Accordion from '../../components/shared/Accordion.astro';
+
+const navItems = [
+  { label: 'General Instructions', href: '/after-surgery/general-instructions', image: '/img/tooth10.png' },
+  { label: 'Tooth Removal', href: '/after-surgery/tooth-removal', image: '/img/tooth3.png' },
+  { label: 'Wisdom Teeth Removal', href: '/after-surgery/wisdom-teeth-removal', image: '/img/tooth2.png' },
+  { label: 'Facial Trauma', href: '/after-surgery/facial-trauma', image: '/img/tooth6.png' },
+  { label: 'Exposure of Impacted Tooth', href: '/after-surgery/exposure-of-impacted-tooth', image: '/img/tooth11.png' },
+  { label: 'Placement of Dental Implants', href: '/after-surgery/placement-of-dental-implants', image: '/img/tooth1.png' },
+  { label: 'Removal of Multiple Teeth', href: '/after-surgery/removal-of-multiple-teeth', image: '/img/tooth12.png' },
+];
+---
+
+<Layout title="After Tooth Extraction - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="After a Procedure" navItems={navItems} currentPath={Astro.url.pathname}>
+    <PageHeading title="After Tooth Extraction" />
+    <p class="mb-8 leading-relaxed" style="color: #515151">After a few days you will feel fine and can resume your normal activities. If you have heavy bleeding, severe pain, continued swelling beyond 4–5 days, or a reaction to the medications, call our office immediately.</p>
+
+    <Accordion title="Bleeding">
+      After tooth extraction, it’s important for a blood clot to form to stop
+        the bleeding and begin the healing process. That’s why we ask that you
+        bite on a gauze pad for about 30 minutes after the appointment. If the
+        bleeding or oozing still persists, place another gauze pad and bite for
+        another 30 minutes. After the blood clot forms, it is important not to
+        disturb or dislodge the clot as it aids healing. Do not rinse
+        vigorously, suck on straws, smoke, or brush teeth next to the extraction
+        site for about 48 hours. These activities will dislodge the clot and
+        slow down the healing process.
+    </Accordion>
+
+    <Accordion title="Pain">
+      You should begin taking pain medication as soon as you feel the local
+        anesthetic wearing off. For mild to moderate pain, Tylenol or Extra
+        Strength Tylenol may be taken as directed. Ibuprofen (Advil or Motrin)
+        may be taken instead of Tylenol. For severe pain, the prescribed
+        medication should be taken as directed. Do not take any of the above
+        medication if you are allergic, or have been instructed by your doctor
+        not to take it.
+    </Accordion>
+
+    <Accordion title="Swelling">
+      Swelling is a normal occurrence after surgery. To minimize swelling,
+        apply an ice bag, or a plastic bag, or towel filled with ice on the
+        cheek/lip in the area of surgery. Apply the ice intermittently for 20-30
+        minute intervals as much as possible, for the first 48 hours.
+    </Accordion>
+
+    <Accordion title="Oral Hygiene">
+      Good oral hygiene is essential to good healing. Warm salt water
+        (teaspoon of salt in a cup of warm water) rinses should be used at least
+        4-5 times a day, especially after meals. Brushing your teeth is no
+        problem. Be gentle initially with brushing the surgical areas.
+    </Accordion>
+
+    <Accordion title="Diet">
+      Drink plenty of fluids. Avoid hot liquids or food. Soft food and liquids
+        should be eaten on the day of surgery. Return to a normal diet as soon
+        as possible unless otherwise directed.
+    </Accordion>
+
+    <Accordion title="Activity">
+      Limit vigorous exercise for the next 24 hours as this will increase
+        blood pressure and may result in more bleeding from the extraction site.
+        Be aware that your normal nourishment may be reduced. Exercise may
+        weaken you. If you get lightheaded, stop exercising.
+    </Accordion>
+
+    <Accordion title="Post IV Sedation">
+      After IV sedation, the patient is required to have a responsible adult
+        to accompany them for a minimum of 18 hours or longer if drowsiness or
+        dizziness persists. NO exceptions!! The patient should not drive a
+        vehicle, operate machinery, make important financial/life decisions,
+        consume alcohol or other drugs with sedative properties for 24 hours
+        following the anesthetic.
+    </Accordion>
+  </SidebarLayout>
+</Layout>

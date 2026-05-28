@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  --color-teal-dark: #28686c;
+  --color-teal: #3A959B;
+  --color-teal-light: #deeded;
+  --color-dark: #222222;
+  --color-footer: #292D2D;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Playfair Display', serif;
+}
+
+.btn-teal {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: 2px solid #3A959B;
+  color: #3A959B;
+  padding: 5px 20px;
+  background-image: linear-gradient(#3A959B, #3A959B);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.5s, color 0.5s;
+}
+.btn-teal:hover {
+  color: white;
+  background-size: 100% 100%;
+}
+
+.btn-dark {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: 2px solid #333333;
+  color: #333333;
+  padding: 5px 20px;
+  background-image: linear-gradient(#333333, #333333);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.5s, color 0.5s;
+}
+.btn-dark:hover {
+  color: white;
+  background-size: 100% 100%;
+}
+
+.sans-heading {
+  font-family: 'Karla', sans-serif;
+}

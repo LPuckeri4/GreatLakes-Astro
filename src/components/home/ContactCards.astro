@@ -1,0 +1,50 @@
+---
+---
+
+<div class="contact-cards flex flex-wrap justify-center -mt-[50px] md:-mt-[150px] relative z-10">
+  <!-- Call -->
+  <div class="p-5 w-[350px] min-h-[300px] bg-[#28686c]">
+    <img src="/img/call.png" alt="call" width="40" class="invert" />
+    <div class="border-t border-white/30 my-2"></div>
+    <p class="sans-heading text-white font-bold text-xl mb-2">Contact us</p>
+    <p class="text-white mb-6">Call us by phone during our regular business hours</p>
+    <a href="tel:519-979-7227" class="text-white no-underline hover:opacity-80 hover:scale-105 transition-transform inline-block">
+      Phone: 519-979-7227
+    </a>
+  </div>
+
+  <!-- Location -->
+  <div class="p-5 w-[350px] min-h-[300px] bg-[#3A959B]">
+    <img src="/img/location.png" alt="location" width="40" class="invert" />
+    <div class="border-t border-white/30 my-2"></div>
+    <p class="sans-heading text-white font-bold text-xl mb-2">Our Location</p>
+    <a
+      href="https://maps.app.goo.gl/RR1CFZ7nuH5dH26KA"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-white no-underline font-bold hover:scale-105 transition-transform inline-block"
+    >
+      1825 Manning Rd | Studio 700 Tecumseh | ON | N9K 0A9
+    </a>
+  </div>
+
+  <!-- Hours -->
+  <div class="p-5 w-[350px] min-h-[300px] bg-[#deeded]">
+    <img src="/img/calendar.png" alt="hours" width="40" />
+    <div class="border-t border-black/10 my-2"></div>
+    <p class="sans-heading font-bold text-xl mb-2">Hours of Operation</p>
+    <a href="#contact" class="no-underline text-[#222222] font-bold hover:scale-105 transition-transform inline-block">
+      Mon to Thurs • 8am - 5pm <br /><br /> Fri • 8am - 3pm
+    </a>
+  </div>
+</div>
+
+<style>
+  .contact-cards {
+    animation: slideUp 1s ease-out 0.7s both;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(100px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

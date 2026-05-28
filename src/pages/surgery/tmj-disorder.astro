@@ -1,0 +1,94 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../components/shared/SidebarLayout.astro';
+import PageHeading from '../../components/shared/PageHeading.astro';
+import Accordion from '../../components/shared/Accordion.astro';
+
+const navItems = [
+  { label: 'Dental Implants', href: '/surgery/dental-implants', image: '/img/tooth1.png' },
+  { label: 'Wisdom Teeth', href: '/surgery/wisdom-teeth', image: '/img/tooth2.png' },
+  { label: 'Tooth Extraction', href: '/surgery/tooth-extraction', image: '/img/tooth3.png' },
+  { label: 'Bone Grafting', href: '/surgery/bone-grafting', image: '/img/tooth4.png' },
+  { label: 'Orthodontic Surgery', href: '/surgery/orthodontic-surgery', image: '/img/tooth5.png' },
+  { label: 'Facial Trauma', href: '/surgery/facial-trauma', image: '/img/tooth6.png' },
+  { label: 'Oral Pathology', href: '/surgery/oral-pathology', image: '/img/tooth7.png' },
+  { label: 'Jaw Corrective', href: '/surgery/jaw-corrective', image: '/img/tooth8.png' },
+  { label: 'TMJ Disorder', href: '/surgery/tmj-disorder', image: '/img/tooth9.png' },
+];
+---
+
+<Layout title="Temporomandibular Joint Disorders - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname}>
+    <PageHeading title="Temporomandibular Joint Disorders" />
+    <p class="mb-8 leading-relaxed" style="color: #515151">TMJ (temporomandibular joint) disorders are a family of problems related to your complex jaw joint. If you have had symptoms like pain or a "clicking" sound, you'll be glad to know that these problems are more easily diagnosed and treated than they were in the past. These symptoms occur when the joints of the jaw and the chewing muscles (muscles of mastication) do not work together correctly. TMJ stands for Temporomandibular Joint, which is the name for each joint (right and left) that connects your jaw to your skull. Since some types of TMJ problems can lead to more serious conditions, early detection and treatment are important. No one treatment can resolve TMJ disorders completely and treatment takes time to become effective. Your surgeon can help you have a healthier and more comfortable jaw.</p>
+
+    <Accordion title="Trouble with Your Jaw? ">
+      TMJ disorders develop for many reasons. You might clench or grind your
+        teeth, tightening your jaw muscles and stressing your TM joint. You may
+        have a damaged jaw joint due to injury or disease. Injuries and
+        arthritis can damage the joint directly or stretch or tear the muscle or
+        ligaments. As a result, the disk, which is made of cartilage and
+        functions as the “cushion” of the jaw joint, can slip out of position.
+        Whatever the cause, the results may include a misaligned bite, pain,
+        clicking or grating noise when you open your mouth or trouble opening or
+        closing your mouth wide.
+    </Accordion>
+
+    <Accordion title="Do You Have a TMJ Disorder?">
+      <ul>
+          <li>Are you aware of grinding or clenching your teeth?</li>
+          <li>Do you wake up with sore, stiff muscles around your jaws?</li>
+          <li>Do you have frequent headaches or neck aches?</li>
+          <li>Does the pain get worse when you clench your teeth?</li>
+          <li>Does stress make your clenching and pain worse?</li>
+          <li>
+            Does your jaw click, pop, grate, catch, or lock when you open your
+            mouth?
+          </li>
+          <li>Is it difficult or painful to open your mouth, eat or yawn?</li>
+          <li>Have you ever injured your neck, head or jaws?</li>
+          <li>Have you had problems (such as arthritis) with other joints?</li>
+          <li>Do you have teeth that no longer touch when you bite?</li>
+          <li>Do your teeth meet differently from time to time?</li>
+          <li>Is it hard to use your front teeth to bite or tear food?</li>
+          <li>Are your teeth sensitive, loose, broken or worn?</li>
+        </ul>
+        The more times you answered “yes,” the more likely it is that you have a
+        TMJ disorder. Understanding TMJ disorders will also help you understand
+        how they are treated.
+    </Accordion>
+
+    <Accordion title="Treatment">
+      There are various treatment options that your surgeon can utilize to
+        improve the harmony and function of your jaw. Once an evaluation
+        confirms a diagnosis of TMJ disorder, your surgeon will determine the
+        proper course of treatment. It is important to note that treatment
+        always works best with a team approach of self-care joined with
+        professional care. The initial goals are to relieve the muscle spasm and
+        joint pain. This is usually accomplished with a pain reliever,
+        anti-inflammatory or muscle relaxant. Steroids can be injected directly
+        into the joints to reduce pain and inflammation. Self-care treatments
+        can often be effective as well and include: • Resting your jaw • Keeping
+        your teeth apart when you are not swallowing or eating • Eating soft
+        foods • Applying ice and heat • Exercising your jaw • Practicing good
+        posture Stress management techniques such as biofeedback or physical
+        therapy may also be recommended, as well as a temporary, clear plastic
+        appliance known as a splint. A splint or nightgaurd fits over your top
+        or bottom teeth and helps keep your teeth apart, thereby relaxing the
+        muscles and reducing pain. Appliances also help to protect from tooth
+        wear. This appliance would be made by your dentist.
+    </Accordion>
+
+    <Accordion title="What about bite correction or surgery?">
+      If your TMJ disorder has caused problems with how your teeth fit
+        together, you may need treatment such as bite adjustment
+        (equilibration), orthodontics with or without jaw reconstruction, or
+        restorative dental work. This would be treated by your dentist. Surgical
+        options such as arthroscopy and open joint repair restructuring are
+        sometimes needed but are reserved for severe cases. Your surgeon does
+        not consider TMJ surgery unless the jaw can’t open, is dislocated and
+        nonreducible, has severe degeneration, or the patient has undergone
+        appliance treatment unsuccessfully.
+    </Accordion>
+  </SidebarLayout>
+</Layout>

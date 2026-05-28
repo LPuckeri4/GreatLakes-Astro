@@ -1,0 +1,35 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../components/shared/SidebarLayout.astro';
+import PageHeading from '../../components/shared/PageHeading.astro';
+
+const navItems = [
+  { label: 'Dental Implants', href: '/surgery/dental-implants', image: '/img/tooth1.png' },
+  { label: 'Wisdom Teeth', href: '/surgery/wisdom-teeth', image: '/img/tooth2.png' },
+  { label: 'Tooth Extraction', href: '/surgery/tooth-extraction', image: '/img/tooth3.png' },
+  { label: 'Bone Grafting', href: '/surgery/bone-grafting', image: '/img/tooth4.png' },
+  { label: 'Orthodontic Surgery', href: '/surgery/orthodontic-surgery', image: '/img/tooth5.png' },
+  { label: 'Facial Trauma', href: '/surgery/facial-trauma', image: '/img/tooth6.png' },
+  { label: 'Oral Pathology', href: '/surgery/oral-pathology', image: '/img/tooth7.png' },
+  { label: 'Jaw Corrective', href: '/surgery/jaw-corrective', image: '/img/tooth8.png' },
+  { label: 'TMJ Disorder', href: '/surgery/tmj-disorder', image: '/img/tooth9.png' },
+];
+---
+
+<Layout title="Oral Pathology - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname}>
+    <PageHeading title="Oral Pathology" />
+    <div class="leading-relaxed" style="color: #515151">
+      <p class="mb-4">The inside of the mouth is normally lined with a special type of skin (mucosa) that is smooth and coral pink in color. Any alteration in this appearance could be a warning sign for a pathological process. The most serious of these is oral cancer. The following can be signs at the beginning of a pathologic process or cancerous growth:</p>
+      <ul class="list-disc ml-6 mb-4 space-y-1">
+        <li>Reddish patches (erythroplasia) or whitish patches (leukoplakia) in the mouth</li>
+        <li>A sore that fails to heal and bleeds easily</li>
+        <li>A lump or thickening on the skin lining the inside of the mouth</li>
+        <li>Chronic sore throat or hoarseness</li>
+        <li>Difficulty in chewing or swallowing</li>
+      </ul>
+      <p class="mb-4">These changes can be detected on the lips, cheeks, palate and gum tissue around the teeth, tongue, face and/or neck. Pain does not always occur with pathology. However, any patient with facial and/or oral pain without an obvious cause or reason may also be at risk for oral cancer. We would recommend performing an oral cancer self-examination monthly and remember that your mouth is one of your body's most important warning systems. Do not ignore suspicious lumps or sores. Please contact us so we may help.</p>
+      <p>Larger or more suspicious lesions require investigation by obtaining a piece of the tissue in question. This is traditionally known as a biopsy. The tissue abnormality will need to be anesthetized either locally, or in conjunction with some type of sedative technique. It is then placed in a jar of tissue preservation and sent to a lab where a pathologist will identify it under a microscope.</p>
+    </div>
+  </SidebarLayout>
+</Layout>

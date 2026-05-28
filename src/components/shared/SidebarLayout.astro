@@ -1,0 +1,80 @@
+---
+interface NavItem {
+  label: string;
+  href: string;
+  image: string;
+}
+
+interface Props {
+  title: string;
+  navItems: NavItem[];
+  currentPath: string;
+}
+
+const { title, navItems, currentPath } = Astro.props;
+---
+
+<div class="min-h-screen pt-[150px] pb-16">
+  <div class="flex flex-col items-center mb-8 md:mb-16">
+    <h1 class="text-3xl text-center mb-2">{title}</h1>
+    <div class="underline-teal-center"></div>
+  </div>
+
+  <div class="flex flex-wrap">
+    <nav class="w-full md:w-1/3 flex flex-col items-center md:items-end pr-0 md:pr-5 pb-8 md:pb-0 border-b md:border-b-0 md:border-r-2 border-gray-300">
+      {navItems.map(item => {
+        const isActive = currentPath === item.href || currentPath.startsWith(item.href + '/');
+        return (
+          <a
+            href={item.href}
+            class:list={['nav-item', isActive && 'nav-item-active']}
+          >
+            <img src={item.image} alt={item.label} class:list={['nav-img', isActive && 'nav-img-active']} />
+            <span class="sans-heading text-lg">{item.label}</span>
+          </a>
+        );
+      })}
+    </nav>
+
+    <div class="w-full md:w-2/3 px-5 md:px-8 pt-8 md:pt-0 max-w-[950px]">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<style>
+  .underline-teal-center {
+    height: 4px;
+    width: 50px;
+    background-color: #3A959B;
+    margin: 0 auto;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    text-decoration: none;
+    width: 100%;
+    max-width: 250px;
+    margin: 8px 0;
+    color: #222222;
+    background-color: white;
+    transition: background-color 0.15s, color 0.15s;
+    padding: 2px 0;
+  }
+  .nav-item:hover,
+  .nav-item-active {
+    background-color: #3A959B;
+    color: white;
+  }
+  .nav-item:hover .nav-img,
+  .nav-img-active {
+    filter: brightness(0) invert(1);
+  }
+  .nav-img {
+    width: 50px;
+    margin: 5px 10px;
+    flex-shrink: 0;
+  }
+</style>

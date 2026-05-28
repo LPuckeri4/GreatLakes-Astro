@@ -1,0 +1,110 @@
+---
+const services = [
+  { image: '/img/tooth1.png', title: 'Dental Implants', text: 'High quality titanium implants for tooth replacement', href: '/surgery/dental-implants' },
+  { image: '/img/tooth2.png', title: 'Wisdom Teeth', text: 'We offer pain free wisdom tooth extraction', href: '/surgery/wisdom-teeth' },
+  { image: '/img/tooth3.png', title: 'Tooth Extraction', text: 'We offer pain free general tooth extraction', href: '/surgery/tooth-extraction' },
+  { image: '/img/tooth4.png', title: 'Bone Grafting', text: 'Replace, repair, grow bone in areas that need support', href: '/surgery/bone-grafting' },
+  { image: '/img/tooth5.png', title: 'Orthodontic Surgery', text: 'Correction of dental misalignment for functional harmony', href: '/surgery/orthodontic-surgery' },
+  { image: '/img/tooth6.png', title: 'Facial Trauma', text: 'Treat facial trauma to improve long term function and appearance', href: '/surgery/facial-trauma' },
+  { image: '/img/tooth7.png', title: 'Oral Pathology', text: 'Study and diagnosis of conditions affecting the mouth and jaw', href: '/surgery/oral-pathology' },
+  { image: '/img/tooth8.png', title: 'Jaw Corrective', text: 'Surgery to correct misaligned jaws for improved function and appearance', href: '/surgery/jaw-corrective' },
+  { image: '/img/tooth9.png', title: 'TMJ Disorder', text: 'Relieve Temporomandibular disorders related to your complex jaw joint', href: '/surgery/tmj-disorder' },
+];
+
+const accolades = [
+  { number: 2, label: 'Doctors', delay: 0 },
+  { number: 21, label: 'Amazing Staff', delay: 400 },
+  { number: 30, label: 'Years Experience', delay: 800, plus: true },
+];
+---
+
+<div class="max-w-[1400px] mx-auto pt-10 flex flex-col items-center">
+  <h2 class="text-3xl mt-12 mb-2">We Offer</h2>
+  <div class="underline-teal mb-10" data-animate-underline></div>
+
+  <div class="flex flex-wrap justify-center">
+    {services.map(s => (
+      <a href={s.href} class="service-card flex items-center m-5 max-w-[400px] no-underline text-[#222222]">
+        <img src={s.image} alt={s.title} class="h-[70px] mr-5 flex-shrink-0" />
+        <div class="w-[200px]">
+          <p class="sans-heading text-lg font-semibold mb-1">{s.title}</p>
+          <p class="text-sm" style="color: #515151">{s.text}</p>
+        </div>
+      </a>
+    ))}
+  </div>
+</div>
+
+<!-- Accolades banner -->
+<div
+  class="flex flex-wrap items-center justify-around mt-[70px] mb-[70px] w-full min-h-[300px] bg-cover bg-center"
+  style="background-image: url('/img/accolades.jpg')"
+>
+  {accolades.map((a, i) => (
+    <div class={`flex flex-col items-center py-10 w-full sm:w-1/3 min-h-[150px] justify-center relative ${i < 2 ? 'accolade-divider' : ''}`}>
+      <p class="text-white text-4xl font-bold mb-2">
+        <span class="counter" data-count={a.number} data-delay={a.delay}>0</span>{a.plus ? ' +' : ''}
+      </p>
+      <p class="sans-heading text-white text-xl">{a.label}</p>
+    </div>
+  ))}
+</div>
+
+<style>
+  .underline-teal {
+    height: 4px;
+    background-color: #3A959B;
+    width: 0;
+    transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .underline-teal.visible { width: 50px; }
+
+  .service-card { transition: transform 0.2s ease-in-out; }
+  .service-card:hover { transform: scale(1.1); }
+  .service-card:hover img {
+    box-shadow: 0 0 7px rgba(0,0,0,0.2);
+    border-radius: 100%;
+  }
+
+  .accolade-divider::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; right: 0;
+    border-right: 1px solid rgba(255,255,255,0.4);
+  }
+  @media (max-width: 639px) {
+    .accolade-divider::after { display: none; }
+    .accolade-divider { border-bottom: 1px solid rgba(255,255,255,0.4); }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('[data-animate-underline]').forEach(el => {
+    const obs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) { el.classList.add('visible'); obs.disconnect(); }
+    }, { rootMargin: '-20% 0px' });
+    obs.observe(el);
+  });
+
+  document.querySelectorAll('.counter').forEach(el => {
+    const target = parseInt((el as HTMLElement).dataset.count!);
+    const delay = parseInt((el as HTMLElement).dataset.delay ?? '0');
+    const obs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        setTimeout(() => {
+          const duration = 2000;
+          const start = performance.now();
+          const update = (now: number) => {
+            const progress = Math.min((now - start) / duration, 1);
+            el.textContent = Math.floor((1 - Math.pow(1 - progress, 3)) * target).toString();
+            if (progress < 1) requestAnimationFrame(update);
+            else el.textContent = target.toString();
+          };
+          requestAnimationFrame(update);
+        }, delay);
+        obs.disconnect();
+      }
+    }, { rootMargin: '-20% 0px' });
+    obs.observe(el);
+  });
+</script>

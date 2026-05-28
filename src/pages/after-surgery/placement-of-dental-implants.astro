@@ -1,0 +1,93 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../components/shared/SidebarLayout.astro';
+import PageHeading from '../../components/shared/PageHeading.astro';
+import Accordion from '../../components/shared/Accordion.astro';
+
+const navItems = [
+  { label: 'General Instructions', href: '/after-surgery/general-instructions', image: '/img/tooth10.png' },
+  { label: 'Tooth Removal', href: '/after-surgery/tooth-removal', image: '/img/tooth3.png' },
+  { label: 'Wisdom Teeth Removal', href: '/after-surgery/wisdom-teeth-removal', image: '/img/tooth2.png' },
+  { label: 'Facial Trauma', href: '/after-surgery/facial-trauma', image: '/img/tooth6.png' },
+  { label: 'Exposure of Impacted Tooth', href: '/after-surgery/exposure-of-impacted-tooth', image: '/img/tooth11.png' },
+  { label: 'Placement of Dental Implants', href: '/after-surgery/placement-of-dental-implants', image: '/img/tooth1.png' },
+  { label: 'Removal of Multiple Teeth', href: '/after-surgery/removal-of-multiple-teeth', image: '/img/tooth12.png' },
+];
+---
+
+<Layout title="After Placement of Dental Implants - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="After a Procedure" navItems={navItems} currentPath={Astro.url.pathname}>
+    <PageHeading title="After Placement of Dental Implants" />
+    <p class="mb-8 leading-relaxed" style="color: #515151">Do not disturb the wound. Avoid rinsing, spitting, or touching the wound on the day of surgery. There will be a metal healing abutment protruding through the gingival (gum) tissue.</p>
+
+    <Accordion title="Bleeding">
+      Some bleeding or redness in the saliva is normal for 24 hours. Excessive
+        bleeding (your mouth fills up rapidly with blood) can be controlled by
+        biting on a gauze pad placed directly on the bleeding wound for 30-60
+        minutes. 
+        <strong>If bleeding continues, please call the office for further instructions.</strong>
+    </Accordion>
+
+    <Accordion title="Swelling">
+      Swelling is a normal occurrence after surgery. To minimize swelling,
+        apply an ice bag, or a plastic bag, or towel filled with ice on the
+        cheek/lip in the area of surgery. Apply the ice intermittently for 20-30
+        minute intervals as much as possible, for the first 48 hours.
+    </Accordion>
+
+    <Accordion title="Diet">
+      Drink plenty of fluids. Avoid hot liquids or food. Soft food and liquids
+        should be eaten on the day of surgery. Return to a normal diet as soon
+        as possible unless otherwise directed. Do not use implant as a tooth
+        until directed.
+    </Accordion>
+
+    <Accordion title="Pain">
+      You should begin taking pain medication as soon as you feel the local
+        anesthetic wearing off. For mild to moderate pain, Tylenol or Extra
+        Strength Tylenol may be taken as directed. Ibuprofen (Advil or Motrin)
+        may be taken instead of Tylenol. For severe pain, the prescribed
+        medication should be taken as directed. Do not take any of the above
+        medication if you are allergic, or have been instructed by your doctor
+        not to take it.
+    </Accordion>
+
+    <Accordion title="Antibiotics">
+      Be sure to take the prescribed antibiotics as directed to help prevent
+        complications.
+    </Accordion>
+
+    <Accordion title="Oral Hygiene">
+      Good oral hygiene is essential to good healing. Warm salt water
+        (teaspoon of salt in a cup of warm water) rinses should be used at least
+        4-5 times a day, especially after meals. Use the peridex script as
+        prescribed. Brushing your teeth is no problem. Be gentle initially with
+        brushing the surgical areas.
+    </Accordion>
+
+    <Accordion title="Activity">
+      Keep physical activities to a minimum immediately following surgery. If
+        you are considering exercise, throbbing or bleeding may occur. If this
+        occurs, you should discontinue exercising. Keep in mind that you are
+        probably not taking normal nourishment. This may weaken you and further
+        limit your ability to exercise.
+    </Accordion>
+
+    <Accordion title="Wearing your Prosthesis">
+      Partial dentures, flippers, or full dentures will need to be reduced to
+        ensure they do not apply any pressure to the implant, or bony graft
+        sites. These should be worn for esthetics only. They should not be used
+        to chew or function with, as this may compromise the implant or bone
+        graft. This may be fitted the first or second visit after your surgery.
+    </Accordion>
+
+    <Accordion title="Post IV Sedation">
+      After IV sedation, the patient is required to have a responsible adult
+        to accompany them for a minimum of 18 hours or longer if drowsiness or
+        dizziness persists. NO exceptions!! The patient should not drive a
+        vehicle, operate machinery, make important financial/life decisions,
+        consume alcohol or other drugs with sedative properties for 24 hours
+        following the anesthetic.
+    </Accordion>
+  </SidebarLayout>
+</Layout>

@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../components/shared/SidebarLayout.astro';
+import PageHeading from '../../components/shared/PageHeading.astro';
+import Accordion from '../../components/shared/Accordion.astro';
+
+const navItems = [
+  { label: 'General Instructions', href: '/after-surgery/general-instructions', image: '/img/tooth10.png' },
+  { label: 'Tooth Removal', href: '/after-surgery/tooth-removal', image: '/img/tooth3.png' },
+  { label: 'Wisdom Teeth Removal', href: '/after-surgery/wisdom-teeth-removal', image: '/img/tooth2.png' },
+  { label: 'Facial Trauma', href: '/after-surgery/facial-trauma', image: '/img/tooth6.png' },
+  { label: 'Exposure of Impacted Tooth', href: '/after-surgery/exposure-of-impacted-tooth', image: '/img/tooth11.png' },
+  { label: 'Placement of Dental Implants', href: '/after-surgery/placement-of-dental-implants', image: '/img/tooth1.png' },
+  { label: 'Removal of Multiple Teeth', href: '/after-surgery/removal-of-multiple-teeth', image: '/img/tooth12.png' },
+];
+---
+
+<Layout title="After Wisdom Tooth Removal - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="After a Procedure" navItems={navItems} currentPath={Astro.url.pathname}>
+    <PageHeading title="After Wisdom Tooth Removal" />
+    <div class="mb-8 leading-relaxed space-y-4" style="color: #515151">
+      <p>There will be a cavity where the tooth was removed. The cavity will gradually close over time and fill in with new tissue.</p>
+      <p>Starting <strong>one week</strong> after wisdom tooth removal, you may stop using the rinsing solution (Peridex), if prescribed. It is now time to begin using the irrigation syringe given to you. Fill the syringe with either mouthwash diluted with warm water, warm salt water, or plain warm water.</p>
+      <p><strong>PLEASE NOTE:</strong> YOU WILL ONLY BE FLUSHING THE HOLE/HOLES IN THE LOWER JAW (top only if needed). Focus is placed on the lower sockets because gravity pulls food from the top and collects in the lower sockets. Any build-up of debris in the sockets may cause pressure, pain and possible infection. However, this can be avoided with proper irrigation.</p>
+      <p><strong>STEP 1:</strong> Standing in front of a mirror, and starting with the side you wish to irrigate first, pull your cheek out using your finger or toothbrush. This will help open the wisdom tooth hole so you are able to get a better view and placement of the syringe.</p>
+      <p><strong>STEP 2:</strong> Gently place the tip of syringe 1mm inside the hole and flush it out with the warm water in your syringe.</p>
+      <p>You may see debris including food, dried blood and even a stitch come out at this time. This is normal. If you see any debris come out of the hole, repeat irrigation until you no longer see debris. Continue to irrigate for 3–4 weeks or until the lower hole/holes are completely closed. Need help? Watch our video demonstration below.</p>
+    </div>
+
+    <div class="mb-10">
+      <iframe
+        class="w-full max-w-[600px] aspect-video"
+        src="https://www.youtube.com/embed/KkFmJsH2x-I"
+        title="After Wisdom Tooth Removal"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <Accordion title="Immediately Following Surgery">
+      The gauze pad placed over the surgical area should be kept in place for
+        20 minutes. After this time, the gauze pad should be removed and
+        discarded. Vigorous mouth rinsing, spitting or touching the wound area
+        following the surgery should be avoided. This may initiate bleeding by
+        causing the blood clot that has formed to become dislodged. Take the
+        prescribed pain medications before you begin to feel discomfort. This
+        should be done before the local anesthetic becomes diminished. Restrict
+        your activities the day of surgery.
+    </Accordion>
+
+    <Accordion title="Bleeding">
+      A certain amount of bleeding is to be expected following surgery. Slight
+        bleeding, oozing, or redness in the saliva is common for 48 hours.
+        Excessive bleeding may be controlled by first wiping any old clots from
+        your mouth, then placing a gauze pad over the area and biting firmly for
+        30 minutes. Repeat if necessary. 
+        <strong>If bleeding continues, bite on a moistened tea bag for 30 minutes.</strong>
+        The tannic acid in the tea bag helps to form a blood clot by contracting
+        bleeding vessels. To minimize further bleeding, sit upright, and avoid
+        exertion. If bleeding does not subside call for further instructions.
+        Remember, blood on the gauze is to be expected and does not mean you are
+        still bleeding. What is important is whether or not there is any liquid
+        red blood coming out of the extraction site and filling up in your
+        mouth. This would necessitate the further use of gauze placed directly
+        on the top area where the bleeding continues.
+    </Accordion>
+
+    <Accordion title="Swelling">
+      The swelling that is normally expected is usually proportional to the
+        surgery involved. Swelling around the mouth, cheeks eyes, and sides of
+        the face is common. This is the body’s normal reaction to surgery. The
+        swelling may not become apparent until the day following surgery and
+        will not reach its maximum until 2-3 days post-operatively. However, the
+        swelling may be minimized by the immediate use of icepacks. Apply ice
+        intermittently for 20–30-minute intervals for first 48 hours. Sleep with
+        your head elevated (at least 45o) for the first 4 days. If swelling or
+        jaw stiffness has persisted for several days, there is no cause for
+        alarm. This is a normal reaction to surgery.
+    </Accordion>
+
+    <Accordion title="Pain">
+      Use the pain medications as directed. Call the office if the medication
+        doesn’t seem to be working. If antibiotics are prescribed, continue
+        taking them for the whole duration regardless if the signs and symptoms
+        of infection are not present. The prescription pain medication may make
+        you groggy and will slow down your reflexes. Do not drive an automobile
+        or work around machinery. Pain may last 5-7 days. If pain persists it
+        may require attention and you should call the office.
+    </Accordion>
+
+    <Accordion title="Diet">
+      After IV anesthetic, liquids should be initially taken. Do not use
+        straws. The sucking motion can cause more bleeding by dislodging the
+        blood clot. You may eat anything soft by chewing away from the surgical
+        sites. High calorie, high protein intake is very important. Nourishment
+        should be taken regularly. You should prevent dehydration by taking
+        fluids regularly.
+    </Accordion>
+
+    <Accordion title="Keep the Mouth Clean">
+      No rinsing of any kind should be performed until the day following
+        surgery. You can brush your teeth gently the following day, but stay
+        away from the surgical sites. The day after you should begin rinsing at
+        least 5-6 times a day, especially after eating, with a cup of warm water
+        mixed with a teaspoon of salt and/or the rinsing solution prescribed
+        (Peridex).
+    </Accordion>
+
+    <Accordion title="Discoloration (Bruising)">
+      In some cases, discoloration of the skin follows swelling. The
+        development of black, blue, green or yellow bruising is a normal
+        post-operative occurrence, which may occur 2-3 days after surgery.
+    </Accordion>
+
+    <Accordion title="Antibiotics">
+      If you have been placed on antibiotics, take the tablets or liquid until
+        finished, as directed. Antibiotics will be given to help prevent
+        infection. Discontinue antibiotic use in the event of a rash or any
+        other unfavorable reaction.
+    </Accordion>
+
+    <Accordion title="Nausea and Vomiting">
+      In the event of nausea and/or vomiting following surgery anti-nausea
+        medications may be taken as directed. Do not take anything else by mouth
+        for at least an hour including the prescribed medicine. Then rest for a
+        good 30-45 minutes, allowing the anti-nausea and vomiting medication to
+        take effect. Once you feel your nausea/vomiting has resolved, then and
+        only then, should you commence eating, drinking and taking prescription
+        medications.
+    </Accordion>
+
+    <Accordion title="Other Notes">
+      <ul>
+          <li>
+            If numbness of the lip, chin, or tongue occurs there is no cause for
+            alarm. As stated, before surgery, this is usually temporary in
+            nature. You should be aware that if your lip or tongue is numb, you
+            could bite it and not feel the sensation. So be careful. If you
+            experience this altered sensation, please contact our office.
+          </li>
+          <li>
+            Slight elevation of temperature immediately following surgery is
+            common. If the temperature persists, notify the office. Tylenol or
+            ibuprofen should be taken to reduce the fever.
+          </li>
+          <li>
+            You should be careful going form lying down position to standing.
+            You were not able to eat or drink prior to surgery. It can difficult
+            to take fluids. Taking pain medications can make you dizzy. You
+            could get light headed when you stand up suddenly. Before standing
+            up, you should sit for one minute then get up. Make sure your
+            balance is intact before you begin walking.
+          </li>
+          <li>
+            Occasionally, patients may feel hard projections in the mouth with
+            their tongue. They are not roots, they are the bony walls which
+            supported the tooth. These projections usually smooth out
+            spontaneously. If not, they can be removed by the doctor.
+          </li>
+          <li>
+            If the corners of your mouth are stretched, they may dry out and
+            crack. Your lips should be kept moist with an ointment such as
+            Vaseline.
+          </li>
+          <li>
+            Having a dry mouth is not uncommon. Drink plenty of water and use a
+            saltwater rinse as directed to keep your mouth clean and
+            moisturized.
+          </li>
+          <li>
+            Sore throats and pain when swallowing is common. The muscles get
+            swollen. The normal act of swallowing can become painful. This will
+            subside in 2-3 days.
+          </li>
+          <li>
+            Stiffness of the jaw muscles may cause difficulty in opening your
+            mouth for a few days following surgery. This is a normal
+            post-operative event which will resolve in time.
+          </li>
+          <li>
+            Your case is individual, no two mouths are alike. Discuss any
+            concerns with our office.
+          </li>
+          <li>
+            Refrain from smoking or vaping for at least two weeks. This can
+            cause infection, delayed healing and/or potential for further
+            complications (i.e., dry socket).
+          </li>
+        </ul>
+    </Accordion>
+
+    <Accordion title="Sutures">
+      Sutures are placed in the area of surgery to minimize postoperative
+        bleeding and to help healing. Sometimes they become dislodged, this is
+        no cause for alarm. Sutures placed in our office will usually dissolve
+        and come out on their own in 2-10 days.
+    </Accordion>
+
+    <Accordion title="Post IV Sedation">
+      After IV sedation, the patient is required to have a responsible adult
+        to accompany them for a minimum of 18 hours or longer if drowsiness or
+        dizziness persists. NO exceptions!! The patient should not drive a
+        vehicle, operate machinery, make important financial/life decisions,
+        consume alcohol or other drugs with sedative properties for 24 hours
+        following the anesthetic.
+    </Accordion>
+  </SidebarLayout>
+</Layout>

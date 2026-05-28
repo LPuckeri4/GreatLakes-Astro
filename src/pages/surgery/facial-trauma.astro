@@ -1,0 +1,104 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../components/shared/SidebarLayout.astro';
+import PageHeading from '../../components/shared/PageHeading.astro';
+import Accordion from '../../components/shared/Accordion.astro';
+
+const navItems = [
+  { label: 'Dental Implants', href: '/surgery/dental-implants', image: '/img/tooth1.png' },
+  { label: 'Wisdom Teeth', href: '/surgery/wisdom-teeth', image: '/img/tooth2.png' },
+  { label: 'Tooth Extraction', href: '/surgery/tooth-extraction', image: '/img/tooth3.png' },
+  { label: 'Bone Grafting', href: '/surgery/bone-grafting', image: '/img/tooth4.png' },
+  { label: 'Orthodontic Surgery', href: '/surgery/orthodontic-surgery', image: '/img/tooth5.png' },
+  { label: 'Facial Trauma', href: '/surgery/facial-trauma', image: '/img/tooth6.png' },
+  { label: 'Oral Pathology', href: '/surgery/oral-pathology', image: '/img/tooth7.png' },
+  { label: 'Jaw Corrective', href: '/surgery/jaw-corrective', image: '/img/tooth8.png' },
+  { label: 'TMJ Disorder', href: '/surgery/tmj-disorder', image: '/img/tooth9.png' },
+];
+---
+
+<Layout title="Facial Trauma - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname}>
+    <PageHeading title="Facial Trauma" />
+    <div class="mb-8 leading-relaxed" style="color: #515151">
+      <p class="mb-4">Injuries to the face, by their very nature, impart a high degree of emotional, as well as physical trauma to patients. The science and art of treating these injuries requires special training involving a "hands on" experience and an understanding of how the treatment provided will influence the patient's long term function and appearance. Oral &amp; Maxillofacial Surgeons meet and exceed these modern standards. They are trained, skilled and uniquely qualified to manage and treat facial trauma. Your surgeon is on staff at Windsor Regional and Hotel Dieu Hospital and delivers emergency room coverage for facial injuries, which include the following conditions:</p>
+      <ul class="list-disc ml-6 space-y-1">
+        <li>Facial lacerations</li>
+        <li>Intra oral lacerations</li>
+        <li>Avulsed (knocked out) teeth</li>
+        <li>Fractured facial bones (cheek, nose or portions of the eye socket)</li>
+        <li>Fractured jaws (upper and lower jaw)</li>
+        <li>Fractured Frontal bones</li>
+      </ul>
+    </div>
+
+    <Accordion title="The Nature of Maxillofacial Trauma">
+      There are a number of possible causes of facial trauma such as motor
+        vehicle accidents, accidental falls, sports injuries, interpersonal
+        violence and work related injuries. Types of facial injuries can range
+        from injuries of teeth to extremely severe injuries of the skin and
+        bones of the face. Typically, facial injuries are classified as either
+        soft tissue injuries (skin and gums), bone injuries (fractures), or
+        injuries to special regions (such as the eyes, facial nerves or the
+        salivary glands).
+    </Accordion>
+
+    <Accordion title="Soft Tissue Injuries of the Maxillofacial Region">
+      When soft tissue injuries such as lacerations occur on the face, they
+        are repaired by suturing. In addition to the obvious concern of
+        providing a repair that yields the best cosmetic result possible, care
+        is taken to inspect for and treat injuries to structures such as facial
+        nerves, salivary glands and salivary ducts (or outflow channels). Your
+        surgeon has trained to be proficient at diagnosing and treating all
+        types of facial lacerations.
+    </Accordion>
+
+    <Accordion title="Bone Injuries of the Maxillofacial Region">
+      Fractures to the bones of the face are treated in a manner similar to
+        the fractures in other parts of the body. The specific form of treatment
+        is determined by various factors, which include the location of the
+        fracture, the severity of the fracture, the age and general health of
+        the patient. When an arm or a leg is fractured, a cast is often applied
+        to stabilize the bone to allow for proper healing. Since a cast cannot
+        be placed on the face, other means have been developed to stabilize
+        facial fractures. One of these options involves wiring the jaws together
+        for certain fractures of the upper and/or lower jaw. <br /> <br />
+        Certain other types of fractures of the jaw are best treated and
+        stabilized by the surgical placement of small plates and screws at the
+        involved site. This technique of treatment can often allow for healing
+        and eliminates the necessity of having the jaws wired together. This
+        technique is called “rigid fixation” of a fracture. The relatively
+        recent development and use of rigid fixation has profoundly improved the
+        recovery period for many patients, allowing them to return to normal
+        function more quickly. The treatment of facial fractures should be
+        accomplished in a thorough and predictable manner. More importantly, the
+        patient’s facial appearance should be minimally affected. An attempt at
+        accessing the facial bones through the fewest incisions necessary is
+        always made. At the same time, the incisions that become necessary, are
+        designed to be small and, whenever possible, are placed so that the
+        resultant scar is hidden.
+    </Accordion>
+
+    <Accordion title="Injuries to the Teeth and Surrounding Dental Structures">
+      Isolated injuries to teeth are quite common and may require the
+        expertise of various dental specialists. Oral surgeons usually are
+        involved in treating fractures in the supporting bone or in replanting
+        teeth that have been displaced or knocked out. These types of injuries
+        are treated by one of a number of forms of splinting (stabilizing by
+        wiring or bonding teeth together). If a tooth is knocked out, it should
+        be placed in salt water or milk. The sooner the tooth is re-inserted
+        into the dental socket, the better chance it will survive. Therefore,
+        the patient should see a dentist or oral surgeon as soon as possible.
+        Never attempt to wipe the tooth off, since remnants of the ligament that
+        hold the tooth in the jaw are attached and are vital to the success of
+        replanting the tooth. Other dental specialists may be called upon such
+        as endodontists, who may be asked to perform root canal therapy, and/or
+        restorative dentists who may need to repair or rebuild fractured teeth.
+        In the event that injured teeth cannot be saved or repaired, dental
+        implants are often now utilized as replacements for missing teeth. The
+        proper treatment of facial injuries is now the realm of specialists who
+        are well versed in emergency care, acute treatment, long term
+        reconstruction and rehabilitation of the patient.
+    </Accordion>
+  </SidebarLayout>
+</Layout>

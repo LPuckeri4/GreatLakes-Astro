@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../components/shared/SidebarLayout.astro';
+import PageHeading from '../../components/shared/PageHeading.astro';
+import Accordion from '../../components/shared/Accordion.astro';
+
+const navItems = [
+  { label: 'Dental Implants', href: '/surgery/dental-implants', image: '/img/tooth1.png' },
+  { label: 'Wisdom Teeth', href: '/surgery/wisdom-teeth', image: '/img/tooth2.png' },
+  { label: 'Tooth Extraction', href: '/surgery/tooth-extraction', image: '/img/tooth3.png' },
+  { label: 'Bone Grafting', href: '/surgery/bone-grafting', image: '/img/tooth4.png' },
+  { label: 'Orthodontic Surgery', href: '/surgery/orthodontic-surgery', image: '/img/tooth5.png' },
+  { label: 'Facial Trauma', href: '/surgery/facial-trauma', image: '/img/tooth6.png' },
+  { label: 'Oral Pathology', href: '/surgery/oral-pathology', image: '/img/tooth7.png' },
+  { label: 'Jaw Corrective', href: '/surgery/jaw-corrective', image: '/img/tooth8.png' },
+  { label: 'TMJ Disorder', href: '/surgery/tmj-disorder', image: '/img/tooth9.png' },
+];
+---
+
+<Layout title="Extraction of Routine Teeth - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname}>
+    <PageHeading title="Extraction of Routine Teeth" />
+    <p class="mb-8 leading-relaxed" style="color: #515151">You, your Dentist and your surgeon may determine that you need a tooth
+        extraction for any number of reasons. Some teeth are extracted because
+        they are severely decayed; others may have advanced periodontal disease,
+        or have broken in a way that cannot be repaired. Other teeth may need
+        removal because they are poorly positioned in the mouth (such as
+        impacted teeth), or in preparation for orthodontic treatment. The
+        removal of a single tooth can lead to problems related to your chewing
+        ability, problems with your jaw joint, and shifting teeth, which can
+        have a major impact on your dental health. To avoid these complications,
+        in most cases, your surgeon will discuss alternatives to extractions as
+        well as replacement of the extracted tooth.</p>
+
+    <div class="mb-10">
+      <iframe
+        class="w-full max-w-[600px] aspect-video"
+        src="https://www.youtube.com/embed/BvGQ4ilPKws"
+        title="Extraction of Routine Teeth"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <Accordion title="The Extraction Process">
+      At the time of extraction your surgeon will need to numb your tooth,
+        jawbone and gums that surround the area with a local anesthetic.
+        Additional forms of anesthesia are available, if needed, although they
+        may require another appointment. During the extraction process you will
+        feel a lot of pressure. This is from the process of firmly rocking the
+        tooth in order to widen the socket for removal. You may feel pressure
+        during your extractions, but should not feel pain. If you do feel pain
+        at any time during the extraction please let us know right away. We will
+        stop what we are doing in order to make you more comfortable before
+        completing your extraction.
+    </Accordion>
+
+    <Accordion title="Sectioning a Tooth">
+      Some teeth require sectioning. This is a very common procedure done when
+        a tooth is so firmly anchored in its socket or the root is curved and
+        the socket can’t expand enough to remove it. The doctor simply cuts the
+        tooth into sections then removes each section one at a time.
+    </Accordion>
+  </SidebarLayout>
+</Layout>

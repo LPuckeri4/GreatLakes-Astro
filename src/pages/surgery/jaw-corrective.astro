@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../components/shared/SidebarLayout.astro';
+import PageHeading from '../../components/shared/PageHeading.astro';
+import Accordion from '../../components/shared/Accordion.astro';
+
+const navItems = [
+  { label: 'Dental Implants', href: '/surgery/dental-implants', image: '/img/tooth1.png' },
+  { label: 'Wisdom Teeth', href: '/surgery/wisdom-teeth', image: '/img/tooth2.png' },
+  { label: 'Tooth Extraction', href: '/surgery/tooth-extraction', image: '/img/tooth3.png' },
+  { label: 'Bone Grafting', href: '/surgery/bone-grafting', image: '/img/tooth4.png' },
+  { label: 'Orthodontic Surgery', href: '/surgery/orthodontic-surgery', image: '/img/tooth5.png' },
+  { label: 'Facial Trauma', href: '/surgery/facial-trauma', image: '/img/tooth6.png' },
+  { label: 'Oral Pathology', href: '/surgery/oral-pathology', image: '/img/tooth7.png' },
+  { label: 'Jaw Corrective', href: '/surgery/jaw-corrective', image: '/img/tooth8.png' },
+  { label: 'TMJ Disorder', href: '/surgery/tmj-disorder', image: '/img/tooth9.png' },
+];
+---
+
+<Layout title="Orthognathic Jaw Surgery (Corrective Jaw Surgery) - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname}>
+    <PageHeading title="Orthognathic Jaw Surgery (Corrective Jaw Surgery)" />
+    <p class="mb-8 leading-relaxed" style="color: #515151">Orthognathic surgery is needed when the jaws, and the teeth within them don't seem to fit together correctly. Teeth are straightened with orthodontics and corrective jaw surgery repositions misaligned jaws. This not only improves facial appearance, but more importantly ensures that teeth meet correctly and function properly against each other.</p>
+
+    <Accordion title="Who Needs Orthognathic Surgery?">
+      People who can benefit from orthognathic surgery include those with an
+        improper bite or jaws that are positioned incorrectly. Jaw growth is a
+        gradual process and in some instances, the upper and lower jaws may grow
+        at different rates. The result can be a host of problems that can affect
+        chewing function, speech, long-term oral health and appearance. Injury
+        to the jaw and birth defects can also affect jaw alignment. Orthodontics
+        alone can correct bite problems when only the teeth are involved.
+        Orthognathic surgery may be required for the jaws when repositioning is
+        necessary.
+    </Accordion>
+
+    <Accordion title="Difficulty in the following areas should be evaluated:">
+      <ul>
+          <li>difficulty in chewing, biting or swallowing</li>
+          <li>speech problems</li>
+          <li>chronic jaw or TMJ pain</li>
+          <li>open bite (teeth not in contact while biting together)</li>
+          <li>protruding jaw</li>
+          <li>breathing problems</li>
+          <li>facial deformity and/or deformity</li>
+        </ul>
+        Any of these symptoms can exist at birth, be acquired after birth as a
+        result of hereditary or environmental influences or as a result of
+        trauma to the face. Before any treatment begins, a consultation will be
+        held to perform a complete examination with x-rays. During the
+        pre-treatment consultation process, feel free to ask any questions that
+        you have regarding your treatment. When you are fully informed about the
+        aspects of your care, you and your dental team will make the decision to
+        proceed with treatment together. If you are a candidate for Corrective
+        Jaw Surgery, your surgeon will work closely with your dentist and
+        orthodontist during your treatment. The actual surgery can move your
+        teeth and jaws into a new position that results in a more attractive,
+        functional and healthy dental-facial relationship.
+    </Accordion>
+  </SidebarLayout>
+</Layout>

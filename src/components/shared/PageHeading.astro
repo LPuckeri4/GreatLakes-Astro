@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<div class="mb-6">
+  <h2 class="text-2xl mb-1 inline-block">{title}</h2>
+  <div class="underline-blue-heading"></div>
+</div>
+
+<style>
+  .underline-blue-heading {
+    height: 3px;
+    width: 70%;
+    background-image: linear-gradient(to left, rgba(255,0,0,0), #114c74 50%);
+    background-repeat: no-repeat;
+    margin-bottom: 24px;
+  }
+</style>

@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../components/shared/SidebarLayout.astro';
+import PageHeading from '../../components/shared/PageHeading.astro';
+import Accordion from '../../components/shared/Accordion.astro';
+
+const navItems = [
+  { label: 'Dental Implants', href: '/surgery/dental-implants', image: '/img/tooth1.png' },
+  { label: 'Wisdom Teeth', href: '/surgery/wisdom-teeth', image: '/img/tooth2.png' },
+  { label: 'Tooth Extraction', href: '/surgery/tooth-extraction', image: '/img/tooth3.png' },
+  { label: 'Bone Grafting', href: '/surgery/bone-grafting', image: '/img/tooth4.png' },
+  { label: 'Orthodontic Surgery', href: '/surgery/orthodontic-surgery', image: '/img/tooth5.png' },
+  { label: 'Facial Trauma', href: '/surgery/facial-trauma', image: '/img/tooth6.png' },
+  { label: 'Oral Pathology', href: '/surgery/oral-pathology', image: '/img/tooth7.png' },
+  { label: 'Jaw Corrective', href: '/surgery/jaw-corrective', image: '/img/tooth8.png' },
+  { label: 'TMJ Disorder', href: '/surgery/tmj-disorder', image: '/img/tooth9.png' },
+];
+---
+
+<Layout title="Wisdom Teeth - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname}>
+    <PageHeading title="Wisdom Teeth" />
+    <p class="mb-8 leading-relaxed" style="color: #515151">By the age of eighteen, most adults have developed 32 teeth; 16 teeth on
+        the top and 16 teeth on the bottom. Each tooth in the mouth has a
+        specific name and function. The teeth in the front of the mouth
+        (incisors and canines) are ideal for grasping and biting food into
+        smaller pieces. The back teeth or premolars and molars are used to grind
+        food up into a consistency suitable for swallowing. <br />
+        <br />
+        The average mouth is made to hold only 28 teeth. It can be painful when
+        32 teeth try to fit in a mouth that holds only 28 teeth. These last four
+        teeth in the back of your mouth are known as Third Molars, or “wisdom
+        teeth.”</p>
+
+    <div class="mb-10">
+      <iframe
+        class="w-full max-w-[600px] aspect-video"
+        src="https://www.youtube.com/embed/pQVO4JhIBq4"
+        title="Wisdom Teeth"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <Accordion title="Why Should I Remove My Wisdom Teeth?">
+      Wisdom teeth are the last teeth to erupt within the mouth. When they align properly and gum tissue is healthy, wisdom teeth do not have to be removed. Unfortunately, this does not generally happen. The extraction of wisdom teeth is necessary when they are prevented from properly erupting within the mouth. They may grow sideways, partially emerge through the gum and even remain trapped beneath the gum and bone. Impacted teeth can take many positions in the bone as they attempt to find a pathway that will allow them to erupt successfully.
+      <br /><br />
+      These poorly positioned impacted teeth can cause many problems. When they are partially erupted, the opening around the tooth allows bacteria to enter and will eventually cause an infection. The result: swelling, stiffness, pain and illness. The pressure from the erupting wisdom tooth may move other teeth and disrupt the orthodontic or natural alignment of teeth. The most serious problem occurs when tumors or cysts form around the impacted wisdom tooth, resulting in the destruction of the jawbone and healthy teeth. Removal of the offending impacted tooth or teeth usually resolves these problems. Early removal is recommended to avoid such future problems and to decrease the surgical risk involved with the procedure.
+    </Accordion>
+
+    <Accordion title="Oral Examination">
+      With an oral examination and x-rays of the mouth, your surgeon can evaluate the position of the wisdom teeth and predict if there may be present or future problems. Studies have shown that early evaluation and treatment result in a superior outcome for the patient. Patients are generally first evaluated in the mid-teenage years by their dentist, orthodontist or by an oral and maxillofacial surgeon. All outpatient surgery is performed under appropriate anesthesia to maximize patient comfort. Your surgeon has the training, license and experience to provide various types of anesthesia for patients to select the best alternative. These include local anesthesia, or an I.V. anesthetic. Occasionally, special circumstances dictate that the procedure be performed with general anesthesia as an out-patient in the hospital.
+    </Accordion>
+
+    <Accordion title="Removal">
+      Anesthetic options as well as the surgical risks (i.e. sensory nerve damage, sinus complications, possible damage to adjacent teeth and possible TMJ disorders) will be discussed with you before the procedure is performed. Once the teeth are removed, the gum is sutured. To help control bleeding, bite down on the gauze placed in your mouth. You will rest under our supervision in the office until you are ready to be taken home. Upon discharge, your post-operative kit will include postoperative instructions, a prescription for pain medication, anti-inflammatories, and a follow-up appointment in one week to ensure proper healing. If you have any questions, please do not hesitate to call us at <a href="tel:519-979-7227" style="color:#3A959B;font-weight:bold;text-decoration:none">519-979-7227</a>. Alternatively, many post-op questions may be answered by going to the "After Surgery" section of this website. Our services are provided in an environment of optimum safety that utilizes modern monitoring equipment and staff that are experienced in anesthesia techniques.
+    </Accordion>
+  </SidebarLayout>
+</Layout>

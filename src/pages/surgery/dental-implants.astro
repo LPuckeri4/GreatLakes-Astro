@@ -1,0 +1,69 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../components/shared/SidebarLayout.astro';
+import PageHeading from '../../components/shared/PageHeading.astro';
+import Accordion from '../../components/shared/Accordion.astro';
+
+const navItems = [
+  { label: 'Dental Implants', href: '/surgery/dental-implants', image: '/img/tooth1.png' },
+  { label: 'Wisdom Teeth', href: '/surgery/wisdom-teeth', image: '/img/tooth2.png' },
+  { label: 'Tooth Extraction', href: '/surgery/tooth-extraction', image: '/img/tooth3.png' },
+  { label: 'Bone Grafting', href: '/surgery/bone-grafting', image: '/img/tooth4.png' },
+  { label: 'Orthodontic Surgery', href: '/surgery/orthodontic-surgery', image: '/img/tooth5.png' },
+  { label: 'Facial Trauma', href: '/surgery/facial-trauma', image: '/img/tooth6.png' },
+  { label: 'Oral Pathology', href: '/surgery/oral-pathology', image: '/img/tooth7.png' },
+  { label: 'Jaw Corrective', href: '/surgery/jaw-corrective', image: '/img/tooth8.png' },
+  { label: 'TMJ Disorder', href: '/surgery/tmj-disorder', image: '/img/tooth9.png' },
+];
+---
+
+<Layout title="Dental Implants - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname}>
+    <PageHeading title="Dental Implants" />
+
+    <p class="mb-8 leading-relaxed" style="color: #515151">
+      Dental implants are changing the way people live. They are designed to provide a foundation for replacement teeth which look, feel and function like natural teeth. A person who has lost teeth regains the ability to eat virtually anything, knowing that teeth appear natural and that facial contours will be preserved. Patients with dental implants can smile with confidence.
+    </p>
+
+    <div class="mb-10">
+      <iframe
+        class="w-full max-w-[600px] aspect-video"
+        src="https://www.youtube.com/embed/sI_xjuUz-H4"
+        title="Dental Implants"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <Accordion title="What are Dental Implants?">
+      The implants themselves are tiny titanium posts, which are inserted into the jawbone where teeth are missing. These metal anchors act as tooth root substitutes. They are surgically placed into the jawbone. The bone bonds with the titanium, creating a strong foundation for artificial teeth. Small posts (abutments) are then attached to the implant, which protrude through the gums. These posts provide stable anchors for artificial replacement teeth. Implants also help preserve facial structure, preventing bone deterioration that occurs when teeth are missing.
+    </Accordion>
+    <Accordion title="The Surgical Procedure">
+      In the past, the placement of dental implants involved two surgical procedures. As technology has improved with time, the implant healing periods have shortened and most cases are completed with only one surgery. Posts protrude through the gums. When the artificial teeth are placed, these posts will not be seen. The entire procedure can take as little as 3 months, but sometimes requires more than a year if bone grafting is necessary. Most patients experience minimal disruption in their daily life.
+    </Accordion>
+    <Accordion title="Who actually performs the implant placement?">
+      Implants are a team effort between an Oral and Maxillofacial Surgeon and a Restorative Dentist. While your surgeon performs the actual implant surgery, and initial tooth extractions and bone grafting if necessary, the restorative dentist (your dentist) fits and makes the permanent prosthesis. Your dentist will also make any temporary prosthesis needed during the implant process.
+    </Accordion>
+    <Accordion title="What types of prostheses are available?">
+      A single prosthesis (crown) is used to replace one missing tooth – each prosthetic tooth attaches to its own implant. A partial prosthesis (fixed bridge) can replace two or more teeth and may require only two or three implants. A complete dental prosthesis (fixed bridge) replaces all the teeth in your upper or lower jaw. The number of implants varies depending upon which type of complete prosthesis (removable or fixed) is recommended. A removable prosthesis (over denture) attaches to a bar or ball in socket attachments, whereas a fixed prosthesis is permanent and removable only by the dentist. Your surgeon performs in-office implant surgery in a hospital-style operating suite. Inpatient hospital implant surgery is for patients who have special medical or anesthetic needs or for those who need extensive bone grafting from the jaw, hip or tibia.
+    </Accordion>
+    <Accordion title="Why dental implants?">
+      Once you learn about dental implants, you finally realize there is a way to improve your life. When you lose several teeth – whether it's a new situation or something you have lived with for years – chances are you have never become fully accustomed to losing such a vital part of yourself.
+    </Accordion>
+    <Accordion title="Dental implants can be your doorway to renewed self-confidence and peace of mind">
+      A Swedish scientist and orthopedic surgeon, Dr. Per-Ingvar Branemark, developed this concept for oral rehabilitation more than fourty years ago. With his pioneering research, Dr. Branemark opened the door to a lifetime of renewed comfort and self-confidence for millions of individuals facing the frustration and embarrassment of tooth loss.
+    </Accordion>
+    <Accordion title="Why would you select dental implants over more traditional types of restorations?">
+      There are several reasons: Why sacrifice the structure of surrounding good teeth to bridge a space? In addition, removing a denture or a "partial" at night may be inconvenient, not to mention that dentures that slip can be uncomfortable and rather embarrassing.
+    </Accordion>
+    <Accordion title="Are you a candidate for implants?">
+      If you are considering implants, first your mouth must be clinically examined thoroughly and your medical and dental history reviewed. Then, a radiographic evaluation must be performed and correlated with clinical findings. If your mouth is not ideal for implants, ways of improving outcome, such as bone grafting, may be recommended.
+    </Accordion>
+    <Accordion title="What type of anesthesia is used?">
+      The majority of dental implants and bone graft can be performed in the office under local anesthesia, with or without an I.V. anesthetic.
+    </Accordion>
+    <Accordion title="Do Implants need special care?">
+      Once the implants are in place, they will serve you well for many years if you take care of them and keep your mouth healthy. This means taking the time for good oral hygiene (brushing and flossing) and keeping regular appointments with your dental specialists.
+    </Accordion>
+  </SidebarLayout>
+</Layout>

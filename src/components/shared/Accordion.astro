@@ -1,0 +1,59 @@
+---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<details class="accordion">
+  <summary class="accordion-summary">
+    <span class="sans-heading text-lg">{title}</span>
+    <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+    </svg>
+  </summary>
+  <div class="accordion-body" style="color: #515151">
+    <slot />
+  </div>
+</details>
+
+<style>
+  .accordion {
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s;
+    margin: 4px 0;
+  }
+  .accordion[open],
+  .accordion:hover {
+    border-left-color: #3A959B;
+  }
+  .accordion[open] .accordion-summary,
+  .accordion:hover .accordion-summary {
+    color: #3A959B;
+  }
+  .accordion[open] .accordion-icon {
+    transform: rotate(180deg);
+  }
+  .accordion-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 10px 0;
+    color: #222222;
+    list-style: none;
+    transition: color 0.2s;
+  }
+  .accordion-summary::-webkit-details-marker { display: none; }
+  .accordion-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .accordion-body {
+    padding: 8px 0 16px;
+    max-width: 700px;
+    line-height: 1.7;
+  }
+</style>

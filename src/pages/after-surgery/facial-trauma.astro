@@ -1,0 +1,143 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../components/shared/SidebarLayout.astro';
+import PageHeading from '../../components/shared/PageHeading.astro';
+import Accordion from '../../components/shared/Accordion.astro';
+
+const navItems = [
+  { label: 'General Instructions', href: '/after-surgery/general-instructions', image: '/img/tooth10.png' },
+  { label: 'Tooth Removal', href: '/after-surgery/tooth-removal', image: '/img/tooth3.png' },
+  { label: 'Wisdom Teeth Removal', href: '/after-surgery/wisdom-teeth-removal', image: '/img/tooth2.png' },
+  { label: 'Facial Trauma', href: '/after-surgery/facial-trauma', image: '/img/tooth6.png' },
+  { label: 'Exposure of Impacted Tooth', href: '/after-surgery/exposure-of-impacted-tooth', image: '/img/tooth11.png' },
+  { label: 'Placement of Dental Implants', href: '/after-surgery/placement-of-dental-implants', image: '/img/tooth1.png' },
+  { label: 'Removal of Multiple Teeth', href: '/after-surgery/removal-of-multiple-teeth', image: '/img/tooth12.png' },
+];
+---
+
+<Layout title="After Facial Trauma - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="After a Procedure" navItems={navItems} currentPath={Astro.url.pathname}>
+    <PageHeading title="After Facial Trauma" />
+    <p class="mb-8 leading-relaxed" style="color: #515151">Discharge instructions for facial trauma. Please follow all guidelines carefully to ensure proper healing and minimize complications.</p>
+
+    <Accordion title="Fractured Nasal Bone (Nose)">
+      <ul>
+          <li>Keep ice to top of nose for first day if nose is not splinted</li>
+          <li>
+            If nose is splinted and packed, maintain splint and packing until
+            seen in office
+          </li>
+          <li>No nose blowing</li>
+          <li>No heavy lifting or strenuous exercise</li>
+          <li>Sleep with head elevated with pillows for first 3 to 4 days</li>
+          <li>If nose continues to bleed, call the office</li>
+        </ul>
+    </Accordion>
+
+    <Accordion title="Maxillary Mandible Fractures (Upper and Lower Jaws)">
+      <ul>
+          <li>Keep ice to area of broken bone for first 2 days</li>
+          <li>Sleep with head elevated for first 3 to 4 days</li>
+          <li>Keep mouth clean by rinsing and brushing teeth</li>
+          <li>Diet - soft foods & liquids only. NO CHEWING!</li>
+          <li>
+            If elastics or wired shut and 1 or 2 fall off, no need to worry
+            until next office visit
+          </li>
+          <li>No heavy lifting or strenuous exercise</li>
+          <li>
+            If jaws wired shut, may use straw for delivery of soft foods and
+            liquids
+          </li>
+          <li>
+            If sutures have been placed and profuse bleeding from incision site,
+            call the office
+          </li>
+          <li>
+            If sutures have been placed and a couple dislodge, no need to worry
+          </li>
+          <li>
+            If swelling increases after the 3rd or 4th day, call the office
+          </li>
+          <li>
+            Although you may be able to open and close your lower jaw, you must
+            remember it is considered still broken 4-6 weeks after the injury
+          </li>
+          <li>
+            Plates and screws that have been placed will be maintained unless
+            otherwise indicated for removal
+          </li>
+          <li>
+            Remember a numb feeling to the lower lip, chin, or tongue area may
+            be normal with the particular fracture. This may or may not resolve
+            in time.
+          </li>
+          <li>
+            If fractured jaw not repaired as of yet & sent home, still follow
+            above applicable instructions
+          </li>
+          <li>Clean bars & wires on teeth as well as brushing teeth</li>
+        </ul>
+    </Accordion>
+
+    <Accordion title="Zygomatico-Orbital Fractures (Cheek Bone/Orbital Bone Fractures)">
+      <ul>
+          <li>
+            Keep ice to face in area of fracture for first 1-2 days after
+            fracture/surgery
+          </li>
+          <li>
+            Sleep with head elevated with pillows for the first 3 to 4 days
+          </li>
+          <li>
+            Remember that numbness to the fracture side of the face is normal
+            for this particular fracture and may or may not resolve with time
+          </li>
+          <li>Do not sleep on affected side of face</li>
+          <li>
+            If pain or loss of vision in eye, call the office or go to the
+            Emergency Room immediately
+          </li>
+          <li>
+            Double vision may be normal for this type of fracture & may resolve
+            with surgery or time
+          </li>
+          <li>No nose blowing</li>
+          <li>No heavy lifting or strenuous exercise</li>
+          <li>Apply antibiotic ointment to surgical incision 2 times a day</li>
+        </ul>
+    </Accordion>
+
+    <Accordion title="Dento-Alveolar Fracture (Tooth & Gum Injuries)">
+      <ul>
+          <li>Soft foods and liquid for diet</li>
+          <li>Expect that hot and cold temperatures may cause sensitivity</li>
+          <li>
+            Expect that root canal treatment may be necessary in the near future
+          </li>
+          <li>Brush teeth and keep wires clean</li>
+          <li>
+            If increase in swelling, pain and/or associated bad taste in mouth
+            please call the office and make an appointment
+          </li>
+        </ul>
+    </Accordion>
+
+    <Accordion title="Lacerations">
+      <ul>
+          <li>Keep wounds clean and clear of scabs</li>
+          <li>
+            Apply antibiotic ointment to wounds after cleaning 2 times a day
+          </li>
+          <li>
+            If dressing is placed over wounds, maintain dressing seen in the
+            office
+          </li>
+          <li>
+            Avoid sun exposure for first 6 months to a year by applying complete
+            block sunscreen to wounds once healed
+          </li>
+        </ul>
+    </Accordion>
+  </SidebarLayout>
+</Layout>
