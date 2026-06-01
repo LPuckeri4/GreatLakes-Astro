@@ -1,31 +1,40 @@
 ---
+import { getImage } from 'astro:assets';
+import ContactCards from './ContactCards.astro';
+import bg445Src from '../../assets/images/bg445.jpg';
+
+const heroBg = await getImage({ src: bg445Src, format: 'webp' });
 ---
 
 <section
-  class="w-full min-h-[550px] h-screen bg-cover bg-center flex items-center px-[4%] pb-[150px] pt-[100px] sm:pt-0"
-  style="background-image: url('/img/lakesbg44.png')"
+  class="w-full min-h-[600px] h-[calc(100vh-100px)] bg-cover bg-center flex flex-col pb-10"
+  style={`background-image: url('${heroBg.src}')`}
 >
-  <div class="hero-content w-full md:w-7/12 md:ml-auto max-w-[600px] mx-auto md:mx-0 p-5">
-    <h1 class="hero-heading text-5xl leading-tight mb-3">
-      Empowering <span class="hero-accent text-[#222222]">smiles</span> with surgical expertise
-    </h1>
-    <p class="text-xl mt-2" style="color: #515151;">
-      Rest assured you're in good hands with our exceptional team and state-of-the-art equipment.
-    </p>
-    <div class="flex flex-wrap gap-2 mt-6 justify-around">
-      <a href="/about" class="btn-teal inline-flex justify-center items-center px-8 py-2 w-[240px] text-lg">
-        Learn More
-      </a>
-      <a href="/surgery" class="btn-dark inline-flex justify-center items-center px-8 py-2 w-[240px] text-lg">
-        Our Services
-      </a>
+  <!-- Main content — vertically centered in remaining space -->
+  <div class="flex-1 flex items-center">
+    <div class="max-w-7xl mx-auto w-full px-6 lg:px-8">
+      <div class="hero-block w-full md:w-1/2 max-w-[600px]">
+        <h1 class="hero-heading text-4xl md:text-5xl leading-tight mb-5">
+          Empowering <span class="hero-accent text-[#222222]">smiles</span> with surgical expertise
+        </h1>
+        <p class="text-base md:text-lg mt-2 mb-8" style="color: #515151;">
+          Rest assured you're in good hands with our exceptional team and state-of-the-art equipment.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/about" class="btn-teal px-8 py-3 text-base">Learn More</a>
+          <a href="/surgery/dental-implants" class="btn-dark px-8 py-3 text-base">Our Services</a>
+        </div>
+      </div>
     </div>
   </div>
+
+  <!-- Contact cards pinned to bottom of hero -->
+  <ContactCards />
 </section>
 
 <style>
-  .hero-content {
-    animation: fadeIn 2s ease-out 0.2s both;
+  .hero-block {
+    animation: fadeIn 1.2s ease-out 0.2s both;
   }
   .hero-heading {
     font-family: 'Playfair Display', serif;
@@ -35,8 +44,8 @@
     animation: accentColor 1s ease-out 1.5s both;
   }
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   @keyframes accentColor {
     from { color: #222222; }

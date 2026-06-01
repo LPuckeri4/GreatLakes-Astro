@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Picture } from 'astro:assets';
+import shuren1Src from '../assets/images/shuren1.png';
+import stapleford1Src from '../assets/images/stapleford1.png';
 ---
 
 <Layout
@@ -17,7 +20,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="flex flex-wrap items-start gap-6">
         <!-- Photo -->
         <div class="flex justify-center w-full sm:w-auto sm:flex-shrink-0">
-          <img src="/img/shuren1.png" alt="Dr. Mark Shuren" class="h-[270px] sm:h-[350px] object-cover" />
+          <Picture src={shuren1Src} formats={["avif", "webp"]} alt="Dr. Mark Shuren" class="h-[270px] sm:h-[350px] object-cover" />
         </div>
         <!-- Bio + Table -->
         <div class="flex-1 flex flex-wrap gap-6 min-w-0">
@@ -86,7 +89,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="flex flex-wrap items-start gap-6">
         <!-- Photo -->
         <div class="flex justify-center w-full sm:w-auto sm:flex-shrink-0">
-          <img src="/img/stapleford1.png" alt="Dr. Richard Stapleford" class="h-[270px] sm:h-[350px] object-cover" />
+          <Picture src={stapleford1Src} formats={["avif", "webp"]} alt="Dr. Richard Stapleford" class="h-[270px] sm:h-[350px] object-cover" />
         </div>
         <!-- Bio + Table -->
         <div class="flex-1 flex flex-wrap gap-6 min-w-0">

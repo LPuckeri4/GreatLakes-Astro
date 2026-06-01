@@ -1,8 +1,11 @@
 ---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 interface NavItem {
   label: string;
   href: string;
-  image: string;
+  image: ImageMetadata;
 }
 
 interface Props {
@@ -12,37 +15,76 @@ interface Props {
 }
 
 const { title, navItems, currentPath } = Astro.props;
+const hasCardHeader = Astro.slots.has('card-header');
 ---
 
-<div class="min-h-screen pt-[150px] pb-16">
-  <div class="flex flex-col items-center mb-8 md:mb-16">
+<div class="page-wrap min-h-screen pt-12 pb-16">
+  <div class="flex flex-col items-center mb-8">
     <h1 class="text-3xl text-center mb-2">{title}</h1>
     <div class="underline-teal-center"></div>
   </div>
 
-  <div class="flex flex-wrap">
-    <nav class="w-full md:w-1/3 flex flex-col items-center md:items-end pr-0 md:pr-5 pb-8 md:pb-0 border-b md:border-b-0 md:border-r-2 border-gray-300">
-      {navItems.map(item => {
-        const isActive = currentPath === item.href || currentPath.startsWith(item.href + '/');
-        return (
-          <a
-            href={item.href}
-            class:list={['nav-item', isActive && 'nav-item-active']}
-          >
-            <img src={item.image} alt={item.label} class:list={['nav-img', isActive && 'nav-img-active']} />
-            <span class="sans-heading text-lg">{item.label}</span>
-          </a>
-        );
-      })}
-    </nav>
+  <div class="mx-auto max-w-7xl px-4 md:px-8 flex flex-col lg:flex-row gap-5">
+    <!-- Sidebar -->
+    <div class="sidebar-card w-full lg:w-[280px] shrink-0">
+      <p class="sidebar-header">Select Procedure</p>
+      <nav class="flex flex-col gap-2">
+        {navItems.map(item => {
+          const isActive = currentPath === item.href || currentPath.startsWith(item.href + '/');
+          return (
+            <a
+              href={item.href}
+              class:list={['nav-item', isActive && 'nav-item-active']}
+            >
+              <div class:list={['nav-icon-box', isActive && 'nav-icon-box-active']}>
+                <Picture src={item.image} alt={item.label} widths={[40, 80, 120]} sizes="40px" formats={['webp', 'png']} class:list={['nav-img', isActive && 'nav-img-active']} />
+              </div>
+              <span class="nav-label">{item.label}</span>
+            </a>
+          );
+        })}
+      </nav>
+    </div>
 
-    <div class="w-full md:w-2/3 px-5 md:px-8 pt-8 md:pt-0 max-w-[950px]">
-      <slot />
+    <!-- Content -->
+    <div class="flex-1 min-w-0">
+      {hasCardHeader ? (
+        <div>
+          <div class="content-card">
+            <div class="card-header-section">
+              <slot name="card-header" />
+            </div>
+            <div class="card-body-section">
+              <slot />
+            </div>
+          </div>
+          <div class="assistance-box">
+            <div class="assistance-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="22" height="22">
+                <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="assistance-title">Have Questions or Concerns?</p>
+              <p class="assistance-text">Don't hesitate to call the office to speak with a nurse.</p>
+              <a href="tel:5199797227" class="assistance-phone">(519) 979-7227</a>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div class="pt-2">
+          <slot />
+        </div>
+      )}
     </div>
   </div>
 </div>
 
 <style>
+  .page-wrap {
+    background-color: #f6f6f6;
+  }
+
   .underline-teal-center {
     height: 4px;
     width: 50px;
@@ -50,31 +92,145 @@ const { title, navItems, currentPath } = Astro.props;
     margin: 0 auto;
   }
 
+  /* Sidebar card */
+  .sidebar-card {
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    padding: 20px 16px 16px;
+    align-self: flex-start;
+  }
+
+  .sidebar-header {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #999;
+    margin: 0 4px 14px;
+  }
+
+  /* Sidebar items */
   .nav-item {
     display: flex;
     align-items: center;
-    min-height: 40px;
+    gap: 14px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: none;
+    background: transparent;
     text-decoration: none;
-    width: 100%;
-    max-width: 250px;
-    margin: 8px 0;
-    color: #222222;
-    background-color: white;
-    transition: background-color 0.15s, color 0.15s;
-    padding: 2px 0;
+    color: #374151;
+    transition: background-color 0.15s ease;
   }
-  .nav-item:hover,
+  .nav-item:hover {
+    background-color: rgba(58, 149, 155, 0.06);
+  }
   .nav-item-active {
-    background-color: #3A959B;
-    color: white;
+    background-color: #3A959B !important;
+    color: white !important;
   }
-  .nav-item:hover .nav-img,
+
+  .nav-icon-box {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
   .nav-img-active {
     filter: brightness(0) invert(1);
   }
-  .nav-img {
-    width: 50px;
-    margin: 5px 10px;
+
+  .nav-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+
+  /* Card wrapper (used by after-surgery pages) */
+  .content-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+    overflow: hidden;
+  }
+  .card-header-section {
+    background-color: rgba(58,149,155,0.1);
+    border-bottom: 1px solid rgba(58,149,155,0.2);
+    padding: 32px 44px;
+  }
+  .card-header-section :global(h2) {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #222222;
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+  }
+  .card-header-section :global(p) {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .card-body-section {
+    padding: 0 44px 44px;
+  }
+
+  .assistance-box {
+    margin-top: 20px;
+    border-radius: 12px;
+    border-left: 4px solid #3A959B;
+    background: linear-gradient(to right, rgba(58,149,155,0.1), rgba(58,149,155,0.04));
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 20px 24px;
+  }
+  .assistance-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: #3A959B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
   }
+  .assistance-title {
+    font-weight: 600;
+    color: #222222;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+  }
+  .assistance-text {
+    font-size: 0.875rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0 0 6px 0;
+  }
+  .assistance-phone {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #3A959B;
+    text-decoration: none;
+  }
+  .assistance-phone:hover {
+    text-decoration: underline;
+  }
 </style>
+
+<script>
+  const firstAccordion = document.querySelector('.card-body-section details');
+  if (firstAccordion) (firstAccordion as HTMLDetailsElement).open = true;
+</script>

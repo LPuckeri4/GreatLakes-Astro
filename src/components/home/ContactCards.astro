@@ -1,50 +1,91 @@
 ---
+import { Image } from 'astro:assets';
+import callIcon from '../../assets/images/call.png';
+import locationIcon from '../../assets/images/location.png';
+import calendarIcon from '../../assets/images/calendar.png';
 ---
 
-<div class="contact-cards flex flex-wrap justify-center -mt-[50px] md:-mt-[150px] relative z-10">
-  <!-- Call -->
-  <div class="p-5 w-[350px] min-h-[300px] bg-[#28686c]">
-    <img src="/img/call.png" alt="call" width="40" class="invert" />
-    <div class="border-t border-white/30 my-2"></div>
-    <p class="sans-heading text-white font-bold text-xl mb-2">Contact us</p>
-    <p class="text-white mb-6">Call us by phone during our regular business hours</p>
-    <a href="tel:519-979-7227" class="text-white no-underline hover:opacity-80 hover:scale-105 transition-transform inline-block">
-      Phone: 519-979-7227
-    </a>
-  </div>
+<div class="contact-cards w-full relative z-10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-  <!-- Location -->
-  <div class="p-5 w-[350px] min-h-[300px] bg-[#3A959B]">
-    <img src="/img/location.png" alt="location" width="40" class="invert" />
-    <div class="border-t border-white/30 my-2"></div>
-    <p class="sans-heading text-white font-bold text-xl mb-2">Our Location</p>
-    <a
-      href="https://maps.app.goo.gl/RR1CFZ7nuH5dH26KA"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="text-white no-underline font-bold hover:scale-105 transition-transform inline-block"
-    >
-      1825 Manning Rd | Studio 700 Tecumseh | ON | N9K 0A9
-    </a>
-  </div>
+      <!-- Contact Us -->
+      <a href="tel:519-734-4235" class="card block bg-white rounded-lg p-5 no-underline text-inherit">
+        <div class="flex items-start gap-4">
+          <div class="card-icon w-12 h-12 rounded-full bg-[#3A959B] flex items-center justify-center flex-shrink-0">
+            <Image src={callIcon} alt="call" width={22} class="invert" />
+          </div>
+          <div>
+            <p class="sans-heading font-bold text-[#3A959B] text-base mb-1">Contact Us</p>
+            <div class="w-8 h-0.5 bg-[#3A959B] mb-2"></div>
+            <p class="text-sm text-gray-500 mb-2">Call us by phone during our regular business hours.</p>
+            <p class="text-[#3A959B] text-xl font-bold">(519) 734-4235</p>
+          </div>
+        </div>
+      </a>
 
-  <!-- Hours -->
-  <div class="p-5 w-[350px] min-h-[300px] bg-[#deeded]">
-    <img src="/img/calendar.png" alt="hours" width="40" />
-    <div class="border-t border-black/10 my-2"></div>
-    <p class="sans-heading font-bold text-xl mb-2">Hours of Operation</p>
-    <a href="#contact" class="no-underline text-[#222222] font-bold hover:scale-105 transition-transform inline-block">
-      Mon to Thurs • 8am - 5pm <br /><br /> Fri • 8am - 3pm
-    </a>
+      <!-- Our Location -->
+      <a
+        href="https://maps.app.goo.gl/RR1CFZ7nuH5dH26KA"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="card block bg-white rounded-lg p-5 no-underline text-inherit"
+      >
+        <div class="flex items-start gap-4">
+          <div class="card-icon w-12 h-12 rounded-full bg-[#3A959B] flex items-center justify-center flex-shrink-0">
+            <Image src={locationIcon} alt="location" width={22} class="invert" />
+          </div>
+          <div>
+            <p class="sans-heading font-bold text-[#3A959B] text-base mb-1">Our Location</p>
+            <div class="w-8 h-0.5 bg-[#3A959B] mb-2"></div>
+            <p class="text-sm text-gray-500">1825 Manning Rd | Studio 700 Tecumseh | ON | N9K 0A9</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Hours of Operation -->
+      <a href="#contact" class="card block bg-white rounded-lg p-5 no-underline text-inherit">
+        <div class="flex items-start gap-4">
+          <div class="card-icon w-12 h-12 rounded-full bg-[#3A959B] flex items-center justify-center flex-shrink-0">
+            <Image src={calendarIcon} alt="hours" width={22} class="invert" />
+          </div>
+          <div>
+            <p class="sans-heading font-bold text-[#3A959B] text-base mb-1">Hours of Operation</p>
+            <div class="w-8 h-0.5 bg-[#3A959B] mb-2"></div>
+            <p class="text-sm text-gray-500">
+              Mon to Thurs: 8:00 AM – 5:00 PM<br />
+              Friday: 8:00 AM – 3:00 PM
+            </p>
+          </div>
+        </div>
+      </a>
+
+    </div>
   </div>
 </div>
 
 <style>
+  .card {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.13);
+    border: 1px solid #f3f4f6;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
+    border-color: #3A959B;
+  }
+  .card-icon {
+    transition: transform 0.25s ease;
+  }
+  .card:hover .card-icon {
+    transform: scale(1.1);
+  }
   .contact-cards {
     animation: slideUp 1s ease-out 0.7s both;
   }
   @keyframes slideUp {
-    from { opacity: 0; transform: translateY(100px); }
+    from { opacity: 0; transform: translateY(60px); }
     to { opacity: 1; transform: translateY(0); }
   }
 </style>

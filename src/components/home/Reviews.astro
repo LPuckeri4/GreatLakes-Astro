@@ -1,4 +1,12 @@
 ---
+import { getImage, Image } from 'astro:assets';
+import reviewbg1Src from '../../assets/images/reviewbg1.jpg';
+import whitebg1Src from '../../assets/images/whitebg1.jpg';
+import stars1Src from '../../assets/images/stars1.png';
+
+const reviewBg = await getImage({ src: reviewbg1Src, format: 'webp' });
+const whiteBg = await getImage({ src: whitebg1Src, format: 'webp' });
+
 const reviews = [
   {
     name: 'Melissa Broderick',
@@ -22,30 +30,34 @@ const reviews = [
 ---
 
 <div
-  class="flex flex-wrap justify-around mt-[100px] w-full min-h-[1000px] bg-cover bg-center md:bg-left items-start pt-10"
-  style="background-image: url('/img/reviewbg1.jpg')"
+  class="mt-[100px] w-full min-h-[1000px] bg-cover bg-center md:bg-left pt-10"
+  style={`background-image: url('${reviewBg.src}')`}
 >
-  <div class="w-full flex justify-center">
-    <div class="text-center">
-      <h2 class="text-3xl font-semibold text-white mt-[100px] md:mt-[250px]">Our Reviews</h2>
-      <div class="reviews-underline" data-reviews-underline></div>
-      <div class="mb-10"></div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="w-full flex justify-center">
+      <div class="text-center">
+        <h2 class="text-3xl font-semibold text-white mt-[100px] md:mt-[250px]">Our Reviews</h2>
+        <div class="reviews-underline" data-reviews-underline></div>
+        <div class="mb-10"></div>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap justify-around items-start">
+      {reviews.map((r, i) => (
+        <a
+          href={r.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="review-card"
+          style={`--offset-lg: ${r.offsetLg}; background-image: url('${whiteBg.src}')`}
+        >
+          <h3 class="text-lg font-semibold mb-1">{r.name}</h3>
+          <Image src={stars1Src} alt="5 stars" width={100} class="mb-4" />
+          <p class="text-sm text-gray-600 overflow-hidden">{r.text}</p>
+        </a>
+      ))}
     </div>
   </div>
-
-  {reviews.map((r, i) => (
-    <a
-      href={r.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="review-card"
-      style={`--offset-lg: ${r.offsetLg}`}
-    >
-      <h3 class="text-lg font-semibold mb-1">{r.name}</h3>
-      <img src="/img/stars1.png" alt="5 stars" width="100" class="mb-4" />
-      <p class="text-sm text-gray-600 overflow-hidden">{r.text}</p>
-    </a>
-  ))}
 </div>
 
 <style>
@@ -69,7 +81,6 @@ const reviews = [
     border-radius: 10%;
     margin: 10px;
     padding: 20px;
-    background-image: url('/img/whitebg1.jpg');
     background-size: cover;
     box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
     overflow: hidden;

@@ -1,41 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SidebarLayout from '../../components/shared/SidebarLayout.astro';
-import PageHeading from '../../components/shared/PageHeading.astro';
 import Accordion from '../../components/shared/Accordion.astro';
 
-const navItems = [
-  { label: 'General Instructions', href: '/after-surgery/general-instructions', image: '/img/tooth10.png' },
-  { label: 'Tooth Removal', href: '/after-surgery/tooth-removal', image: '/img/tooth3.png' },
-  { label: 'Wisdom Teeth Removal', href: '/after-surgery/wisdom-teeth-removal', image: '/img/tooth2.png' },
-  { label: 'Facial Trauma', href: '/after-surgery/facial-trauma', image: '/img/tooth6.png' },
-  { label: 'Exposure of Impacted Tooth', href: '/after-surgery/exposure-of-impacted-tooth', image: '/img/tooth11.png' },
-  { label: 'Placement of Dental Implants', href: '/after-surgery/placement-of-dental-implants', image: '/img/tooth1.png' },
-  { label: 'Removal of Multiple Teeth', href: '/after-surgery/removal-of-multiple-teeth', image: '/img/tooth12.png' },
-];
+import { afterSurgeryNavItems as navItems } from '../../data/surgeryNavItems';
 ---
 
 <Layout title="After Wisdom Tooth Removal - Great Lakes Oral & Maxillofacial Surgery Centre">
   <SidebarLayout title="After a Procedure" navItems={navItems} currentPath={Astro.url.pathname}>
-    <PageHeading title="After Wisdom Tooth Removal" />
-    <div class="mb-8 leading-relaxed space-y-4" style="color: #515151">
-      <p>There will be a cavity where the tooth was removed. The cavity will gradually close over time and fill in with new tissue.</p>
-      <p>Starting <strong>one week</strong> after wisdom tooth removal, you may stop using the rinsing solution (Peridex), if prescribed. It is now time to begin using the irrigation syringe given to you. Fill the syringe with either mouthwash diluted with warm water, warm salt water, or plain warm water.</p>
-      <p><strong>PLEASE NOTE:</strong> YOU WILL ONLY BE FLUSHING THE HOLE/HOLES IN THE LOWER JAW (top only if needed). Focus is placed on the lower sockets because gravity pulls food from the top and collects in the lower sockets. Any build-up of debris in the sockets may cause pressure, pain and possible infection. However, this can be avoided with proper irrigation.</p>
-      <p><strong>STEP 1:</strong> Standing in front of a mirror, and starting with the side you wish to irrigate first, pull your cheek out using your finger or toothbrush. This will help open the wisdom tooth hole so you are able to get a better view and placement of the syringe.</p>
-      <p><strong>STEP 2:</strong> Gently place the tip of syringe 1mm inside the hole and flush it out with the warm water in your syringe.</p>
-      <p>You may see debris including food, dried blood and even a stitch come out at this time. This is normal. If you see any debris come out of the hole, repeat irrigation until you no longer see debris. Continue to irrigate for 3–4 weeks or until the lower hole/holes are completely closed. Need help? Watch our video demonstration below.</p>
-    </div>
-
-    <div class="mb-10">
-      <iframe
-        class="w-full max-w-[600px] aspect-video"
-        src="https://www.youtube.com/embed/KkFmJsH2x-I"
-        title="After Wisdom Tooth Removal"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
+    <Fragment slot="card-header">
+      <h2>After Wisdom Tooth Removal</h2>
+      <p class="text-sm leading-relaxed" style="color: #515151;">Post-operative care is very important after the removal of impacted teeth. Unnecessary pain and the complications of infection and swelling can be minimized if the instructions are followed carefully.</p>
+    </Fragment>
 
     <Accordion title="Immediately Following Surgery">
       The gauze pad placed over the surgical area should be kept in place for
@@ -204,5 +180,26 @@ const navItems = [
         consume alcohol or other drugs with sedative properties for 24 hours
         following the anesthetic.
     </Accordion>
+
+    <div class="mt-8 pt-6 border-t border-gray-100">
+      <h3 class="text-lg font-medium mb-4" style="color: #222222;">One Week After Wisdom Tooth Removal</h3>
+      <div class="leading-relaxed space-y-4 text-sm" style="color: #515151;">
+        <p>There will be a cavity where the tooth was removed. The cavity will gradually close over time and fill in with new tissue.</p>
+        <p>Starting <strong>one week</strong> after wisdom tooth removal, you may stop using the rinsing solution (Peridex), if prescribed. It is now time to begin using the irrigation syringe given to you. Fill the syringe with either mouthwash diluted with warm water, warm salt water, or plain warm water.</p>
+        <p><strong>PLEASE NOTE:</strong> YOU WILL ONLY BE FLUSHING THE HOLE/HOLES IN THE LOWER JAW (top only if needed). Focus is placed on the lower sockets because gravity pulls food from the top and collects in the lower sockets. Any build-up of debris in the sockets may cause pressure, pain and possible infection. However, this can be avoided with proper irrigation.</p>
+        <p><strong>STEP 1:</strong> Standing in front of a mirror, and starting with the side you wish to irrigate first, pull your cheek out using your finger or toothbrush. This will help open the wisdom tooth hole so you are able to get a better view and placement of the syringe.</p>
+        <p><strong>STEP 2:</strong> Gently place the tip of syringe 1mm inside the hole and flush it out with the warm water in your syringe.</p>
+        <p>You may see debris including food, dried blood and even a stitch come out at this time. This is normal. If you see any debris come out of the hole, repeat irrigation until you no longer see debris. Continue to irrigate for 3–4 weeks or until the lower hole/holes are completely closed. Need help? Watch our video demonstration below.</p>
+      </div>
+      <div class="mt-6">
+        <iframe
+          class="w-full max-w-[600px] aspect-video"
+          src="https://www.youtube.com/embed/KkFmJsH2x-I"
+          title="After Wisdom Tooth Removal"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
   </SidebarLayout>
 </Layout>

@@ -1,24 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SidebarLayout from '../../components/shared/SidebarLayout.astro';
-import PageHeading from '../../components/shared/PageHeading.astro';
 import Accordion from '../../components/shared/Accordion.astro';
 
-const navItems = [
-  { label: 'General Instructions', href: '/after-surgery/general-instructions', image: '/img/tooth10.png' },
-  { label: 'Tooth Removal', href: '/after-surgery/tooth-removal', image: '/img/tooth3.png' },
-  { label: 'Wisdom Teeth Removal', href: '/after-surgery/wisdom-teeth-removal', image: '/img/tooth2.png' },
-  { label: 'Facial Trauma', href: '/after-surgery/facial-trauma', image: '/img/tooth6.png' },
-  { label: 'Exposure of Impacted Tooth', href: '/after-surgery/exposure-of-impacted-tooth', image: '/img/tooth11.png' },
-  { label: 'Placement of Dental Implants', href: '/after-surgery/placement-of-dental-implants', image: '/img/tooth1.png' },
-  { label: 'Removal of Multiple Teeth', href: '/after-surgery/removal-of-multiple-teeth', image: '/img/tooth12.png' },
-];
+import { afterSurgeryNavItems as navItems } from '../../data/surgeryNavItems';
 ---
 
 <Layout title="After Tooth Extraction - Great Lakes Oral & Maxillofacial Surgery Centre">
   <SidebarLayout title="After a Procedure" navItems={navItems} currentPath={Astro.url.pathname}>
-    <PageHeading title="After Tooth Extraction" />
-    <p class="mb-8 leading-relaxed" style="color: #515151">After a few days you will feel fine and can resume your normal activities. If you have heavy bleeding, severe pain, continued swelling beyond 4–5 days, or a reaction to the medications, call our office immediately.</p>
+    <Fragment slot="card-header">
+      <h2>After Tooth Extraction</h2>
+      <p class="text-sm leading-relaxed" style="color: #515151;">Please follow these instructions carefully to minimize discomfort and promote healing after your tooth extraction.</p>
+    </Fragment>
 
     <Accordion title="Bleeding">
       After tooth extraction, it’s important for a blood clot to form to stop
@@ -77,5 +70,9 @@ const navItems = [
         consume alcohol or other drugs with sedative properties for 24 hours
         following the anesthetic.
     </Accordion>
+
+    <p class="mt-6 pt-6 border-t border-gray-100 text-sm leading-relaxed" style="color: #515151;">
+      After a few days you will feel fine and can resume your normal activities. If you have heavy bleeding, severe pain, continued swelling beyond 4–5 days, or a reaction to the medications, call our office immediately.
+    </p>
   </SidebarLayout>
 </Layout>

@@ -1,24 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SidebarLayout from '../../components/shared/SidebarLayout.astro';
-import PageHeading from '../../components/shared/PageHeading.astro';
 import Accordion from '../../components/shared/Accordion.astro';
 
-const navItems = [
-  { label: 'General Instructions', href: '/after-surgery/general-instructions', image: '/img/tooth10.png' },
-  { label: 'Tooth Removal', href: '/after-surgery/tooth-removal', image: '/img/tooth3.png' },
-  { label: 'Wisdom Teeth Removal', href: '/after-surgery/wisdom-teeth-removal', image: '/img/tooth2.png' },
-  { label: 'Facial Trauma', href: '/after-surgery/facial-trauma', image: '/img/tooth6.png' },
-  { label: 'Exposure of Impacted Tooth', href: '/after-surgery/exposure-of-impacted-tooth', image: '/img/tooth11.png' },
-  { label: 'Placement of Dental Implants', href: '/after-surgery/placement-of-dental-implants', image: '/img/tooth1.png' },
-  { label: 'Removal of Multiple Teeth', href: '/after-surgery/removal-of-multiple-teeth', image: '/img/tooth12.png' },
-];
+import { afterSurgeryNavItems as navItems } from '../../data/surgeryNavItems';
 ---
 
 <Layout title="After Placement of Dental Implants - Great Lakes Oral & Maxillofacial Surgery Centre">
   <SidebarLayout title="After a Procedure" navItems={navItems} currentPath={Astro.url.pathname}>
-    <PageHeading title="After Placement of Dental Implants" />
-    <p class="mb-8 leading-relaxed" style="color: #515151">Do not disturb the wound. Avoid rinsing, spitting, or touching the wound on the day of surgery. There will be a metal healing abutment protruding through the gingival (gum) tissue.</p>
+    <Fragment slot="card-header">
+      <h2>After Placement of Dental Implants</h2>
+      <p class="text-sm leading-relaxed" style="color: #515151;">Do not disturb the wound. Avoid rinsing, spitting, or touching the wound on the day of surgery. There will be a metal healing abutment protruding through the gingival (gum) tissue.</p>
+    </Fragment>
 
     <Accordion title="Bleeding">
       Some bleeding or redness in the saliva is normal for 24 hours. Excessive

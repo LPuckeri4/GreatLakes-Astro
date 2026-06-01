@@ -1,4 +1,7 @@
 ---
+import { Picture } from 'astro:assets';
+import greatlakesLogo from '../assets/images/GreatLakesLogo.png';
+
 const navLinks = [
   { label: 'Home', href: '/', activePrefix: '/' },
   { label: 'Surgery', href: '/surgery/dental-implants', activePrefix: '/surgery' },
@@ -16,173 +19,287 @@ const resourceLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header
-  id="site-header"
-  class="fixed top-0 w-full z-50 transition-all duration-500 min-h-[100px] flex items-center"
->
+<header id="site-header" class="sticky top-0 w-full z-50 bg-white border-b border-gray-100 transition-shadow duration-300">
   <!-- Desktop nav -->
-  <nav class="hidden md:flex items-center justify-around w-full px-5 lg:px-8">
-    <a href="/">
-      <img
-        src="/img/GreatLakesLogo.png"
+  <nav class="hidden md:flex items-center w-full max-w-7xl mx-auto px-6 lg:px-10 h-[88px]">
+
+    <!-- Logo -->
+    <a href="/" class="shrink-0 mr-10">
+      <Picture
+        src={greatlakesLogo}
         alt="Great Lakes Oral & Maxillofacial Surgery"
-        class="w-[250px] lg:w-[350px]"
+        widths={[280, 560]}
+        sizes="280px"
+        formats={['webp', 'png']}
+        class="w-[220px] lg:w-[260px]"
       />
     </a>
 
-    <div class="flex items-center">
-      {navLinks.map(link => (
-        <a
-          href={link.href}
-          class:list={[
-            'relative mx-4 lg:mx-6 text-sm lg:text-base text-[#222222] no-underline nav-link',
-            (link.activePrefix === '/' ? currentPath === '/' : currentPath.startsWith(link.activePrefix)) && 'active-link',
-          ]}
-        >
-          {link.label}
-        </a>
-      ))}
+    <!-- Nav links -->
+    <div class="flex items-center gap-1 flex-1">
+      {navLinks.map(link => {
+        const isActive = link.activePrefix === '/' ? currentPath === '/' : currentPath.startsWith(link.activePrefix);
+        return (
+          <a
+            href={link.href}
+            class:list={['nav-link', isActive && 'nav-link-active']}
+          >
+            {link.label}
+          </a>
+        );
+      })}
 
       <!-- Resources dropdown -->
-      <div class="dropdown dropdown-hover relative mx-4 lg:mx-6">
-        <div tabindex="0" role="button" class="flex items-center gap-1 text-sm lg:text-base text-[#222222] cursor-pointer nav-link">
+      <div class="dropdown-wrap">
+        <button class="nav-link dropdown-trigger" id="resources-btn" aria-expanded="false">
           Resources
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+          <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
           </svg>
-        </div>
-        <ul tabindex="0" class="dropdown-content menu bg-white shadow-lg rounded-none p-0 w-48 z-50 border-t-2 border-[#3A959B]">
+        </button>
+        <div class="dropdown-menu" id="resources-menu" role="menu">
           {resourceLinks.map(link => (
-            <li>
-              <a
-                href={link.href}
-                class="text-[#222222] hover:bg-[#deeded] hover:text-[#222222] rounded-none text-sm px-4 py-3"
-                {...link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
-              >
-                {link.label}
-              </a>
-            </li>
+            <a
+              href={link.href}
+              class="dropdown-item"
+              role="menuitem"
+              {...link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
+            >
+              {link.label}
+            </a>
           ))}
-        </ul>
+        </div>
       </div>
-
-      <a
-        href="/#contact"
-        class="ml-8 lg:ml-12 border border-[#222222] text-[#222222] px-6 py-2 text-sm lg:text-base contact-btn"
-      >
-        Contact
-      </a>
     </div>
+
+    <!-- Contact CTA -->
+    <a href="/#contact" class="contact-btn ml-4">
+      Contact
+    </a>
   </nav>
 
   <!-- Mobile nav -->
-  <div class="md:hidden flex items-center w-full px-4">
-    <button id="mobile-menu-btn" aria-label="Open menu" class="text-[#222222] mr-4">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <div class="md:hidden flex items-center w-full max-w-7xl mx-auto px-4 h-[72px]">
+    <button id="mobile-menu-btn" aria-label="Open menu" class="text-[#222222] mr-4 p-1">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
     <a href="/" class="flex-1 flex justify-center">
-      <img src="/img/GreatLakesLogo.png" alt="Great Lakes" class="w-[75%] max-w-[350px]" />
+      <Picture src={greatlakesLogo} alt="Great Lakes" widths={[280]} sizes="200px" formats={['webp','png']} class="w-[60%] max-w-[280px]" />
     </a>
   </div>
 </header>
 
-<!-- Mobile drawer overlay -->
+<!-- Mobile overlay -->
 <div id="drawer-overlay" class="fixed inset-0 bg-black/40 z-40 hidden md:hidden"></div>
 
 <!-- Mobile drawer -->
-<div
-  id="mobile-drawer"
-  class="fixed top-0 left-0 h-full w-60 bg-white z-50 transform -translate-x-full transition-transform duration-300 md:hidden flex flex-col"
->
-  <div class="flex flex-col items-center pt-6 pb-4 border-b border-gray-200">
+<div id="mobile-drawer" class="fixed top-0 left-0 h-full w-64 bg-white z-50 transform -translate-x-full transition-transform duration-300 md:hidden flex flex-col shadow-2xl">
+  <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
     <a href="/" id="drawer-logo-link">
-      <img src="/img/GreatLakesLogo.png" alt="Great Lakes" class="w-[180px]" />
+      <Picture src={greatlakesLogo} alt="Great Lakes" widths={[200]} sizes="160px" formats={['webp','png']} class="w-[160px]" />
     </a>
+    <button id="drawer-close" class="text-gray-400 hover:text-gray-600 p-1">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
   </div>
-  <nav class="flex flex-col text-center">
+  <nav class="flex flex-col py-2 flex-1 overflow-y-auto">
     {[...navLinks.map(l => ({ label: l.label, href: l.href })), ...resourceLinks].map(link => (
       <a
         href={link.href}
-        class="py-3 px-4 text-[#222222] border-b border-gray-100 hover:bg-[#deeded] text-sm"
+        class="py-3 px-5 text-[#374151] hover:text-[#3A959B] hover:bg-[#f0fafa] text-sm font-medium transition-colors border-b border-gray-50"
         {...link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
       >
         {link.label}
       </a>
     ))}
-    <a href="/#contact" class="py-3 px-4 text-[#222222] border-b border-gray-100 hover:bg-[#deeded] text-sm">
+    <a href="/#contact" class="py-3 px-5 text-[#374151] hover:text-[#3A959B] hover:bg-[#f0fafa] text-sm font-medium transition-colors border-b border-gray-50">
       Contact
     </a>
   </nav>
 </div>
 
 <style>
+  /* Nav links */
   .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #374151;
+    text-decoration: none;
     position: relative;
+    transition: color 0.15s ease, background-color 0.15s ease;
+    white-space: nowrap;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
   }
-  .nav-link::before {
+  .nav-link:hover {
+    color: #3A959B;
+    background-color: rgba(58, 149, 155, 0.06);
+  }
+  .nav-link-active {
+    color: #3A959B !important;
+  }
+  .nav-link-active::after {
     content: '';
     position: absolute;
-    width: 0;
-    height: 2px;
     bottom: -2px;
-    left: 0;
-    background-color: #222222;
-    visibility: hidden;
-    transition: all 0.2s ease-in-out;
+    left: 12px;
+    right: 12px;
+    height: 2px;
+    background-color: #3A959B;
+    border-radius: 1px;
   }
-  .nav-link:hover::before {
-    visibility: visible;
-    width: 100%;
+
+  /* Dropdown */
+  .dropdown-wrap {
+    position: relative;
   }
-  .active-link::before {
-    visibility: visible;
-    width: 100%;
+  .dropdown-arrow {
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
   }
+  .dropdown-trigger[aria-expanded="true"] .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+  .dropdown-trigger[aria-expanded="true"] {
+    color: #3A959B;
+    background-color: rgba(58, 149, 155, 0.06);
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    min-width: 200px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.06);
+    padding: 6px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    z-index: 100;
+  }
+  .dropdown-menu.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  /* Arrow pointer */
+  .dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-left: 1px solid rgba(0,0,0,0.06);
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+  .dropdown-item {
+    display: block;
+    padding: 9px 14px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.12s ease, color 0.12s ease;
+    white-space: nowrap;
+  }
+  .dropdown-item:hover {
+    background-color: rgba(58, 149, 155, 0.08);
+    color: #3A959B;
+  }
+
+  /* Contact button */
   .contact-btn {
-    background-image: linear-gradient(#222222, #222222);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: 0% 100%;
-    transition: background-size 0.5s, color 0.5s;
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 22px;
+    background-color: #3A959B;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    border: none;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
   }
   .contact-btn:hover {
-    color: white;
-    background-size: 100% 100%;
+    background-color: #2d7a80;
+    box-shadow: 0 4px 12px rgba(58, 149, 155, 0.35);
+  }
+
+  /* Scroll shadow */
+  #site-header.scrolled {
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    border-bottom-color: transparent;
   }
 </style>
 
 <script>
-  const header = document.getElementById('site-header')!;
-  const menuBtn = document.getElementById('mobile-menu-btn')!;
-  const drawer = document.getElementById('mobile-drawer')!;
-  const overlay = document.getElementById('drawer-overlay')!;
+  // Dropdown toggle
+  const btn = document.getElementById('resources-btn')!;
+  const menu = document.getElementById('resources-menu')!;
 
-  function openDrawer() {
-    drawer.classList.remove('-translate-x-full');
-    overlay.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
+  function openMenu() {
+    menu.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+  function closeMenu() {
+    menu.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
   }
 
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menu.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  document.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+  // Mobile drawer
+  const menuBtnEl = document.getElementById('mobile-menu-btn')!;
+  const drawerEl = document.getElementById('mobile-drawer')!;
+  const overlayEl = document.getElementById('drawer-overlay')!;
+  const closeBtn = document.getElementById('drawer-close')!;
+
+  function openDrawer() {
+    drawerEl.classList.remove('-translate-x-full');
+    overlayEl.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
   function closeDrawer() {
-    drawer.classList.add('-translate-x-full');
-    overlay.classList.add('hidden');
+    drawerEl.classList.add('-translate-x-full');
+    overlayEl.classList.add('hidden');
     document.body.style.overflow = '';
   }
 
-  menuBtn.addEventListener('click', openDrawer);
-  overlay.addEventListener('click', closeDrawer);
-  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+  menuBtnEl.addEventListener('click', openDrawer);
+  overlayEl.addEventListener('click', closeDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  drawerEl.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
 
-  function updateHeader() {
-    if (window.scrollY > 0) {
-      header.classList.add('bg-white/70', 'backdrop-blur-md', 'shadow-md');
-    } else {
-      header.classList.remove('bg-white/70', 'backdrop-blur-md', 'shadow-md');
-    }
-  }
-
-  window.addEventListener('scroll', updateHeader, { passive: true });
-  updateHeader();
+  // Scroll shadow
+  const headerEl = document.getElementById('site-header')!;
+  window.addEventListener('scroll', () => {
+    headerEl.classList.toggle('scrolled', window.scrollY > 4);
+  }, { passive: true });
 </script>

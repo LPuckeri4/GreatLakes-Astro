@@ -1,4 +1,11 @@
 ---
+import { Image } from 'astro:assets';
+import phone1Src from '../../assets/images/phone1.png';
+import faxtSrc from '../../assets/images/faxt.png';
+import address1Src from '../../assets/images/address1.png';
+import calendar1Src from '../../assets/images/calendar1.png';
+import maptec2Src from '../../assets/images/maptec2.png';
+
 const hours = [
   { day: 'Monday', time: '8am - 5pm' },
   { day: 'Tuesday', time: '8am - 5pm' },
@@ -9,15 +16,16 @@ const hours = [
 ];
 ---
 
-<div id="contact" class="flex flex-col items-center py-[50px] px-[10px] w-full">
+<div id="contact" class="w-full py-[50px]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
   <h2 class="w-full text-center text-3xl mb-2">Location &amp; Hours</h2>
   <div class="underline-teal mb-10" data-animate-underline></div>
 
-  <div class="flex flex-wrap justify-center items-start gap-[100px] py-10 w-full">
+  <div class="flex flex-wrap justify-center items-start gap-[60px] lg:gap-[100px] py-10 w-full">
     <!-- Contact details -->
-    <div class="flex flex-col gap-8 lg:ml-[100px] xl:ml-[200px]">
+    <div class="flex flex-col gap-8">
       <a href="tel:519-979-7227" class="info-link">
-        <img src="/img/phone1.png" alt="phone" class="info-icon" />
+        <Image src={phone1Src} alt="phone" width={60} class="info-icon" />
         <div>
           <p class="sans-heading text-lg font-semibold text-[#114c74]">Phone</p>
           <p>519-979-7227</p>
@@ -25,7 +33,7 @@ const hours = [
       </a>
 
       <div class="info-link">
-        <img src="/img/faxt.png" alt="fax" class="info-icon" />
+        <Image src={faxtSrc} alt="fax" width={60} class="info-icon" />
         <div>
           <p class="sans-heading text-lg font-semibold text-[#3A959B]">Fax</p>
           <p>519-979-1956</p>
@@ -38,7 +46,7 @@ const hours = [
         rel="noopener noreferrer"
         class="info-link"
       >
-        <img src="/img/address1.png" alt="address" class="info-icon" />
+        <Image src={address1Src} alt="address" width={60} class="info-icon" />
         <div>
           <p class="sans-heading text-lg font-semibold text-[#3A959B]">Address</p>
           <p class="max-w-[250px]">1825 Manning Rd | Studio 700 Tecumseh | ON | N9K 0A9</p>
@@ -46,7 +54,7 @@ const hours = [
       </a>
 
       <div class="flex items-start gap-5 sm:gap-8">
-        <img src="/img/calendar1.png" alt="hours" class="info-icon" />
+        <Image src={calendar1Src} alt="hours" width={60} class="info-icon" />
         <div class="min-w-[220px]">
           <p class="sans-heading text-lg font-semibold text-[#3A959B]">Hours of Operation</p>
           {hours.map(h => (
@@ -65,8 +73,9 @@ const hours = [
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img src="/img/maptec2.png" alt="map to Great Lakes Surgery Centre" class="w-full max-w-[600px]" />
+      <Image src={maptec2Src} alt="map to Great Lakes Surgery Centre" width={600} class="w-full max-w-[600px]" />
     </a>
+  </div>
   </div>
 </div>
 

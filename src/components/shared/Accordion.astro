@@ -1,59 +1,84 @@
 ---
 interface Props {
   title: string;
+  open?: boolean;
 }
-const { title } = Astro.props;
+const { title, open = false } = Astro.props;
 ---
 
-<details class="accordion">
+<details class="accordion" open={open || undefined}>
   <summary class="accordion-summary">
-    <span class="sans-heading text-lg">{title}</span>
-    <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-    </svg>
+    <span class="accordion-title">{title}</span>
+    <div class="accordion-chevron-wrap">
+      <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+      </svg>
+    </div>
   </summary>
-  <div class="accordion-body" style="color: #515151">
+  <div class="accordion-body">
     <slot />
   </div>
 </details>
 
 <style>
   .accordion {
-    border-left: 3px solid transparent;
-    transition: border-color 0.2s;
-    margin: 4px 0;
+    border-bottom: 1px solid #f0f0f0;
   }
-  .accordion[open],
-  .accordion:hover {
-    border-left-color: #3A959B;
+  .accordion:last-child {
+    border-bottom: none;
   }
-  .accordion[open] .accordion-summary,
-  .accordion:hover .accordion-summary {
-    color: #3A959B;
-  }
-  .accordion[open] .accordion-icon {
-    transform: rotate(180deg);
-  }
+
   .accordion-summary {
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    padding: 10px 0;
-    color: #222222;
+    padding: 22px 0;
     list-style: none;
-    transition: color 0.2s;
+    user-select: none;
   }
   .accordion-summary::-webkit-details-marker { display: none; }
-  .accordion-icon {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    transition: transform 0.2s;
+
+  .accordion-title {
+    font-weight: 500;
+    color: #222222;
+    font-size: 1rem;
+    transition: color 0.15s;
   }
+  .accordion:hover .accordion-title {
+    color: #3A959B;
+  }
+
+  .accordion-chevron-wrap {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(58, 149, 155, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background-color 0.15s, transform 0.2s;
+  }
+  .accordion[open] .accordion-chevron-wrap {
+    background-color: #3A959B;
+    transform: rotate(180deg);
+  }
+
+  .accordion-icon {
+    width: 16px;
+    height: 16px;
+    color: #3A959B;
+    transition: color 0.15s;
+  }
+  .accordion[open] .accordion-icon {
+    color: white;
+  }
+
   .accordion-body {
-    padding: 8px 0 16px;
-    max-width: 700px;
-    line-height: 1.7;
+    padding: 0 48px 20px 0;
+    color: #515151;
+    font-size: 0.9375rem;
+    line-height: 1.75;
   }
 </style>

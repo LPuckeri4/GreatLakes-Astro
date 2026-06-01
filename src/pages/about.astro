@@ -1,35 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Picture } from 'astro:assets';
+import about1Src from '../assets/images/about1.png';
+import tech2Src from '../assets/images/tech2.png';
 
-const sections = [
-  {
-    heading: 'Our Values',
-    body: `Great Lakes Oral & Maxillofacial Surgery Centre takes great pride in bringing their patients the latest in technologically advanced, comfort oriented oral and maxillofacial surgical care. Our Tecumseh office is independently inspected outpatient surgical facilities, and are equipped with modern specialized equipment. They are staffed with a highly trained, experienced and compassionate team of caring professionals.<br /><br />Dr. Shuren and Dr. Stapleford have current and advanced training in the diagnosis and treatment of oral and maxillofacial problems from the simple to the complex. This involves the expertise in: the removal of difficult or impacted teeth (wisdom teeth), the placement of dental implants, the management of facial injuries and infections, the treatment of dental and skeletal deformity (orthognathic surgery), the surgical management of temporomandibular joint (TMJ) dysfunction, facial and jaw reconstruction procedures and care for other diseases (pathology) and aesthetic concerns of the oral and maxillofacial region and related structures.`,
-    image: '/img/about1.png',
-    imageAlt: 'About Great Lakes Oral Surgery',
-    imageLeft: true,
-  },
-  {
-    heading: 'The Latest Technology',
-    subSections: [
-      {
-        title: 'CBCT (Cone Beam Computed Tomography)',
-        body: 'CBCT is a 3D medical imaging technique consisting of x-ray computed tomography. CBCT has become increasingly important in treatment planning and diagnosis in implant dentistry, symmetry of the condyles and morphology of sinus, surgical extractions, nerve mapping, to visualize erupted and non-erupted teeth and tooth root orientation that a conventional 2D radiograph cannot. A CBCT offers invaluable information when it comes to assessment and planning of surgical treatment. Since we have been using this technology it has allowed us to proceed with most surgical cases while having more confidence and less uncertainty about bone quality and quantity. This means in many cases, we are able to avoid bone grafting altogether where in the past we would have had to perform bone grafts prior to implant placement.',
-      },
-      {
-        title: 'Piezoelectric Surgery in Oral and Maxillofacial Surgery',
-        body: 'The piezoelectric device or piezosurgery device was developed to reduce the risk of tissue and adjacent tooth damage while cutting of bone by way of ultrasonic vibrations and as an alternative to the mechanical and electrical instruments that are used in the conventional ways in oral surgery. Over the past two decades, an extensive amount of literature has shown that piezoelectric devices are excellent tools and that there are extensive indications of their use in oral and maxillofacial surgery. Here at Great Lakes Oral Surgery we have been using this device for the past ten years for combined surgical orthodontic treatment, nerve repositioning, bone grafting and surgical extractions with excellent success rates.',
-      },
-      {
-        title: 'CT Guided Cases',
-        body: 'Implant surgery should be performed under the safest and most accurate conditions possible. In our office we are now able to provide our patients with custom made drill guides which provide a seamless link with implant planning and the actual surgical treatment. This guide helps to guarantee predictable implant treatment as well as dramatically increasing case success while reducing the potential for multiple surgeries in a case where a patient may have required a bone graft otherwise.',
-      },
-    ],
-    image: '/img/tech2.png',
-    imageAlt: 'Advanced Technology',
-    imageLeft: false,
-  },
-];
 ---
 
 <Layout
@@ -45,7 +19,7 @@ const sections = [
     <!-- Section 1: Our Values -->
     <div class="flex flex-wrap items-center mt-8 sm:mt-16 max-w-[1200px] mx-auto">
       <div class="w-full sm:w-1/2 flex justify-end items-center pr-4">
-        <img src="/img/about1.png" alt="About Great Lakes Oral Surgery" class="max-w-[600px] w-[99%]" />
+        <Picture src={about1Src} formats={["avif", "webp"]} alt="About Great Lakes Oral Surgery" width={600} class="max-w-[600px] w-[99%]" />
       </div>
       <div class="w-full sm:w-1/2 flex flex-col px-[5%] mt-6 sm:mt-0">
         <h2 class="text-2xl mb-1">Our Values</h2>
@@ -80,7 +54,7 @@ const sections = [
         </p>
       </div>
       <div class="w-full sm:w-1/2 flex items-center justify-center px-[5%]">
-        <img src="/img/tech2.png" alt="Advanced Technology" class="max-w-[600px] w-[99%]" />
+        <Picture src={tech2Src} formats={["avif", "webp"]} alt="Advanced Technology" width={600} class="max-w-[600px] w-[99%]" />
       </div>
     </div>
   </div>

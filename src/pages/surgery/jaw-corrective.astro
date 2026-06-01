@@ -4,17 +4,7 @@ import SidebarLayout from '../../components/shared/SidebarLayout.astro';
 import PageHeading from '../../components/shared/PageHeading.astro';
 import Accordion from '../../components/shared/Accordion.astro';
 
-const navItems = [
-  { label: 'Dental Implants', href: '/surgery/dental-implants', image: '/img/tooth1.png' },
-  { label: 'Wisdom Teeth', href: '/surgery/wisdom-teeth', image: '/img/tooth2.png' },
-  { label: 'Tooth Extraction', href: '/surgery/tooth-extraction', image: '/img/tooth3.png' },
-  { label: 'Bone Grafting', href: '/surgery/bone-grafting', image: '/img/tooth4.png' },
-  { label: 'Orthodontic Surgery', href: '/surgery/orthodontic-surgery', image: '/img/tooth5.png' },
-  { label: 'Facial Trauma', href: '/surgery/facial-trauma', image: '/img/tooth6.png' },
-  { label: 'Oral Pathology', href: '/surgery/oral-pathology', image: '/img/tooth7.png' },
-  { label: 'Jaw Corrective', href: '/surgery/jaw-corrective', image: '/img/tooth8.png' },
-  { label: 'TMJ Disorder', href: '/surgery/tmj-disorder', image: '/img/tooth9.png' },
-];
+import { surgeryNavItems as navItems } from '../../data/surgeryNavItems';
 ---
 
 <Layout title="Orthognathic Jaw Surgery (Corrective Jaw Surgery) - Great Lakes Oral & Maxillofacial Surgery Centre">
