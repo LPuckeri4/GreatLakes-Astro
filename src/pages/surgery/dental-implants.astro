@@ -1,19 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SidebarLayout from '../../components/shared/SidebarLayout.astro';
-import PageHeading from '../../components/shared/PageHeading.astro';
 import Accordion from '../../components/shared/Accordion.astro';
 
 import { surgeryNavItems as navItems } from '../../data/surgeryNavItems';
 ---
 
-<Layout title="Dental Implants - Great Lakes Oral & Maxillofacial Surgery Centre">
-  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname}>
-    <PageHeading title="Dental Implants" />
-
-    <p class="mb-8 leading-relaxed" style="color: #515151">
-      Dental implants are changing the way people live. They are designed to provide a foundation for replacement teeth which look, feel and function like natural teeth. A person who has lost teeth regains the ability to eat virtually anything, knowing that teeth appear natural and that facial contours will be preserved. Patients with dental implants can smile with confidence.
-    </p>
+<Layout description="Dental implants designed to look, feel, and function like natural teeth. Expert implant placement by Dr. Shuren and Dr. Stapleford at Great Lakes Oral Surgery in Tecumseh, ON."
+  title="Dental Implants - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname} eyebrow="Surgical Procedures" heroSubtitle="Expert oral and maxillofacial surgical procedures performed with precision and care.">
+    <Fragment slot="card-header">
+      <h2>Dental Implants</h2>
+      <p>Dental implants are designed to provide a foundation for replacement teeth which look, feel and function like natural teeth — helping patients smile, eat, and live with confidence.</p>
+    </Fragment>
 
     <div class="mb-10">
       <iframe

@@ -1,26 +1,20 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SidebarLayout from '../../components/shared/SidebarLayout.astro';
-import PageHeading from '../../components/shared/PageHeading.astro';
 import Accordion from '../../components/shared/Accordion.astro';
 
 import { surgeryNavItems as navItems } from '../../data/surgeryNavItems';
 ---
 
-<Layout title="Wisdom Teeth - Great Lakes Oral & Maxillofacial Surgery Centre">
-  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname}>
-    <PageHeading title="Wisdom Teeth" />
-    <p class="mb-8 leading-relaxed" style="color: #515151">By the age of eighteen, most adults have developed 32 teeth; 16 teeth on
-        the top and 16 teeth on the bottom. Each tooth in the mouth has a
-        specific name and function. The teeth in the front of the mouth
-        (incisors and canines) are ideal for grasping and biting food into
-        smaller pieces. The back teeth or premolars and molars are used to grind
-        food up into a consistency suitable for swallowing. <br />
-        <br />
-        The average mouth is made to hold only 28 teeth. It can be painful when
-        32 teeth try to fit in a mouth that holds only 28 teeth. These last four
-        teeth in the back of your mouth are known as Third Molars, or “wisdom
-        teeth.”</p>
+<Layout description="Expert wisdom tooth removal in Windsor and Essex County. Early evaluation and safe extraction by experienced oral surgeons at Great Lakes Oral Surgery."
+  title="Wisdom Teeth - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname} eyebrow="Surgical Procedures" heroSubtitle="Expert oral and maxillofacial surgical procedures performed with precision and care.">
+    <Fragment slot="card-header">
+      <h2>Wisdom Teeth</h2>
+      <p>By the age of eighteen, most adults have developed 32 teeth; 16 teeth on the top and 16 teeth on the bottom. Each tooth in the mouth has a specific name and function. The teeth in the front of the mouth (incisors and canines) are ideal for grasping and biting food into smaller pieces. The back teeth or premolars and molars are used to grind food up into a consistency suitable for swallowing.</p>
+    </Fragment>
+
+    <p class="mb-6 leading-relaxed text-sm" style="color: #515151;">The average mouth is made to hold only 28 teeth. It can be painful when 32 teeth try to fit in a mouth that holds only 28 teeth. These last four teeth in the back of your mouth are known as Third Molars, or "wisdom teeth."</p>
 
     <div class="mb-10">
       <iframe

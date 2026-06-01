@@ -1,16 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SidebarLayout from '../../components/shared/SidebarLayout.astro';
-import PageHeading from '../../components/shared/PageHeading.astro';
 import Accordion from '../../components/shared/Accordion.astro';
 
 import { surgeryNavItems as navItems } from '../../data/surgeryNavItems';
 ---
 
-<Layout title="Temporomandibular Joint Disorders - Great Lakes Oral & Maxillofacial Surgery Centre">
-  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname}>
-    <PageHeading title="Temporomandibular Joint Disorders" />
-    <p class="mb-8 leading-relaxed" style="color: #515151">TMJ (temporomandibular joint) disorders are a family of problems related to your complex jaw joint. If you have had symptoms like pain or a "clicking" sound, you'll be glad to know that these problems are more easily diagnosed and treated than they were in the past. These symptoms occur when the joints of the jaw and the chewing muscles (muscles of mastication) do not work together correctly. TMJ stands for Temporomandibular Joint, which is the name for each joint (right and left) that connects your jaw to your skull. Since some types of TMJ problems can lead to more serious conditions, early detection and treatment are important. No one treatment can resolve TMJ disorders completely and treatment takes time to become effective. Your surgeon can help you have a healthier and more comfortable jaw.</p>
+<Layout description="TMJ disorder diagnosis and treatment in Windsor and Essex County. Relieve jaw pain, clicking, and stiffness with expert care at Great Lakes Oral Surgery."
+  title="Temporomandibular Joint Disorders - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname} eyebrow="Surgical Procedures" heroSubtitle="Expert oral and maxillofacial surgical procedures performed with precision and care.">
+    <Fragment slot="card-header">
+      <h2>Temporomandibular Joint Disorders</h2>
+      <p>TMJ disorders affect the jaw joint and chewing muscles. Early detection is important — your surgeon can help you achieve a healthier, more comfortable jaw.</p>
+    </Fragment>
 
     <Accordion title="Trouble with Your Jaw? ">
       TMJ disorders develop for many reasons. You might clench or grind your

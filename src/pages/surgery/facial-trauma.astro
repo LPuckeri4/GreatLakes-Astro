@@ -1,17 +1,20 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SidebarLayout from '../../components/shared/SidebarLayout.astro';
-import PageHeading from '../../components/shared/PageHeading.astro';
 import Accordion from '../../components/shared/Accordion.astro';
 
 import { surgeryNavItems as navItems } from '../../data/surgeryNavItems';
 ---
 
-<Layout title="Facial Trauma - Great Lakes Oral & Maxillofacial Surgery Centre">
-  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname}>
-    <PageHeading title="Facial Trauma" />
+<Layout description="Expert treatment of facial injuries including lacerations, fractured bones, and avulsed teeth. Emergency coverage at Windsor Regional and Hotel Dieu Hospital."
+  title="Facial Trauma - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname} eyebrow="Surgical Procedures" heroSubtitle="Expert oral and maxillofacial surgical procedures performed with precision and care.">
+    <Fragment slot="card-header">
+      <h2>Facial Trauma</h2>
+      <p>Our surgeons are uniquely qualified to manage facial trauma. On staff at Windsor Regional and Hotel Dieu Hospital, they deliver emergency room coverage for facial injuries including lacerations, fractured bones, and avulsed teeth.</p>
+    </Fragment>
+
     <div class="mb-8 leading-relaxed" style="color: #515151">
-      <p class="mb-4">Injuries to the face, by their very nature, impart a high degree of emotional, as well as physical trauma to patients. The science and art of treating these injuries requires special training involving a "hands on" experience and an understanding of how the treatment provided will influence the patient's long term function and appearance. Oral &amp; Maxillofacial Surgeons meet and exceed these modern standards. They are trained, skilled and uniquely qualified to manage and treat facial trauma. Your surgeon is on staff at Windsor Regional and Hotel Dieu Hospital and delivers emergency room coverage for facial injuries, which include the following conditions:</p>
       <ul class="list-disc ml-6 space-y-1">
         <li>Facial lacerations</li>
         <li>Intra oral lacerations</li>

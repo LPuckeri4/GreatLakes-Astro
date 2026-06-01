@@ -1,14 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SidebarLayout from '../../components/shared/SidebarLayout.astro';
-import PageHeading from '../../components/shared/PageHeading.astro';
 
 import { surgeryNavItems as navItems } from '../../data/surgeryNavItems';
 ---
 
-<Layout title="Surgery for Orthodontics - Great Lakes Oral & Maxillofacial Surgery Centre">
-  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname}>
-    <PageHeading title="Surgery for Orthodontics" />
+<Layout description="Surgical procedures for orthodontics including impacted tooth exposure, tooth extractions, and skeletal anchorage. Working with your orthodontist for optimal results."
+  title="Surgery for Orthodontics - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname} eyebrow="Surgical Procedures" heroSubtitle="Expert oral and maxillofacial surgical procedures performed with precision and care.">
+    <Fragment slot="card-header">
+      <h2>Surgery for Orthodontics</h2>
+      <p>Many patients are referred by area orthodontists for surgical procedures — from removing retained teeth and creating space, to exposing impacted teeth for proper alignment.</p>
+    </Fragment>
+
     <div class="leading-relaxed space-y-4" style="color: #515151">
       <p>Many patients are referred to our practice by area orthodontists. Their orthodontists will request we perform a surgical procedure that will then permit the orthodontists to properly align the patients teeth. Sometimes, this is as simple as removing some retained primary ("baby") teeth, removing some permanent premolars to create space if there is too much crowding, or removing wisdom teeth after the other teeth are orthodontically aligned so that the developing wisdom teeth don't adversely affect the teeth in front of them.</p>
       <p>In more involved cases, some permanent teeth may fail to erupt at the expected time. If this occurs, the orthodontist will request surgical exposure of an impacted tooth. This consists of removing the bone and gum tissue covering a tooth embedded in the bone so that an orthodontic bracket may be placed. This will provide the orthodontist access to that embedded tooth so that they can apply a force to it and bring it to its proper position.</p>

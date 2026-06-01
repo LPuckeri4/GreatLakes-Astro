@@ -1,21 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const anesthesia = [
-  { text: "Anesthesia - Dr. Shuren's Patients", href: '/documents/AnesthesiaShurenTec.pdf' },
-  { text: "Anesthesia - Dr. Stapleford's Patients", href: '/documents/AnesthesiaStaplefordTec.pdf' },
+const formSections = [
+  {
+    title: 'Anesthesia Consent Forms',
+    description: 'Consent forms for anesthesia for surgical procedures.',
+    icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
+    items: [
+      { text: "Anesthesia - Dr. Shuren's Patients", href: '/documents/AnesthesiaShurenTec.pdf' },
+      { text: "Anesthesia - Dr. Stapleford's Patients", href: '/documents/AnesthesiaStaplefordTec.pdf' },
+    ],
+  },
+  {
+    title: 'Implant Consent Forms',
+    description: 'Consent forms for dental implant procedures.',
+    icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
+    items: [
+      { text: "Implants - Dr. Shuren's Patients", href: '/documents/ImplantsShuren.pdf' },
+      { text: "Implants - Dr. Stapleford's Patients", href: '/documents/ImplantsStapleford.pdf' },
+    ],
+  },
+  {
+    title: 'Patient Referral Forms',
+    description: 'Patient and consultation request forms for referring clinicians.',
+    icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z',
+    items: [
+      { text: 'TMJ Surgical Consult Request Questionnaire', href: '/documents/GLOMSConsult.pdf' },
+    ],
+  },
 ];
 
-const implants = [
-  { text: "Implants - Dr. Shuren's Patients", href: '/documents/ImplantsShuren.pdf' },
-  { text: "Implants - Dr. Stapleford's Patients", href: '/documents/ImplantsStapleford.pdf' },
-];
-
-const referral = [
-  { text: 'TMJ Surgical Consult Request Questionnaire', href: '/documents/GLOMSConsult.pdf' },
-];
-
-const patient = [
+const patientDownloads = [
   { text: 'Consultation', href: '/documents/Consultation.pdf' },
   { text: 'Scheduling Information', href: '/documents/Scheduling.pdf' },
   { text: 'Patient Billing', href: '/documents/FinancialInformation.pdf' },
@@ -24,58 +39,172 @@ const patient = [
   { text: 'Instructions Before Surgery', href: '/documents/BeforeSurgery.pdf' },
   { text: 'Cone Beam CT Scan Referral', href: '/documents/ConeBeamCT.pdf' },
 ];
-
-const sections = [
-  { title: 'Anesthesia Consent Forms', items: anesthesia },
-  { title: 'Implant Consent Forms', items: implants },
-  { title: 'Patient Referral Forms', items: referral },
-  { title: 'Patient Downloads', items: patient },
-];
 ---
 
 <Layout
-  title="Downloads - Great Lakes Oral & Maxillofacial Surgery Centre"
+  title="Forms & Downloads - Great Lakes Oral & Maxillofacial Surgery Centre"
   description="Download patient forms, including consent for implants and anesthesia, at Great Lakes Oral & Maxillofacial Surgery Centre."
 >
-  <div class="min-h-screen pt-[150px] pb-16 px-5">
-    <div class="flex flex-col items-center mb-12">
-      <h1 class="text-3xl mb-2">Forms and Downloads</h1>
-      <div style="height:4px;width:50px;background:#3A959B"></div>
+  <!-- Hero -->
+  <div class="forms-hero">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">Patient Resources</span>
+      <h1 class="hero-title">Forms and Downloads</h1>
+      <div class="hero-divider"></div>
+      <p class="hero-subtitle">Access patient forms, consent documents, and referral resources before your visit.</p>
     </div>
+  </div>
 
-    <div class="flex flex-wrap justify-evenly max-w-[1200px] mx-auto gap-y-8">
-      {sections.map(section => (
-        <div class="flex flex-col items-center mx-4">
-          <h2 class="text-xl mb-1 text-center">{section.title}</h2>
-          <div class="underline-b mb-5 self-start"></div>
-          <ul class="space-y-2">
-            {section.items.map(item => (
-              <li>
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  class="download-link flex items-center gap-2 text-[#222222] no-underline py-1 px-2 rounded transition-colors hover:text-[#3A959B]"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 flex-shrink-0 text-[#3A959B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
-                  </svg>
-                  <span>{item.text}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
+  <!-- Content -->
+  <div class="forms-body pb-20">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10 pt-12">
+
+      <!-- 3-column form cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        {formSections.map(section => (
+          <div class="form-card">
+            <div class="form-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+                <path stroke-linecap="round" stroke-linejoin="round" d={section.icon} />
+              </svg>
+            </div>
+            <h2 class="form-card-title">{section.title}</h2>
+            <p class="form-card-desc">{section.description}</p>
+            <ul class="space-y-2 mt-4">
+              {section.items.map(item => (
+                <li>
+                  <a href={item.href} target="_blank" rel="noreferrer" class="download-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="15" height="15">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+                    </svg>
+                    {item.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <!-- Patient Downloads -->
+      <div class="form-card">
+        <div class="form-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+          </svg>
         </div>
-      ))}
+        <h2 class="form-card-title">Patient Downloads</h2>
+        <p class="form-card-desc">Helpful resources and information to prepare for your visit and recovery.</p>
+        <ul class="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-2">
+          {patientDownloads.map(item => (
+            <li>
+              <a href={item.href} target="_blank" rel="noreferrer" class="download-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="15" height="15">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+                </svg>
+                {item.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
     </div>
   </div>
 </Layout>
 
 <style>
-  .underline-b {
+  .forms-hero {
+    background-image: url('/references/herobg-1.jpg');
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid rgba(58,149,155,0.15);
+  }
+  .hero-inner {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 64px 2rem 60px;
+    text-align: center;
+  }
+  @media (min-width: 1024px) {
+    .hero-inner { padding: 72px 4rem 68px; }
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #3A959B;
+    margin-bottom: 14px;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    color: #1a2e35;
+    margin: 0 0 16px 0;
+    line-height: 1.15;
+  }
+  .hero-divider {
+    width: 48px;
     height: 3px;
-    width: 70%;
-    background-image: linear-gradient(to left, rgba(255,0,0,0), #114c74 50%);
-    background-repeat: no-repeat;
+    background-color: #3A959B;
+    margin: 0 auto 20px;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    color: #5a6b72;
+    margin: 0 auto;
+    line-height: 1.6;
+    max-width: 480px;
+  }
+
+  .forms-body {
+    background-color: #f6f6f6;
+  }
+
+  .form-card {
+    background: white;
+    border-radius: 14px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    border: 1px solid #f0f0f0;
+  }
+  .form-card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background-color: rgba(58,149,155,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3A959B;
+    margin-bottom: 14px;
+  }
+  .form-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #222222;
+    margin: 0 0 6px 0;
+  }
+  .form-card-desc {
+    font-size: 0.8rem;
+    color: #888;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .download-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.875rem;
+    color: #374151;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .download-link:hover {
+    color: #3A959B;
   }
 </style>

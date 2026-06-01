@@ -12,19 +12,55 @@ interface Props {
   title: string;
   navItems: NavItem[];
   currentPath: string;
+  eyebrow?: string;
+  heroSubtitle?: string;
 }
 
-const { title, navItems, currentPath } = Astro.props;
+const {
+  title,
+  navItems,
+  currentPath,
+  eyebrow = 'After Surgery Care',
+  heroSubtitle = 'Clear recovery instructions to help you heal comfortably after oral surgery.',
+} = Astro.props;
 const hasCardHeader = Astro.slots.has('card-header');
 ---
 
-<div class="page-wrap min-h-screen pt-12 pb-16">
-  <div class="flex flex-col items-center mb-8">
-    <h1 class="text-3xl text-center mb-2">{title}</h1>
+{hasCardHeader ? (
+  <div class="hero-section">
+    <div class="mx-auto max-w-7xl px-8 md:px-12 lg:px-16 py-14 md:py-16 text-center">
+      <span class="hero-eyebrow">{eyebrow}</span>
+      <h1 class="hero-title">{title}</h1>
+      <p class="hero-subtitle">{heroSubtitle}</p>
+      <div class="hero-actions">
+        <button class="hero-btn" id="print-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+            <polyline points="6 9 6 2 18 2 18 9"/>
+            <path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/>
+            <rect x="6" y="14" width="12" height="8"/>
+          </svg>
+          Print Instructions
+        </button>
+        <a href="tel:5199797227" class="hero-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          Call Office 519-979-7227
+        </a>
+      </div>
+    </div>
+  </div>
+) : (
+  <div class="simple-hero">
+    <h1 class="simple-title">{title}</h1>
     <div class="underline-teal-center"></div>
   </div>
+)}
 
-  <div class="mx-auto max-w-7xl px-4 md:px-8 flex flex-col lg:flex-row gap-5">
+<!-- Page body -->
+<div class="page-body pb-16">
+  <div class="mx-auto max-w-7xl px-8 md:px-12 lg:px-16 pt-8 flex flex-col lg:flex-row gap-5">
+
     <!-- Sidebar -->
     <div class="sidebar-card w-full lg:w-[280px] shrink-0">
       <p class="sidebar-header">Select Procedure</p>
@@ -67,7 +103,7 @@ const hasCardHeader = Astro.slots.has('card-header');
             <div>
               <p class="assistance-title">Have Questions or Concerns?</p>
               <p class="assistance-text">Don't hesitate to call the office to speak with a nurse.</p>
-              <a href="tel:5199797227" class="assistance-phone">(519) 979-7227</a>
+              <a href="tel:5199797227" class="assistance-phone">519-979-7227</a>
             </div>
           </div>
         </div>
@@ -81,10 +117,94 @@ const hasCardHeader = Astro.slots.has('card-header');
 </div>
 
 <style>
-  .page-wrap {
-    background-color: #f6f6f6;
+  /* ── Hero section ── */
+  .hero-section {
+    background-image: url('/references/herobg-1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid rgba(58,149,155,0.15);
+  }
+  .hero-inner {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 60px 2rem 56px;
+  }
+  @media (min-width: 768px) {
+    .hero-inner {
+      padding: 64px 3rem 60px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .hero-inner {
+      padding: 72px 4rem 68px;
+    }
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #3A959B;
+    margin-bottom: 14px;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    color: #1a2e35;
+    margin: 0 0 16px 0;
+    line-height: 1.15;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    color: #5a6b72;
+    margin: 0 0 30px 0;
+    line-height: 1.6;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 18px;
+    font-size: 0.825rem;
+    font-weight: 500;
+    color: #374151;
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(58,149,155,0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    backdrop-filter: blur(4px);
+    font-family: inherit;
+  }
+  .hero-btn:hover {
+    background: white;
+    border-color: #3A959B;
+    color: #3A959B;
+    box-shadow: 0 2px 8px rgba(58,149,155,0.15);
   }
 
+  /* ── Simple header (surgery pages) ── */
+  .simple-hero {
+    padding: 48px 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .simple-title {
+    font-size: 1.875rem;
+    text-align: center;
+    margin-bottom: 8px;
+  }
   .underline-teal-center {
     height: 4px;
     width: 50px;
@@ -92,7 +212,13 @@ const hasCardHeader = Astro.slots.has('card-header');
     margin: 0 auto;
   }
 
-  /* Sidebar card */
+  /* ── Page body ── */
+  .page-body {
+    background-color: #f6f6f6;
+    min-height: 60vh;
+  }
+
+  /* ── Sidebar card ── */
   .sidebar-card {
     background: white;
     border-radius: 18px;
@@ -100,7 +226,6 @@ const hasCardHeader = Astro.slots.has('card-header');
     padding: 20px 16px 16px;
     align-self: flex-start;
   }
-
   .sidebar-header {
     font-size: 0.7rem;
     font-weight: 700;
@@ -109,8 +234,6 @@ const hasCardHeader = Astro.slots.has('card-header');
     color: #999;
     margin: 0 4px 14px;
   }
-
-  /* Sidebar items */
   .nav-item {
     display: flex;
     align-items: center;
@@ -130,7 +253,6 @@ const hasCardHeader = Astro.slots.has('card-header');
     background-color: #3A959B !important;
     color: white !important;
   }
-
   .nav-icon-box {
     width: 40px;
     height: 40px;
@@ -139,7 +261,6 @@ const hasCardHeader = Astro.slots.has('card-header');
     align-items: center;
     justify-content: center;
   }
-
   .nav-img {
     width: 40px;
     height: 40px;
@@ -148,15 +269,13 @@ const hasCardHeader = Astro.slots.has('card-header');
   .nav-img-active {
     filter: brightness(0) invert(1);
   }
-
   .nav-label {
     font-size: 0.875rem;
     font-weight: 500;
     line-height: 1.3;
   }
 
-
-  /* Card wrapper (used by after-surgery pages) */
+  /* ── Content card ── */
   .content-card {
     background: white;
     border-radius: 16px;
@@ -183,9 +302,10 @@ const hasCardHeader = Astro.slots.has('card-header');
     margin: 0;
   }
   .card-body-section {
-    padding: 0 44px 44px;
+    padding: 28px 44px 44px;
   }
 
+  /* ── Assistance box ── */
   .assistance-box {
     margin-top: 20px;
     border-radius: 12px;
@@ -231,6 +351,99 @@ const hasCardHeader = Astro.slots.has('card-header');
 </style>
 
 <script>
+  // Open first accordion on load
   const firstAccordion = document.querySelector('.card-body-section details');
   if (firstAccordion) (firstAccordion as HTMLDetailsElement).open = true;
+
+  // Print button — opens all accordions, prints, restores state
+  const printBtn = document.getElementById('print-btn');
+  if (printBtn) {
+    printBtn.addEventListener('click', () => {
+      const accordions = Array.from(
+        document.querySelectorAll('.card-body-section details')
+      ) as HTMLDetailsElement[];
+      const wasOpen = accordions.map(d => d.open);
+      accordions.forEach(d => (d.open = true));
+      window.print();
+      // Restore after print dialog closes
+      setTimeout(() => {
+        accordions.forEach((d, i) => (d.open = wasOpen[i]));
+      }, 500);
+    });
+  }
 </script>
+
+<style is:global>
+@media print {
+  /* Hide everything except the content card */
+  header,
+  .hero-section,
+  .sidebar-card,
+  .assistance-box,
+  .page-body > div > *:not(.flex-1) {
+    display: none !important;
+  }
+  .page-body > div {
+    display: block !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+  .flex-1 {
+    width: 100% !important;
+  }
+  .content-card {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Card header */
+  .card-header-section {
+    background: none !important;
+    border-bottom: 2px solid #3A959B !important;
+    padding: 0 0 16px 0 !important;
+  }
+  .card-header-section h2 {
+    font-size: 1.6rem !important;
+    margin-bottom: 6px !important;
+  }
+  .card-header-section p {
+    margin: 0 !important;
+  }
+
+  /* Card body */
+  .card-body-section {
+    padding: 0 !important;
+  }
+
+  /* Force all accordions open */
+  details {
+    display: block !important;
+  }
+  details > summary {
+    padding: 12px 0 !important;
+    border-bottom: 1px solid #e5e5e5 !important;
+    font-weight: 600 !important;
+  }
+  details > .accordion-body {
+    display: block !important;
+    padding: 8px 0 16px !important;
+  }
+  /* Hide the chevron circles */
+  .accordion-chevron-wrap {
+    display: none !important;
+  }
+
+  /* General print cleanup */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  body {
+    font-size: 11pt !important;
+  }
+  .page-body {
+    background: white !important;
+    padding: 0 !important;
+  }
+}
+</style>

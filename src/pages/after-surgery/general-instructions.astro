@@ -6,7 +6,8 @@ import Accordion from '../../components/shared/Accordion.astro';
 import { afterSurgeryNavItems as navItems } from '../../data/surgeryNavItems';
 ---
 
-<Layout title="General Instructions - Great Lakes Oral & Maxillofacial Surgery Centre">
+<Layout description="Post-operative care instructions after oral surgery. Follow these guidelines to minimize pain, swelling, and promote healing after your procedure."
+  title="General Instructions - Great Lakes Oral & Maxillofacial Surgery Centre">
   <SidebarLayout title="After a Procedure" navItems={navItems} currentPath={Astro.url.pathname}>
     <Fragment slot="card-header">
       <h2>General Instructions</h2>

@@ -1,26 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SidebarLayout from '../../components/shared/SidebarLayout.astro';
-import PageHeading from '../../components/shared/PageHeading.astro';
 import Accordion from '../../components/shared/Accordion.astro';
 
 import { surgeryNavItems as navItems } from '../../data/surgeryNavItems';
 ---
 
-<Layout title="Extraction of Routine Teeth - Great Lakes Oral & Maxillofacial Surgery Centre">
-  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname}>
-    <PageHeading title="Extraction of Routine Teeth" />
-    <p class="mb-8 leading-relaxed" style="color: #515151">You, your Dentist and your surgeon may determine that you need a tooth
-        extraction for any number of reasons. Some teeth are extracted because
-        they are severely decayed; others may have advanced periodontal disease,
-        or have broken in a way that cannot be repaired. Other teeth may need
-        removal because they are poorly positioned in the mouth (such as
-        impacted teeth), or in preparation for orthodontic treatment. The
-        removal of a single tooth can lead to problems related to your chewing
-        ability, problems with your jaw joint, and shifting teeth, which can
-        have a major impact on your dental health. To avoid these complications,
-        in most cases, your surgeon will discuss alternatives to extractions as
-        well as replacement of the extracted tooth.</p>
+<Layout description="Professional tooth extraction services in Tecumseh, ON. Your surgeon will discuss all alternatives and replacement options to protect your long-term dental health."
+  title="Extraction of Routine Teeth - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname} eyebrow="Surgical Procedures" heroSubtitle="Expert oral and maxillofacial surgical procedures performed with precision and care.">
+    <Fragment slot="card-header">
+      <h2>Extraction of Routine Teeth</h2>
+      <p>Teeth may need extraction due to decay, disease, or poor positioning. Your surgeon will always discuss alternatives and replacement options to protect your long-term dental health.</p>
+    </Fragment>
 
     <div class="mb-10">
       <iframe

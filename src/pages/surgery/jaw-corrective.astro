@@ -1,16 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SidebarLayout from '../../components/shared/SidebarLayout.astro';
-import PageHeading from '../../components/shared/PageHeading.astro';
 import Accordion from '../../components/shared/Accordion.astro';
 
 import { surgeryNavItems as navItems } from '../../data/surgeryNavItems';
 ---
 
-<Layout title="Orthognathic Jaw Surgery (Corrective Jaw Surgery) - Great Lakes Oral & Maxillofacial Surgery Centre">
-  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname}>
-    <PageHeading title="Orthognathic Jaw Surgery (Corrective Jaw Surgery)" />
-    <p class="mb-8 leading-relaxed" style="color: #515151">Orthognathic surgery is needed when the jaws, and the teeth within them don't seem to fit together correctly. Teeth are straightened with orthodontics and corrective jaw surgery repositions misaligned jaws. This not only improves facial appearance, but more importantly ensures that teeth meet correctly and function properly against each other.</p>
+<Layout description="Orthognathic corrective jaw surgery to reposition misaligned jaws, improve facial appearance, and ensure proper bite function. Great Lakes Oral Surgery, Tecumseh."
+  title="Orthognathic Jaw Surgery (Corrective Jaw Surgery) - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname} eyebrow="Surgical Procedures" heroSubtitle="Expert oral and maxillofacial surgical procedures performed with precision and care.">
+    <Fragment slot="card-header">
+      <h2>Orthognathic Jaw Surgery (Corrective Jaw Surgery)</h2>
+      <p>Corrective jaw surgery repositions misaligned jaws to improve facial appearance and ensure teeth meet and function properly against each other.</p>
+    </Fragment>
 
     <Accordion title="Who Needs Orthognathic Surgery?">
       People who can benefit from orthognathic surgery include those with an

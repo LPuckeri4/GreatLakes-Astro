@@ -1,14 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SidebarLayout from '../../components/shared/SidebarLayout.astro';
-import PageHeading from '../../components/shared/PageHeading.astro';
 
 import { surgeryNavItems as navItems } from '../../data/surgeryNavItems';
 ---
 
-<Layout title="Oral Pathology - Great Lakes Oral & Maxillofacial Surgery Centre">
-  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname}>
-    <PageHeading title="Oral Pathology" />
+<Layout description="Oral cancer screening and pathology services in Windsor, ON. Early detection of suspicious lesions, lumps, and sores. Contact Great Lakes Oral Surgery today."
+  title="Oral Pathology - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname} eyebrow="Surgical Procedures" heroSubtitle="Expert oral and maxillofacial surgical procedures performed with precision and care.">
+    <Fragment slot="card-header">
+      <h2>Oral Pathology</h2>
+      <p>Any alteration in the normal appearance of your mouth could be a warning sign for a pathological process. Do not ignore suspicious lumps or sores — early detection is critical.</p>
+    </Fragment>
+
     <div class="leading-relaxed" style="color: #515151">
       <p class="mb-4">The inside of the mouth is normally lined with a special type of skin (mucosa) that is smooth and coral pink in color. Any alteration in this appearance could be a warning sign for a pathological process. The most serious of these is oral cancer. The following can be signs at the beginning of a pathologic process or cancerous growth:</p>
       <ul class="list-disc ml-6 mb-4 space-y-1">

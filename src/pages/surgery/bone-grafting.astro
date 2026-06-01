@@ -1,16 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SidebarLayout from '../../components/shared/SidebarLayout.astro';
-import PageHeading from '../../components/shared/PageHeading.astro';
 import Accordion from '../../components/shared/Accordion.astro';
 
 import { surgeryNavItems as navItems } from '../../data/surgeryNavItems';
 ---
 
-<Layout title="Bone Grafting - Great Lakes Oral & Maxillofacial Surgery Centre">
-  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname}>
-    <PageHeading title="Bone Grafting" />
-    <p class="mb-8 leading-relaxed" style="color: #515151">Over a period of time, the jawbone associated with missing teeth atrophies or resorbs away. This often leaves a condition in which there is poor quality and quantity of bone suitable for placement of dental implants. In these situations, most patients are not candidates for placement of dental implants. Today, we have the ability to grow bone where needed. This not only gives us the opportunity to place implants of proper length and width, it also gives us a chance to restore functionality and esthetic appearance.</p>
+<Layout description="Advanced bone grafting procedures to restore jawbone volume and prepare for dental implants. Serving Windsor and Essex County at Great Lakes Oral Surgery."
+  title="Bone Grafting - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname} eyebrow="Surgical Procedures" heroSubtitle="Expert oral and maxillofacial surgical procedures performed with precision and care.">
+    <Fragment slot="card-header">
+      <h2>Bone Grafting</h2>
+      <p>Over a period of time, the jawbone associated with missing teeth atrophies or resorbs away. Today, we have the ability to grow bone where needed — restoring proper implant sites and esthetic appearance.</p>
+    </Fragment>
 
     <Accordion title="Major Bone Grafting">
       Bone grafting can repair potential implant sites with inadequate bone
