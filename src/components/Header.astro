@@ -12,6 +12,7 @@ const navLinks = [
 
 const resourceLinks = [
   { label: 'Download Forms', href: '/downloads' },
+  { label: 'Before Surgery', href: '/before-surgery' },
   { label: 'Online Payment', href: '/payment' },
   { label: 'Patient Referral', href: 'https://v3.expressregistration.ca/prod/view.php?id=52423' },
 ];
@@ -19,9 +20,9 @@ const resourceLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header id="site-header" class="sticky top-0 w-full z-50 bg-white border-b border-gray-100 transition-shadow duration-300">
+<header id="site-header" class="sticky top-0 w-full z-50 border-b border-gray-100/60 transition-shadow duration-300">
   <!-- Desktop nav -->
-  <nav class="hidden md:flex items-center w-full max-w-7xl mx-auto px-6 lg:px-10 h-[88px]">
+  <nav class="hidden md:flex items-center w-full max-w-7xl mx-auto px-6 lg:px-10 h-[100px]">
 
     <!-- Logo -->
     <a href="/" class="shrink-0 mr-10">
@@ -31,7 +32,7 @@ const currentPath = Astro.url.pathname;
         widths={[280, 560]}
         sizes="280px"
         formats={['webp', 'png']}
-        class="w-[220px] lg:w-[260px]"
+        class="w-[240px] lg:w-[280px]"
       />
     </a>
 
@@ -79,7 +80,7 @@ const currentPath = Astro.url.pathname;
   </nav>
 
   <!-- Mobile nav -->
-  <div class="md:hidden flex items-center w-full max-w-7xl mx-auto px-4 h-[72px]">
+  <div class="md:hidden flex items-center w-full max-w-7xl mx-auto px-4 h-[80px]">
     <button id="mobile-menu-btn" aria-label="Open menu" class="text-[#222222] mr-2 p-3 -ml-3">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -128,9 +129,9 @@ const currentPath = Astro.url.pathname;
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    padding: 6px 12px;
+    padding: 8px 14px;
     border-radius: 6px;
-    font-size: 0.9rem;
+    font-size: 0.975rem;
     font-weight: 500;
     color: #374151;
     text-decoration: none;
@@ -168,7 +169,8 @@ const currentPath = Astro.url.pathname;
     transition: transform 0.2s ease;
     flex-shrink: 0;
   }
-  .dropdown-trigger[aria-expanded="true"] .dropdown-arrow {
+  .dropdown-trigger[aria-expanded="true"] .dropdown-arrow,
+  .dropdown-wrap:hover .dropdown-arrow {
     transform: rotate(180deg);
   }
   .dropdown-trigger[aria-expanded="true"] {
@@ -178,7 +180,7 @@ const currentPath = Astro.url.pathname;
 
   .dropdown-menu {
     position: absolute;
-    top: calc(100% + 8px);
+    top: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(-6px);
     min-width: 200px;
@@ -187,12 +189,14 @@ const currentPath = Astro.url.pathname;
     box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
     border: 1px solid rgba(0,0,0,0.06);
     padding: 6px;
+    padding-top: 14px;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.18s ease, transform 0.18s ease;
     z-index: 100;
   }
-  .dropdown-menu.open {
+  .dropdown-menu.open,
+  .dropdown-wrap:hover .dropdown-menu {
     opacity: 1;
     pointer-events: auto;
     transform: translateX(-50%) translateY(0);
@@ -212,8 +216,8 @@ const currentPath = Astro.url.pathname;
   }
   .dropdown-item {
     display: block;
-    padding: 9px 14px;
-    font-size: 0.875rem;
+    padding: 10px 16px;
+    font-size: 0.925rem;
     font-weight: 500;
     color: #374151;
     text-decoration: none;
@@ -230,10 +234,10 @@ const currentPath = Astro.url.pathname;
   .contact-btn {
     display: inline-flex;
     align-items: center;
-    padding: 9px 22px;
+    padding: 11px 26px;
     background-color: #3A959B;
     color: white;
-    font-size: 0.875rem;
+    font-size: 0.95rem;
     font-weight: 600;
     text-decoration: none;
     border-radius: 8px;
@@ -247,8 +251,15 @@ const currentPath = Astro.url.pathname;
     box-shadow: 0 4px 12px rgba(58, 149, 155, 0.35);
   }
 
-  /* Scroll shadow */
+  /* Transparent at top, opaque on scroll */
+  #site-header {
+    background-color: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
   #site-header.scrolled {
+    background-color: rgba(255, 255, 255, 1);
     box-shadow: 0 2px 16px rgba(0,0,0,0.08);
     border-bottom-color: transparent;
   }

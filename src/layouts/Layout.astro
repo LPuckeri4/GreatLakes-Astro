@@ -12,7 +12,7 @@ interface Props {
 const {
   title = 'Great Lakes Oral & Maxillofacial Surgery',
   description = 'Great Lakes Oral & Maxillofacial Surgery Centre — serving Windsor and Essex County with advanced, compassionate oral and maxillofacial surgical care.',
-  ogImage = '/img/GreatLakesLogo.png',
+  ogImage = '/references/og-Greatlakes.jpg',
 } = Astro.props;
 
 const siteBase = Astro.site ?? new URL('https://www.greatlakessurgerycentre.com');
@@ -25,6 +25,7 @@ const path = Astro.url.pathname;
 const siteURL = siteBase.toString().replace(/\/$/, '');
 const pageLabels: Record<string, string> = {
   '/about': 'About',
+  '/before-surgery': 'Before Surgery',
   '/doctors': 'Doctors',
   '/staff': 'Staff',
   '/downloads': 'Forms & Downloads',
@@ -78,9 +79,8 @@ const breadcrumbSchema = bcItems.length > 1 ? JSON.stringify({
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/img/GreatLakesLogo.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#3A959B" />
     <meta name="generator" content={Astro.generator} />
 
@@ -102,8 +102,10 @@ const breadcrumbSchema = bcItems.length > 1 ? JSON.stringify({
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Great Lakes Oral & Maxillofacial Surgery Centre" />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:site_name" content="Great Lakes Oral & Maxillofacial Surgery Centre" />
     <meta property="og:locale" content="en_CA" />
 

@@ -10,9 +10,9 @@ import calendarIcon from '../../assets/images/calendar.png';
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
       <!-- Contact Us -->
-      <a href="tel:519-979-7227" class="card block bg-white rounded-lg p-5 no-underline text-inherit">
+      <a href="tel:519-979-7227" class="group block bg-white rounded-lg p-5 no-underline text-inherit border border-[#f3f4f6] shadow-[0_6px_24px_rgba(0,0,0,0.13)] transition-all duration-[250ms] ease-out hover:-translate-y-[5px] hover:shadow-[0_16px_48px_rgba(0,0,0,0.22)] hover:border-[#3A959B]">
         <div class="flex items-start gap-4">
-          <div class="card-icon w-12 h-12 rounded-full bg-[#3A959B] flex items-center justify-center flex-shrink-0">
+          <div class="w-12 h-12 rounded-full bg-[#3A959B] flex items-center justify-center flex-shrink-0 transition-transform duration-[250ms] group-hover:scale-110">
             <Image src={callIcon} alt="call" width={22} densities={[1, 2]} class="invert" />
           </div>
           <div>
@@ -29,10 +29,10 @@ import calendarIcon from '../../assets/images/calendar.png';
         href="https://maps.app.goo.gl/RR1CFZ7nuH5dH26KA"
         target="_blank"
         rel="noopener noreferrer"
-        class="card block bg-white rounded-lg p-5 no-underline text-inherit"
+        class="group block bg-white rounded-lg p-5 no-underline text-inherit border border-[#f3f4f6] shadow-[0_6px_24px_rgba(0,0,0,0.13)] transition-all duration-[250ms] ease-out hover:-translate-y-[5px] hover:shadow-[0_16px_48px_rgba(0,0,0,0.22)] hover:border-[#3A959B]"
       >
         <div class="flex items-start gap-4">
-          <div class="card-icon w-12 h-12 rounded-full bg-[#3A959B] flex items-center justify-center flex-shrink-0">
+          <div class="w-12 h-12 rounded-full bg-[#3A959B] flex items-center justify-center flex-shrink-0 transition-transform duration-[250ms] group-hover:scale-110">
             <Image src={locationIcon} alt="location" width={22} densities={[1, 2]} class="invert" />
           </div>
           <div>
@@ -44,9 +44,9 @@ import calendarIcon from '../../assets/images/calendar.png';
       </a>
 
       <!-- Hours of Operation -->
-      <a href="#contact" class="card block bg-white rounded-lg p-5 no-underline text-inherit">
+      <a href="#contact" class="group block bg-white rounded-lg p-5 no-underline text-inherit border border-[#f3f4f6] shadow-[0_6px_24px_rgba(0,0,0,0.13)] transition-all duration-[250ms] ease-out hover:-translate-y-[5px] hover:shadow-[0_16px_48px_rgba(0,0,0,0.22)] hover:border-[#3A959B]">
         <div class="flex items-start gap-4">
-          <div class="card-icon w-12 h-12 rounded-full bg-[#3A959B] flex items-center justify-center flex-shrink-0">
+          <div class="w-12 h-12 rounded-full bg-[#3A959B] flex items-center justify-center flex-shrink-0 transition-transform duration-[250ms] group-hover:scale-110">
             <Image src={calendarIcon} alt="hours" width={22} densities={[1, 2]} class="invert" />
           </div>
           <div>
@@ -65,22 +65,7 @@ import calendarIcon from '../../assets/images/calendar.png';
 </div>
 
 <style>
-  .card {
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.13);
-    border: 1px solid #f3f4f6;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  }
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
-    border-color: #3A959B;
-  }
-  .card-icon {
-    transition: transform 0.25s ease;
-  }
-  .card:hover .card-icon {
-    transform: scale(1.1);
-  }
+  /* animation can't be expressed in Tailwind without custom config */
   .contact-cards {
     animation: slideUp 1s ease-out 0.7s both;
   }

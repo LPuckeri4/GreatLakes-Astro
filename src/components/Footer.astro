@@ -3,36 +3,126 @@ import { Image } from 'astro:assets';
 import logowhited from '../assets/images/logowhited.png';
 ---
 
-<footer class="bg-[#292D2D] w-full py-5">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8">
-  <!-- Desktop -->
-  <div class="hidden sm:flex items-center w-full min-h-[100px]">
-    <div class="flex flex-col w-1/3 gap-1">
-      <a href="/" class="text-white no-underline hover:opacity-80 text-sm">Home</a>
-      <a href="/downloads" class="text-white no-underline hover:opacity-80 text-sm">Download forms</a>
-      <a href="/#contact" class="text-white no-underline hover:opacity-80 text-sm">Contact</a>
-    </div>
-    <div class="flex justify-center w-1/3">
-      <a href="/">
-        <Image src={logowhited} alt="Great Lakes" class="w-full max-w-[350px]" />
-      </a>
-    </div>
-    <div class="flex justify-center w-1/3">
-      <p class="text-white text-xs text-center">Site By: Lukas Puckerin Web Development</p>
+<footer class="bg-[#1e3a44] w-full">
+
+  <!-- Teal accent top line -->
+  <div class="h-[3px] bg-gradient-to-r from-[#3A959B] via-[#3A959B] to-transparent"></div>
+
+  <!-- Main content -->
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-14 pb-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+
+      <!-- Col 1: Logo + contact -->
+      <div class="sm:col-span-2 lg:col-span-1">
+        <a href="/" class="inline-block mb-5">
+          <Image src={logowhited} alt="Great Lakes Oral & Maxillofacial Surgery Centre" class="w-[200px]" />
+        </a>
+        <p class="text-gray-300 text-sm leading-relaxed mb-6 max-w-[260px]">
+          Advanced oral and maxillofacial surgical care serving Windsor and Essex County.
+        </p>
+        <ul class="space-y-3">
+          <li>
+            <a href="tel:519-979-7227" class="flex items-center gap-2.5 text-sm text-gray-300 hover:text-[#3A959B] transition-colors duration-150 no-underline">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0 text-[#3A959B]">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+              (519) 979-7227
+            </a>
+          </li>
+          <li>
+            <a href="https://maps.app.goo.gl/RR1CFZ7nuH5dH26KA" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2.5 text-sm text-gray-300 hover:text-[#3A959B] transition-colors duration-150 no-underline">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0 mt-0.5 text-[#3A959B]">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+              </svg>
+              1825 Manning Rd, Studio 700<br />Tecumseh, ON N9K 0A9
+            </a>
+          </li>
+          <li class="flex items-center gap-2.5 text-sm text-gray-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0 text-[#3A959B]">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+            </svg>
+            <span>Mon–Thu: 8am–5pm · Fri: 8am–3pm</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 2: Quick links -->
+      <div>
+        <h3 class="text-[0.68rem] font-bold tracking-[0.12em] uppercase text-[#3A959B] mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          {[
+            { label: 'Home', href: '/' },
+            { label: 'About Us', href: '/about' },
+            { label: 'Our Doctors', href: '/doctors' },
+            { label: 'Before Surgery', href: '/before-surgery' },
+            { label: 'Forms & Downloads', href: '/downloads' },
+            { label: 'Online Payment', href: '/payment' },
+            { label: 'Contact', href: '/#contact' },
+          ].map(link => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-300 hover:text-white transition-colors duration-150 no-underline">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Col 3: Procedures -->
+      <div>
+        <h3 class="text-[0.68rem] font-bold tracking-[0.12em] uppercase text-[#3A959B] mb-4">Our Procedures</h3>
+        <ul class="space-y-2">
+          {[
+            { label: 'Dental Implants', href: '/surgery/dental-implants' },
+            { label: 'Wisdom Teeth', href: '/surgery/wisdom-teeth' },
+            { label: 'Tooth Extraction', href: '/surgery/tooth-extraction' },
+            { label: 'Bone Grafting', href: '/surgery/bone-grafting' },
+            { label: 'Facial Trauma', href: '/surgery/facial-trauma' },
+            { label: 'Jaw Corrective', href: '/surgery/jaw-corrective' },
+            { label: 'TMJ Disorder', href: '/surgery/tmj-disorder' },
+            { label: 'Oral Pathology', href: '/surgery/oral-pathology' },
+            { label: 'Orthodontic Surgery', href: '/surgery/orthodontic-surgery' },
+          ].map(link => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-300 hover:text-white transition-colors duration-150 no-underline">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Col 4: After Surgery -->
+      <div>
+        <h3 class="text-[0.68rem] font-bold tracking-[0.12em] uppercase text-[#3A959B] mb-4">After Surgery</h3>
+        <ul class="space-y-2">
+          {[
+            { label: 'General Instructions', href: '/after-surgery/general-instructions' },
+            { label: 'Wisdom Teeth Removal', href: '/after-surgery/wisdom-teeth-removal' },
+            { label: 'Tooth Removal', href: '/after-surgery/tooth-removal' },
+            { label: 'Multiple Teeth', href: '/after-surgery/removal-of-multiple-teeth' },
+            { label: 'Dental Implants', href: '/after-surgery/placement-of-dental-implants' },
+            { label: 'Impacted Tooth', href: '/after-surgery/exposure-of-impacted-tooth' },
+            { label: 'Facial Trauma', href: '/after-surgery/facial-trauma' },
+          ].map(link => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-300 hover:text-white transition-colors duration-150 no-underline">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
     </div>
   </div>
 
-  <!-- Mobile -->
-  <div class="flex flex-col items-center w-full gap-4 sm:hidden min-h-[100px] justify-center">
-    <a href="/">
-      <Image src={logowhited} alt="Great Lakes" class="w-[70%] max-w-[300px]" />
-    </a>
-    <div class="flex flex-row justify-around w-full">
-      <a href="/" class="text-white no-underline hover:opacity-80 text-sm">Home</a>
-      <a href="/downloads" class="text-white no-underline hover:opacity-80 text-sm">Download forms</a>
-      <a href="/#contact" class="text-white no-underline hover:opacity-80 text-sm">Contact</a>
+  <!-- Bottom bar -->
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p class="text-gray-400 text-xs">© {new Date().getFullYear()} Great Lakes Oral &amp; Maxillofacial Surgery Centre. All rights reserved.</p>
+      <p class="text-gray-400 text-xs">Site by Lukas Puckerin Web Development</p>
     </div>
-    <p class="text-white text-xs text-center">Site By: Lukas Puckerin Web Development</p>
   </div>
-  </div>
+
 </footer>

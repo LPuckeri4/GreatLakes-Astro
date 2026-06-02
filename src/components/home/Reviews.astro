@@ -76,8 +76,8 @@ const reviews = [
     align-items: center;
     text-decoration: none;
     color: #222222;
-    width: 450px;
-    height: 450px;
+    width: min(450px, calc(100vw - 32px));
+    height: min(450px, calc(100vw - 32px));
     border-radius: 10%;
     margin: 10px;
     padding: 20px;
@@ -91,6 +91,8 @@ const reviews = [
   }
   @media (min-width: 640px) {
     .review-card {
+      width: 450px;
+      height: 450px;
       border-radius: 50%;
       padding: 50px;
     }
