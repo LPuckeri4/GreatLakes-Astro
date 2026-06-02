@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://www.greatlakessurgerycentre.com',
+  site: process.env.SITE_URL ?? 'https://www.greatlakessurgerycentre.com',
   output: 'static',
   integrations: [
     sitemap(),
