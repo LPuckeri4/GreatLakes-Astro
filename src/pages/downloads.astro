@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getImage } from 'astro:assets';
+import herobgSrc from '../assets/images/herobg-1.jpg';
+const heroBg = await getImage({ src: herobgSrc, format: 'webp' });
 
 const formSections = [
   {
@@ -42,11 +45,11 @@ const patientDownloads = [
 ---
 
 <Layout
-  title="Forms & Downloads - Great Lakes Oral & Maxillofacial Surgery Centre"
+  title="Patient Forms & Downloads | Great Lakes Oral Surgery"
   description="Download patient forms, including consent for implants and anesthesia, at Great Lakes Oral & Maxillofacial Surgery Centre."
 >
   <!-- Hero -->
-  <div class="forms-hero">
+  <div class="forms-hero" style={`background-image:url('${heroBg.src}')`}>
     <div class="hero-inner">
       <span class="hero-eyebrow">Patient Resources</span>
       <h1 class="hero-title">Forms and Downloads</h1>
@@ -115,7 +118,6 @@ const patientDownloads = [
 
 <style>
   .forms-hero {
-    background-image: url('/references/herobg-1.jpg');
     background-size: cover;
     background-position: center;
     border-bottom: 1px solid rgba(58,149,155,0.15);

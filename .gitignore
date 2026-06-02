@@ -23,5 +23,6 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# screenshots
+# temp upload/reference folders — not for deployment or git
+references/
 screenshots/

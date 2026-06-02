@@ -1,6 +1,7 @@
 ---
-import { Picture } from 'astro:assets';
+import { Picture, getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
+import herobgSrc from '../../assets/images/herobg-1.jpg';
 
 interface NavItem {
   label: string;
@@ -24,10 +25,11 @@ const {
   heroSubtitle = 'Clear recovery instructions to help you heal comfortably after oral surgery.',
 } = Astro.props;
 const hasCardHeader = Astro.slots.has('card-header');
+const heroBg = await getImage({ src: herobgSrc, format: 'webp' });
 ---
 
 {hasCardHeader ? (
-  <div class="hero-section">
+  <div class="hero-section" style={`background-image: url('${heroBg.src}')`}>
     <div class="mx-auto max-w-7xl px-8 md:px-12 lg:px-16 py-14 md:py-16 text-center">
       <span class="hero-eyebrow">{eyebrow}</span>
       <h1 class="hero-title">{title}</h1>
@@ -119,7 +121,6 @@ const hasCardHeader = Astro.slots.has('card-header');
 <style>
   /* ── Hero section ── */
   .hero-section {
-    background-image: url('/references/herobg-1.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

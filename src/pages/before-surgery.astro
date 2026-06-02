@@ -1,10 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getImage } from 'astro:assets';
+import herobgSrc from '../assets/images/herobg-1.jpg';
+const heroBg = await getImage({ src: herobgSrc, format: 'webp' });
 ---
 
 <Layout
-  title="Instructions Before Surgery - Great Lakes Oral & Maxillofacial Surgery Centre"
-  description="Pre-operative instructions for patients at Great Lakes Oral & Maxillofacial Surgery Centre. What to wear, eat, and prepare before your surgery appointment."
+  title="Before Surgery Instructions | Great Lakes Oral Surgery"
+  description="Pre-operative instructions for oral surgery patients in Windsor and Essex County. What to wear, eat, and prepare before your appointment at Great Lakes Oral Surgery."
 >
   <script type="application/ld+json" slot="head">{JSON.stringify({ "@context": "https://schema.org", "@graph": [
     { "@type": "MedicalWebPage", "name": "Instructions Before Surgery", "url": "https://www.greatlakessurgerycentre.com/before-surgery", "description": "Pre-operative instructions for patients at Great Lakes Oral & Maxillofacial Surgery Centre.", "specialty": "Oral and Maxillofacial Surgery" },
@@ -18,7 +21,7 @@ import Layout from '../layouts/Layout.astro';
   ]})}</script>
 
   <!-- Hero -->
-  <div style="background-image:url('/references/herobg-1.jpg');" class="bg-cover bg-center border-b border-[rgba(58,149,155,0.15)]">
+  <div style={`background-image:url('${heroBg.src}');`} class="bg-cover bg-center border-b border-[rgba(58,149,155,0.15)]">
     <div class="max-w-7xl mx-auto px-6 md:px-16 pt-12 md:pt-[72px] pb-10 md:pb-[68px] text-center">
       <span class="inline-block text-[0.7rem] font-bold tracking-[0.14em] uppercase text-[#3A959B] mb-[14px]">Patient Resources</span>
       <h1 class="text-3xl md:text-5xl font-normal text-[#1a2e35] mt-0 mb-4 leading-[1.15]">Before Surgery</h1>
