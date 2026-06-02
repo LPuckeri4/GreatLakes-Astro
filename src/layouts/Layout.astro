@@ -17,7 +17,7 @@ const {
 
 const siteBase = Astro.site ?? new URL('https://www.greatlakessurgerycentre.com');
 const canonicalURL = new URL(Astro.url.pathname, siteBase);
-const ogImageURL = new URL(ogImage, siteBase).toString();
+const ogImageURL = new URL(ogImage, Astro.url.origin).toString();
 const fullTitle = title.includes('Great Lakes') ? title : `${title} | Great Lakes Oral & Maxillofacial Surgery`;
 
 // BreadcrumbList schema
