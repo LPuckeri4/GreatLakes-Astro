@@ -80,12 +80,21 @@ const breadcrumbSchema = bcItems.length > 1 ? JSON.stringify({
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/img/GreatLakesLogo.png" />
+    <meta name="theme-color" content="#3A959B" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Primary meta -->
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Geo (local SEO) -->
+    <meta name="geo.region" content="CA-ON" />
+    <meta name="geo.placename" content="Tecumseh, Ontario, Canada" />
+    <meta name="geo.position" content="42.3154;-82.9093" />
+    <meta name="ICBM" content="42.3154, -82.9093" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -93,6 +102,8 @@ const breadcrumbSchema = bcItems.length > 1 ? JSON.stringify({
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:alt" content="Great Lakes Oral & Maxillofacial Surgery Centre" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:site_name" content="Great Lakes Oral & Maxillofacial Surgery Centre" />
     <meta property="og:locale" content="en_CA" />
 
@@ -101,7 +112,7 @@ const breadcrumbSchema = bcItems.length > 1 ? JSON.stringify({
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
-    <meta name="robots" content="index, follow" />
+    <meta name="twitter:image:alt" content="Great Lakes Oral & Maxillofacial Surgery Centre" />
 
     <!-- Structured data: Medical practice -->
     <script type="application/ld+json">
