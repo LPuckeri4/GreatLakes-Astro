@@ -8,9 +8,21 @@ import Locations from '../components/home/Locations.astro';
 ---
 
 <Layout
-  title="Home - Great Lakes Oral & Maxillofacial Surgery Centre"
+  title="Great Lakes Oral & Maxillofacial Surgery Centre | Windsor & Essex County"
   description="Get advanced and compassionate oral and maxillofacial surgical care at Great Lakes Oral & Maxillofacial Surgery Centre. Our experienced team uses the latest technology and techniques to provide comfortable treatment options."
 >
+  <script type="application/ld+json" slot="head">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Great Lakes Oral & Maxillofacial Surgery Centre",
+    "url": "https://www.greatlakessurgerycentre.com",
+    "description": "Specialized oral and maxillofacial surgery practice in Tecumseh, Ontario, serving Windsor and Essex County. Home of Dr. Mark Shuren and Dr. Richard Stapleford.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": { "@type": "EntryPoint", "urlTemplate": "https://www.greatlakessurgerycentre.com/?q={search_term_string}" },
+      "query-input": "required name=search_term_string"
+    }
+  })}</script>
   <Hero />
   <div class="bg-white w-full">
     <Offers />

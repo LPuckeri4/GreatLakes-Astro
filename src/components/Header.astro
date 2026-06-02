@@ -5,8 +5,8 @@ import greatlakesLogo from '../assets/images/GreatLakesLogo.png';
 const navLinks = [
   { label: 'Home', href: '/', activePrefix: '/' },
   { label: 'Surgery', href: '/surgery/dental-implants', activePrefix: '/surgery' },
-  { label: 'Doctors', href: '/doctors', activePrefix: '/doctors' },
   { label: 'After Surgery', href: '/after-surgery/general-instructions', activePrefix: '/after-surgery' },
+  { label: 'Doctors', href: '/doctors', activePrefix: '/doctors' },
   { label: 'About', href: '/about', activePrefix: '/about' },
 ];
 
@@ -80,7 +80,7 @@ const currentPath = Astro.url.pathname;
 
   <!-- Mobile nav -->
   <div class="md:hidden flex items-center w-full max-w-7xl mx-auto px-4 h-[72px]">
-    <button id="mobile-menu-btn" aria-label="Open menu" class="text-[#222222] mr-4 p-1">
+    <button id="mobile-menu-btn" aria-label="Open menu" class="text-[#222222] mr-2 p-3 -ml-3">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
@@ -100,7 +100,7 @@ const currentPath = Astro.url.pathname;
     <a href="/" id="drawer-logo-link">
       <Picture src={greatlakesLogo} alt="Great Lakes" widths={[200]} sizes="160px" formats={['webp','png']} class="w-[160px]" />
     </a>
-    <button id="drawer-close" class="text-gray-400 hover:text-gray-600 p-1">
+    <button id="drawer-close" class="text-gray-400 hover:text-gray-600 p-3 -mr-3">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>

@@ -8,6 +8,14 @@ import { afterSurgeryNavItems as navItems } from '../../data/surgeryNavItems';
 
 <Layout description="Care instructions after surgical exposure of an impacted tooth. How to protect the surgical packing and promote healing after your procedure."
   title="After Exposure of an Impacted Tooth - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <script type="application/ld+json" slot="head">{JSON.stringify({ "@context": "https://schema.org", "@graph": [
+    { "@type": "MedicalWebPage", "name": "After Exposure of an Impacted Tooth", "url": "https://www.greatlakessurgerycentre.com/after-surgery/exposure-of-impacted-tooth", "description": "Care instructions after surgical exposure of an impacted tooth. How to protect the surgical packing and promote healing.", "specialty": "Oral and Maxillofacial Surgery" },
+    { "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "What should I do if the surgical packing falls out after impacted tooth exposure?", "acceptedAnswer": { "@type": "Answer", "text": "Do not be alarmed if the surgical packing gets dislodged or falls out. The pack helps keep the tooth exposed. If it falls out, do not disturb the wound and contact the office for guidance." } },
+      { "@type": "Question", "name": "How do I keep my mouth clean after impacted tooth exposure?", "acceptedAnswer": { "@type": "Answer", "text": "Clean your mouth thoroughly after each meal beginning the day after surgery. Brush your teeth as best you can. Rinse with the provided irrigating syringe six times a day, given at your first post-surgery appointment. Continue until healing is complete. A clean wound heals better and faster." } },
+      { "@type": "Question", "name": "How do I manage pain after impacted tooth exposure?", "acceptedAnswer": { "@type": "Answer", "text": "Begin taking pain medication before the local anesthetic wears off. Tylenol or Extra Strength Tylenol can be taken as directed every 4-6 hours. Ibuprofen (Advil, Motrin) may be taken instead, assuming no allergies. For severe pain, take the prescribed medication as directed." } }
+    ]}
+  ]})}</script>
   <SidebarLayout title="After a Procedure" navItems={navItems} currentPath={Astro.url.pathname}>
     <Fragment slot="card-header">
       <h2>After Exposure of an Impacted Tooth</h2>
@@ -70,5 +78,8 @@ import { afterSurgeryNavItems as navItems } from '../../data/surgeryNavItems';
         consume alcohol or other drugs with sedative properties for 24 hours
         following the anesthetic.
     </Accordion>
+    <p class="mt-6 pt-6 border-t border-gray-100 text-sm text-center leading-relaxed" style="color: #515151;">
+      If you have any questions or concerns don't hesitate to call the office to speak with a nurse. <a href="tel:519-979-7227" style="color:#3A959B;font-weight:bold;text-decoration:none">(519)-979-7227</a>
+    </p>
   </SidebarLayout>
 </Layout>

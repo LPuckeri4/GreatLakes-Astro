@@ -8,6 +8,15 @@ import { afterSurgeryNavItems as navItems } from '../../data/surgeryNavItems';
 
 <Layout description="Discharge instructions for facial trauma including nasal fractures, jaw fractures, and lacerations. Great Lakes Oral Surgery, Windsor."
   title="After Facial Trauma - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <script type="application/ld+json" slot="head">{JSON.stringify({ "@context": "https://schema.org", "@graph": [
+    { "@type": "MedicalWebPage", "name": "After Facial Trauma — Discharge Instructions", "url": "https://www.greatlakessurgerycentre.com/after-surgery/facial-trauma", "description": "Discharge instructions for facial trauma including nasal fractures, jaw fractures, and lacerations. Great Lakes Oral Surgery, Windsor.", "specialty": "Oral and Maxillofacial Surgery" },
+    { "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "What should I do after a nasal bone fracture?", "acceptedAnswer": { "@type": "Answer", "text": "Keep ice to the top of the nose for the first day if the nose is not splinted. If splinted and packed, maintain the splint and packing until seen in the office. Do not blow your nose. Avoid heavy lifting or strenuous exercise. Sleep with head elevated with pillows for the first 3-4 days. Call the office if bleeding continues." } },
+      { "@type": "Question", "name": "What should I do after a jaw fracture?", "acceptedAnswer": { "@type": "Answer", "text": "Keep ice to the area for the first 2 days. Sleep with head elevated for 3-4 days. Eat only soft foods and liquids — no chewing. Keep the mouth clean by rinsing and brushing teeth. If elastics or wires fall off, wait until your next office visit. Although you may be able to open and close your jaw, it is still considered broken for 4-6 weeks after injury. Plates and screws placed will remain unless otherwise indicated." } },
+      { "@type": "Question", "name": "What should I do after a cheekbone or orbital bone fracture?", "acceptedAnswer": { "@type": "Answer", "text": "Keep ice to the face in the fracture area for the first 1-2 days. Sleep with head elevated for 3-4 days. Do not sleep on the affected side. Do not blow your nose. Numbness to the fracture side of the face is normal and may or may not resolve. If you experience pain or loss of vision in the eye, call the office or go to the Emergency Room immediately." } },
+      { "@type": "Question", "name": "How should I care for facial lacerations after surgery?", "acceptedAnswer": { "@type": "Answer", "text": "Keep wounds clean and clear of scabs. Apply antibiotic ointment to wounds twice daily after cleaning. Maintain any dressing placed in the office. Avoid sun exposure for 6 months to a year by applying complete block sunscreen to wounds once healed, to prevent scarring." } }
+    ]}
+  ]})}</script>
   <SidebarLayout title="After a Procedure" navItems={navItems} currentPath={Astro.url.pathname}>
     <Fragment slot="card-header">
       <h2>After Facial Trauma</h2>
@@ -133,5 +142,8 @@ import { afterSurgeryNavItems as navItems } from '../../data/surgeryNavItems';
           </li>
         </ul>
     </Accordion>
+    <p class="mt-6 pt-6 border-t border-gray-100 text-sm text-center leading-relaxed" style="color: #515151;">
+      If you have any questions or concerns don't hesitate to call the office to speak with a nurse. <a href="tel:519-979-7227" style="color:#3A959B;font-weight:bold;text-decoration:none">(519)-979-7227</a>
+    </p>
   </SidebarLayout>
 </Layout>

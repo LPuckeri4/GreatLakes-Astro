@@ -8,10 +8,20 @@ import { surgeryNavItems as navItems } from '../../data/surgeryNavItems';
 
 <Layout description="Expert treatment of facial injuries including lacerations, fractured bones, and avulsed teeth. Emergency coverage at Windsor Regional and Hotel Dieu Hospital."
   title="Facial Trauma - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <script type="application/ld+json" slot="head">{JSON.stringify({ "@context": "https://schema.org", "@graph": [
+    { "@type": "MedicalWebPage", "name": "Facial Trauma Treatment", "url": "https://www.greatlakessurgerycentre.com/surgery/facial-trauma", "description": "Expert treatment of facial injuries including lacerations, fractured bones, and avulsed teeth. Emergency coverage at Windsor Regional and Hotel Dieu Hospital.", "specialty": "Oral and Maxillofacial Surgery" },
+    { "@type": "MedicalProcedure", "name": "Facial Trauma Treatment", "procedureType": "Surgical", "bodyLocation": "Face, jaw, teeth", "description": "Treatment of facial lacerations, fractured facial bones, fractured jaws, and avulsed teeth. Performed at Windsor Regional Hospital and Hotel Dieu Hospital.", "indication": "Facial lacerations, avulsed teeth, fractured facial bones (cheek, nose, eye socket), fractured jaws (upper and lower), fractured frontal bones." },
+    { "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "What causes maxillofacial trauma?", "acceptedAnswer": { "@type": "Answer", "text": "Facial trauma can be caused by motor vehicle accidents, accidental falls, sports injuries, interpersonal violence, and work-related injuries. Injuries range from soft tissue injuries to severe bone fractures of the face." } },
+      { "@type": "Question", "name": "How are soft tissue facial injuries treated?", "acceptedAnswer": { "@type": "Answer", "text": "Facial lacerations are repaired by suturing. Care is taken to inspect for injuries to facial nerves, salivary glands, and salivary ducts. Our surgeons are trained to diagnose and treat all types of facial lacerations to achieve the best cosmetic result." } },
+      { "@type": "Question", "name": "How are facial bone fractures treated?", "acceptedAnswer": { "@type": "Answer", "text": "Facial fractures are treated based on location, severity, age, and health of the patient. Options include wiring the jaws together or using rigid fixation with small plates and screws. Rigid fixation allows healing without wiring the jaws and speeds recovery. Incisions are designed to be small and hidden where possible." } },
+      { "@type": "Question", "name": "What happens if a tooth is knocked out?", "acceptedAnswer": { "@type": "Answer", "text": "A knocked-out tooth should be placed in salt water or milk immediately. The sooner it is re-inserted into the dental socket, the better the chance of survival. Do not wipe the tooth — remnants of the ligament on the root are vital. See a dentist or oral surgeon as soon as possible." } }
+    ]}
+  ]})}</script>
   <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname} eyebrow="Surgical Procedures" heroSubtitle="Expert oral and maxillofacial surgical procedures performed with precision and care.">
     <Fragment slot="card-header">
       <h2>Facial Trauma</h2>
-      <p>Our surgeons are uniquely qualified to manage facial trauma. On staff at Windsor Regional and Hotel Dieu Hospital, they deliver emergency room coverage for facial injuries including lacerations, fractured bones, and avulsed teeth.</p>
+      <p>Injuries to the face, by their very nature, impart a high degree of emotional, as well as physical trauma to patients. The science and art of treating these injuries requires special training involving a "hands on" experience and an understanding of how the treatment provided will influence the patient's long term function and appearance. Oral &amp; Maxillofacial Surgeons meet and exceed these modern standards. They are trained, skilled and uniquely qualified to manage and treat facial trauma. Your surgeon is on staff at Windsor Regional and Hotel Dieu Hospital and delivers emergency room coverage for facial injuries, which include the following conditions:</p>
     </Fragment>
 
     <div class="mb-8 leading-relaxed" style="color: #515151">

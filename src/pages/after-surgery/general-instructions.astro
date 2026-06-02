@@ -8,6 +8,18 @@ import { afterSurgeryNavItems as navItems } from '../../data/surgeryNavItems';
 
 <Layout description="Post-operative care instructions after oral surgery. Follow these guidelines to minimize pain, swelling, and promote healing after your procedure."
   title="General Instructions - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <script type="application/ld+json" slot="head">{JSON.stringify({ "@context": "https://schema.org", "@graph": [
+    { "@type": "MedicalWebPage", "name": "General Post-Operative Instructions", "url": "https://www.greatlakessurgerycentre.com/after-surgery/general-instructions", "description": "General post-operative care instructions after oral surgery. Guidelines to minimize pain, swelling, and promote healing.", "specialty": "Oral and Maxillofacial Surgery" },
+    { "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "How do I control bleeding after oral surgery?", "acceptedAnswer": { "@type": "Answer", "text": "Some bleeding or redness in the saliva is normal for 24 hours. Bite with pressure on a gauze pad placed directly on the bleeding wound for 30 minutes to control excessive bleeding. If bleeding continues, call the office at 519-979-7227 for further instructions." } },
+      { "@type": "Question", "name": "How do I reduce swelling after oral surgery?", "acceptedAnswer": { "@type": "Answer", "text": "Apply an ice bag or towel filled with ice on the cheek or lip in the area of surgery. Apply the ice intermittently for 20-30 minute intervals as much as possible for the first 48 hours." } },
+      { "@type": "Question", "name": "What should I eat after oral surgery?", "acceptedAnswer": { "@type": "Answer", "text": "Drink plenty of fluids. Avoid hot liquids or food. Eat soft food and liquids on the day of surgery. Return to a normal diet as soon as tolerated unless otherwise directed." } },
+      { "@type": "Question", "name": "What pain medication should I take after oral surgery?", "acceptedAnswer": { "@type": "Answer", "text": "Begin taking pain medication before the local anesthetic wears off. For mild to moderate pain, Tylenol or Extra Strength Tylenol can be taken as directed. Ibuprofen (Advil, Motrin) may be taken instead. For severe pain, take the prescribed medication as directed." } },
+      { "@type": "Question", "name": "How do I keep my mouth clean after oral surgery?", "acceptedAnswer": { "@type": "Answer", "text": "Warm salt water rinses should be used at least 4-5 times a day, especially after meals. Use the Peridex rinse as prescribed if given. Brush your teeth normally but be gentle in the surgical areas." } },
+      { "@type": "Question", "name": "What activities should I avoid after oral surgery?", "acceptedAnswer": { "@type": "Answer", "text": "Keep physical activities to a minimum immediately following surgery. Throbbing or bleeding may occur if you exercise. Your nourishment intake will be reduced, which may weaken you. Stop exercising if you feel lightheaded." } },
+      { "@type": "Question", "name": "What are the rules after IV sedation for oral surgery?", "acceptedAnswer": { "@type": "Answer", "text": "After IV sedation, a responsible adult must accompany you for a minimum of 18 hours. You must not drive, operate machinery, make important decisions, or consume alcohol or sedative drugs for 24 hours following the anesthetic. No exceptions." } }
+    ]}
+  ]})}</script>
   <SidebarLayout title="After a Procedure" navItems={navItems} currentPath={Astro.url.pathname}>
     <Fragment slot="card-header">
       <h2>General Instructions</h2>
@@ -69,5 +81,8 @@ import { afterSurgeryNavItems as navItems } from '../../data/surgeryNavItems';
         consume alcohol or other drugs with sedative properties for 24 hours
         following the anesthetic.
     </Accordion>
+    <p class="mt-6 pt-6 border-t border-gray-100 text-sm text-center leading-relaxed" style="color: #515151;">
+      If you have any questions or concerns don't hesitate to call the office to speak with a nurse. <a href="tel:519-979-7227" style="color:#3A959B;font-weight:bold;text-decoration:none">(519)-979-7227</a>
+    </p>
   </SidebarLayout>
 </Layout>

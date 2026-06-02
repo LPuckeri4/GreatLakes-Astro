@@ -8,6 +8,16 @@ import { afterSurgeryNavItems as navItems } from '../../data/surgeryNavItems';
 
 <Layout description="Recovery instructions after tooth extraction at Great Lakes Oral Surgery. Follow these guidelines to protect the blood clot and ensure proper healing."
   title="After Tooth Extraction - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <script type="application/ld+json" slot="head">{JSON.stringify({ "@context": "https://schema.org", "@graph": [
+    { "@type": "MedicalWebPage", "name": "After Tooth Extraction", "url": "https://www.greatlakessurgerycentre.com/after-surgery/tooth-removal", "description": "Recovery instructions after tooth extraction. Guidelines to protect the blood clot and ensure proper healing.", "specialty": "Oral and Maxillofacial Surgery" },
+    { "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "How do I stop bleeding after a tooth extraction?", "acceptedAnswer": { "@type": "Answer", "text": "Bite on a gauze pad for about 30 minutes after the appointment to help a blood clot form. If bleeding persists, place another gauze pad and bite for another 30 minutes. Do not rinse vigorously, use straws, smoke, or brush near the extraction site for 48 hours as these activities dislodge the clot." } },
+      { "@type": "Question", "name": "What pain medication should I take after tooth extraction?", "acceptedAnswer": { "@type": "Answer", "text": "Begin pain medication as soon as the local anesthetic starts wearing off. Tylenol or Extra Strength Tylenol may be taken as directed. Ibuprofen (Advil or Motrin) may be taken instead. For severe pain, take the prescribed medication. Call the office if you have heavy bleeding, severe pain, or continued swelling beyond 4-5 days." } },
+      { "@type": "Question", "name": "How do I reduce swelling after tooth extraction?", "acceptedAnswer": { "@type": "Answer", "text": "Apply an ice bag or towel filled with ice on the cheek or lip in the area of surgery. Apply ice intermittently for 20-30 minute intervals for the first 48 hours." } },
+      { "@type": "Question", "name": "What can I eat after a tooth extraction?", "acceptedAnswer": { "@type": "Answer", "text": "Drink plenty of fluids and avoid hot liquids or food. Eat soft food and liquids on the day of surgery. Return to a normal diet as soon as possible unless otherwise directed." } },
+      { "@type": "Question", "name": "How do I keep my mouth clean after tooth extraction?", "acceptedAnswer": { "@type": "Answer", "text": "Use warm salt water rinses (a teaspoon of salt in a cup of warm water) at least 4-5 times a day, especially after meals. Brush your teeth normally but be gentle in the surgical area." } }
+    ]}
+  ]})}</script>
   <SidebarLayout title="After a Procedure" navItems={navItems} currentPath={Astro.url.pathname}>
     <Fragment slot="card-header">
       <h2>After Tooth Extraction</h2>
@@ -74,6 +84,9 @@ import { afterSurgeryNavItems as navItems } from '../../data/surgeryNavItems';
 
     <p class="mt-6 pt-6 border-t border-gray-100 text-sm leading-relaxed" style="color: #515151;">
       After a few days you will feel fine and can resume your normal activities. If you have heavy bleeding, severe pain, continued swelling beyond 4–5 days, or a reaction to the medications, call our office immediately.
+    </p>
+    <p class="mt-4 text-sm text-center leading-relaxed" style="color: #515151;">
+      If you have any questions or concerns don't hesitate to call the office to speak with a nurse. <a href="tel:519-979-7227" style="color:#3A959B;font-weight:bold;text-decoration:none">(519)-979-7227</a>
     </p>
   </SidebarLayout>
 </Layout>

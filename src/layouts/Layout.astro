@@ -15,8 +15,62 @@ const {
   ogImage = '/img/GreatLakesLogo.png',
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://www.greatlakessurgerycentre.com');
+const siteBase = Astro.site ?? new URL('https://www.greatlakessurgerycentre.com');
+const canonicalURL = new URL(Astro.url.pathname, siteBase);
+const ogImageURL = new URL(ogImage, siteBase).toString();
 const fullTitle = title.includes('Great Lakes') ? title : `${title} | Great Lakes Oral & Maxillofacial Surgery`;
+
+// BreadcrumbList schema
+const path = Astro.url.pathname;
+const siteURL = siteBase.toString().replace(/\/$/, '');
+const pageLabels: Record<string, string> = {
+  '/about': 'About',
+  '/doctors': 'Doctors',
+  '/staff': 'Staff',
+  '/downloads': 'Forms & Downloads',
+  '/payment': 'Online Payment',
+  '/surgery/dental-implants': 'Dental Implants',
+  '/surgery/wisdom-teeth': 'Wisdom Teeth',
+  '/surgery/tooth-extraction': 'Tooth Extraction',
+  '/surgery/bone-grafting': 'Bone Grafting',
+  '/surgery/orthodontic-surgery': 'Orthodontic Surgery',
+  '/surgery/facial-trauma': 'Facial Trauma',
+  '/surgery/oral-pathology': 'Oral Pathology',
+  '/surgery/jaw-corrective': 'Corrective Jaw Surgery',
+  '/surgery/tmj-disorder': 'TMJ Disorder',
+  '/after-surgery/general-instructions': 'General Instructions',
+  '/after-surgery/wisdom-teeth-removal': 'After Wisdom Tooth Removal',
+  '/after-surgery/tooth-removal': 'After Tooth Extraction',
+  '/after-surgery/removal-of-multiple-teeth': 'After Removal of Multiple Teeth',
+  '/after-surgery/placement-of-dental-implants': 'After Dental Implant Placement',
+  '/after-surgery/exposure-of-impacted-tooth': 'After Exposure of Impacted Tooth',
+  '/after-surgery/facial-trauma': 'After Facial Trauma',
+};
+const bcItems: { name: string; id: string }[] = [{ name: 'Home', id: `${siteURL}/` }];
+if (path !== '/') {
+  if (path.startsWith('/surgery/')) {
+    bcItems.push({ name: 'Surgery', id: `${siteURL}/surgery/dental-implants` });
+    const lbl = pageLabels[path];
+    if (lbl) bcItems.push({ name: lbl, id: `${siteURL}${path}` });
+  } else if (path.startsWith('/after-surgery/')) {
+    bcItems.push({ name: 'After Surgery', id: `${siteURL}/after-surgery/general-instructions` });
+    const lbl = pageLabels[path];
+    if (lbl) bcItems.push({ name: lbl, id: `${siteURL}${path}` });
+  } else {
+    const lbl = pageLabels[path];
+    if (lbl) bcItems.push({ name: lbl, id: `${siteURL}${path}` });
+  }
+}
+const breadcrumbSchema = bcItems.length > 1 ? JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: bcItems.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.name,
+    item: item.id,
+  })),
+}) : null;
 ---
 
 <!doctype html>
@@ -38,7 +92,7 @@ const fullTitle = title.includes('Great Lakes') ? title : `${title} | Great Lake
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={ogImageURL} />
     <meta property="og:site_name" content="Great Lakes Oral & Maxillofacial Surgery Centre" />
     <meta property="og:locale" content="en_CA" />
 
@@ -46,7 +100,87 @@ const fullTitle = title.includes('Great Lakes') ? title : `${title} | Great Lake
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={ogImageURL} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Structured data: Medical practice -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "name": "Great Lakes Oral & Maxillofacial Surgery Centre",
+      "url": "https://www.greatlakessurgerycentre.com",
+      "telephone": "+1-519-979-7227",
+      "faxNumber": "+1-519-979-1956",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1825 Manning Road, Studio 700",
+        "addressLocality": "Tecumseh",
+        "addressRegion": "ON",
+        "postalCode": "N9K 0A9",
+        "addressCountry": "CA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 42.3154,
+        "longitude": -82.9093
+      },
+      "hasMap": "https://maps.app.goo.gl/RR1CFZ7nuH5dH26KA",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "08:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "08:00",
+          "closes": "15:00"
+        }
+      ],
+      "medicalSpecialty": "Oral and Maxillofacial Surgery",
+      "areaServed": [
+        { "@type": "City", "name": "Windsor", "containedInPlace": { "@type": "AdministrativeArea", "name": "Ontario, Canada" } },
+        { "@type": "City", "name": "Tecumseh", "containedInPlace": { "@type": "AdministrativeArea", "name": "Ontario, Canada" } },
+        { "@type": "AdministrativeArea", "name": "Essex County, Ontario" }
+      ],
+      "staff": [
+        {
+          "@type": "Physician",
+          "name": "Dr. Mark Shuren",
+          "honorificSuffix": "HONS.B.SC., DDS, FRCD(C), Dip. ABOMS",
+          "medicalSpecialty": "Oral and Maxillofacial Surgery",
+          "description": "Board-certified oral and maxillofacial surgeon in Windsor and Essex County since 1996. Diplomate of the American Board of Oral and Maxillofacial Surgery."
+        },
+        {
+          "@type": "Physician",
+          "name": "Dr. Richard Stapleford",
+          "honorificSuffix": "DDS, FRCD(C), Dip. ABOMS",
+          "medicalSpecialty": "Oral and Maxillofacial Surgery",
+          "description": "Chief of Oral and Maxillofacial Surgery at Windsor Regional Hospitals. Over 30 years of specialty practice in Windsor and Essex County."
+        }
+      ],
+      "makesOffer": [
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Dental Implants" } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Wisdom Teeth Removal" } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Tooth Extraction" } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Bone Grafting" } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Facial Trauma Treatment" } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Orthognathic (Corrective Jaw) Surgery" } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Oral Pathology" } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "TMJ Disorder Treatment" } },
+        { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Orthodontic Surgery" } }
+      ]
+    }
+    </script>
+
+    <!-- Breadcrumb schema -->
+    {breadcrumbSchema && <script type="application/ld+json" set:html={breadcrumbSchema} />}
+
+    <!-- Page-specific head content -->
+    <slot name="head" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

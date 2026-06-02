@@ -8,10 +8,19 @@ import { surgeryNavItems as navItems } from '../../data/surgeryNavItems';
 
 <Layout description="Advanced bone grafting procedures to restore jawbone volume and prepare for dental implants. Serving Windsor and Essex County at Great Lakes Oral Surgery."
   title="Bone Grafting - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <script type="application/ld+json" slot="head">{JSON.stringify({ "@context": "https://schema.org", "@graph": [
+    { "@type": "MedicalWebPage", "name": "Bone Grafting", "url": "https://www.greatlakessurgerycentre.com/surgery/bone-grafting", "description": "Advanced bone grafting procedures to restore jawbone volume and prepare for dental implants, serving Windsor and Essex County.", "specialty": "Oral and Maxillofacial Surgery" },
+    { "@type": "MedicalProcedure", "name": "Bone Grafting", "procedureType": "Surgical", "bodyLocation": "Jaw, sinus", "description": "Bone grafting restores bone lost due to tooth extraction, gum disease, or injury, enabling dental implant placement. Includes major bone grafts, sinus lift procedures, and ridge expansion.", "preparation": "Radiographic evaluation including CBCT imaging to assess bone quality and quantity.", "followup": "Bed rest for one day, limited physical activity for one week. Graft matures over several months before implant placement." },
+    { "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "What is major bone grafting?", "acceptedAnswer": { "@type": "Answer", "text": "Bone grafting repairs implant sites with inadequate bone structure due to extractions, gum disease, or injuries. Bone is obtained from a tissue bank or from the patient (jaw, hip, or tibia). Special membranes may be used to protect the graft and encourage bone regeneration. Large defects from trauma or tumor surgery are repaired using the patient's own bone harvested from the skull, hip, or knee." } },
+      { "@type": "Question", "name": "What is a sinus lift procedure?", "acceptedAnswer": { "@type": "Answer", "text": "A sinus lift (sinus graft) adds bone to the upper jaw between the jaw ridge and the maxillary sinuses. The sinus membrane is lifted upward and donor bone is inserted into the floor of the sinus. After several months of healing, the bone becomes part of the jaw and dental implants can be placed. This allows patients who previously had no option but dentures to receive implants." } },
+      { "@type": "Question", "name": "What is ridge expansion for bone grafting?", "acceptedAnswer": { "@type": "Answer", "text": "Ridge expansion restores lost bone dimension when the jaw ridge is too thin for conventional implants. The bony ridge is mechanically expanded and bone graft material is placed to mature before implant placement. Bone can be taken from the chin, third molar region, upper jaw, hip, or tibia." } }
+    ]}
+  ]})}</script>
   <SidebarLayout title="Our Procedures" navItems={navItems} currentPath={Astro.url.pathname} eyebrow="Surgical Procedures" heroSubtitle="Expert oral and maxillofacial surgical procedures performed with precision and care.">
     <Fragment slot="card-header">
       <h2>Bone Grafting</h2>
-      <p>Over a period of time, the jawbone associated with missing teeth atrophies or resorbs away. Today, we have the ability to grow bone where needed — restoring proper implant sites and esthetic appearance.</p>
+      <p>Over a period of time, the jawbone associated with missing teeth atrophies or resorbs away. This often leaves a condition in which there is poor quality and quantity of bone suitable for placement of dental implants. In these situations, most patients are not candidates for placement of dental implants. Today, we have the ability to grow bone where needed. This not only gives us the opportunity to place implants of proper length and width, it also gives us a chance to restore functionality and esthetic appearance.</p>
     </Fragment>
 
     <Accordion title="Major Bone Grafting">

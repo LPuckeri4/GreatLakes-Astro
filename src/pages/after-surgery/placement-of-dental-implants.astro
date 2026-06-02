@@ -8,6 +8,15 @@ import { afterSurgeryNavItems as navItems } from '../../data/surgeryNavItems';
 
 <Layout description="Recovery care after dental implant placement. Instructions for bleeding, swelling, diet, oral hygiene, and wearing your prosthesis."
   title="After Placement of Dental Implants - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <script type="application/ld+json" slot="head">{JSON.stringify({ "@context": "https://schema.org", "@graph": [
+    { "@type": "MedicalWebPage", "name": "After Placement of Dental Implants", "url": "https://www.greatlakessurgerycentre.com/after-surgery/placement-of-dental-implants", "description": "Recovery care instructions after dental implant placement, including bleeding, swelling, diet, oral hygiene, and prosthesis care.", "specialty": "Oral and Maxillofacial Surgery" },
+    { "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "What should I avoid immediately after dental implant surgery?", "acceptedAnswer": { "@type": "Answer", "text": "Do not disturb the wound. Avoid rinsing, spitting, or touching the wound on the day of surgery. There will be a metal healing abutment protruding through the gum tissue — leave it alone." } },
+      { "@type": "Question", "name": "How do I care for my mouth after dental implant placement?", "acceptedAnswer": { "@type": "Answer", "text": "Use warm salt water rinses (teaspoon of salt in warm water) at least 4-5 times daily especially after meals. Use the Peridex rinse as prescribed. Brush normally but be gentle around the surgical area. Take all prescribed antibiotics as directed to prevent complications." } },
+      { "@type": "Question", "name": "What can I eat after dental implant surgery?", "acceptedAnswer": { "@type": "Answer", "text": "Drink plenty of fluids and avoid hot liquids or food. Eat soft food and liquids on the day of surgery. Do not use the implant as a functioning tooth until directed by your surgeon. Return to a normal diet as soon as possible." } },
+      { "@type": "Question", "name": "Can I wear my denture or partial after dental implant surgery?", "acceptedAnswer": { "@type": "Answer", "text": "Partial dentures, flippers, or full dentures must be reduced to ensure they do not apply pressure to the implant or bone graft sites. They should be worn for aesthetics only, not for chewing. Your surgeon will fit these at the first or second visit after surgery." } }
+    ]}
+  ]})}</script>
   <SidebarLayout title="After a Procedure" navItems={navItems} currentPath={Astro.url.pathname}>
     <Fragment slot="card-header">
       <h2>After Placement of Dental Implants</h2>
@@ -83,5 +92,8 @@ import { afterSurgeryNavItems as navItems } from '../../data/surgeryNavItems';
         consume alcohol or other drugs with sedative properties for 24 hours
         following the anesthetic.
     </Accordion>
+    <p class="mt-6 pt-6 border-t border-gray-100 text-sm text-center leading-relaxed" style="color: #515151;">
+      If you have any questions or concerns don't hesitate to call the office to speak with a nurse. <a href="tel:519-979-7227" style="color:#3A959B;font-weight:bold;text-decoration:none">(519)-979-7227</a>
+    </p>
   </SidebarLayout>
 </Layout>

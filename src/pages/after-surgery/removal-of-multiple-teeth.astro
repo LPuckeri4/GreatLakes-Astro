@@ -8,6 +8,15 @@ import { afterSurgeryNavItems as navItems } from '../../data/surgeryNavItems';
 
 <Layout description="Recovery instructions after the removal of multiple teeth. Follow these guidelines to minimize complications and promote healing."
   title="After the Removal of Multiple Teeth - Great Lakes Oral & Maxillofacial Surgery Centre">
+  <script type="application/ld+json" slot="head">{JSON.stringify({ "@context": "https://schema.org", "@graph": [
+    { "@type": "MedicalWebPage", "name": "After the Removal of Multiple Teeth", "url": "https://www.greatlakessurgerycentre.com/after-surgery/removal-of-multiple-teeth", "description": "Recovery instructions after the removal of multiple teeth. Guidelines to minimize complications and promote healing.", "specialty": "Oral and Maxillofacial Surgery" },
+    { "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "How long does swelling last after removal of multiple teeth?", "acceptedAnswer": { "@type": "Answer", "text": "The area will swell reaching a maximum at 2-3 days. Swelling and discoloration around the eye may occur. Apply ice packs for the first 48 hours, then switch to a moist warm towel applied continuously to eliminate discoloration faster." } },
+      { "@type": "Question", "name": "How do I manage pain after removal of multiple teeth?", "acceptedAnswer": { "@type": "Answer", "text": "Begin pain medication as soon as the local anesthetic wears off. Tylenol or Ibuprofen (Advil or Motrin) may be taken as directed. For severe pain, take the prescribed medication. A sore throat may develop as swelling can affect the throat muscles near the extraction sites; this is normal and subsides in 2-3 days." } },
+      { "@type": "Question", "name": "What special care is needed after multiple tooth removal?", "acceptedAnswer": { "@type": "Answer", "text": "Good oral hygiene is essential. Use warm salt water rinses 4-5 times daily. Keep lips moist with Vaseline if corners of the mouth dry out. There may be a slight temperature elevation for 24-48 hours; if it continues, call the office." } },
+      { "@type": "Question", "name": "What should I do if I have dentures after multiple tooth removal?", "acceptedAnswer": { "@type": "Answer", "text": "If immediate dentures have been inserted, sore spots may develop. Your dentist will see you within 24-48 hours after surgery to make necessary adjustments. Failure to adjust sore spots may result in severe denture sores and prolong healing." } }
+    ]}
+  ]})}</script>
   <SidebarLayout title="After a Procedure" navItems={navItems} currentPath={Astro.url.pathname}>
     <Fragment slot="card-header">
       <h2>After the Removal of Multiple Teeth</h2>
@@ -93,6 +102,9 @@ import { afterSurgeryNavItems as navItems } from '../../data/surgeryNavItems';
 
     <p class="mt-6 pt-6 border-t border-gray-100 text-sm leading-relaxed" style="color: #515151;">
       After a few days you will feel fine and can resume your normal activities. If you have heavy bleeding, severe pain, continued swelling beyond 4–5 days, or a reaction to the medications, call our office immediately.
+    </p>
+    <p class="mt-4 text-sm text-center leading-relaxed" style="color: #515151;">
+      If you have any questions or concerns don't hesitate to call the office to speak with a nurse. <a href="tel:519-979-7227" style="color:#3A959B;font-weight:bold;text-decoration:none">(519)-979-7227</a>
     </p>
   </SidebarLayout>
 </Layout>
