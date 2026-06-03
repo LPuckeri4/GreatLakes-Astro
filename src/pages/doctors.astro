@@ -117,7 +117,7 @@ const heroBg = await getImage({ src: herobgSrc, format: 'webp' });
     </div>
   </div>
 
-  <div style="background:#f6f6f6;" class="min-h-screen pt-12 pb-16 px-5">
+  <div style="background:#f6f6f6;" class="min-h-screen pt-12 pb-32 px-5">
 
     <!-- Dr. Shuren -->
     <div class="max-w-[1100px] mx-auto mb-8">
@@ -258,12 +258,15 @@ const heroBg = await getImage({ src: herobgSrc, format: 'webp' });
 
 <style>
   .bio-extra {
-    display: none;
-    margin-top: 16px;
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 0;
     line-height: 1.75;
+    transition: max-height 0.4s ease, margin-top 0.4s ease;
   }
   .bio-extra.open {
-    display: block;
+    max-height: 2000px;
+    margin-top: 16px;
   }
 
   .doctor-card {
